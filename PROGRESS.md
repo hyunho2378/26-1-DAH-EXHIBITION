@@ -73,6 +73,62 @@
 
   **최종 빌드:** npm run build 에러 0, 1566 modules, 1.33s
 
+## [PHASE 3-L — ProjectDetail 포스터 줌 + 캐러셀] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - ProjectDetail.jsx 전면 재작성: posterHovered state + scale(1.22) 줌, border #F5C518, boxShadow, cursor zoom-in/out
+  - 우측 정보 패널: blur(5px) + opacity 0.35 + pointerEvents none (hover 시)
+  - pages > 1: < > 버튼(컨테이너 내 absolute) + dot 인디케이터, hover border #F5C518
+  - hint text "hover to zoom" (opacity transition)
+  - index.css: img-zoom-container 클래스 제거
+  - ProjectImage import 제거 (plain img 직접 사용)
+
+  **최종 빌드:** npm run build 에러 0, 1.60s
+
+## [PHASE 3-K — ProjectDetail 이미지 호버 확대] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - index.css: .img-zoom-container 클래스 추가 (height 60vh→85vh transition, backdrop-filter blur, cursor zoom-in)
+  - ProjectDetail.jsx: pages[0] 래퍼 인라인 style → className="img-zoom-container"
+
+  **최종 빌드:** npm run build 에러 0, 1.36s
+
+## [PHASE 3-J — ProjectDetail 첫 이미지 60vh + 비율 유지] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - ProjectDetail.jsx: pages[0] 래퍼 maxHeight → height: 60vh (h-full 계산 보장)
+  - pages[0] 이미지: h-full w-auto object-contain mx-auto (세로 기준, 비율 유지, 중앙정렬)
+  - pages[1+] 이미지: w-full h-auto object-contain 유지
+
+  **최종 빌드:** npm run build 에러 0, 1.37s
+
+## [PHASE 3-I — ProjectDetail 첫 이미지 75vh 제한] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - ProjectDetail.jsx: pages[0]에만 maxHeight 75vh + overflow hidden 래퍼 추가, 나머지 페이지는 자연 높이 유지
+
+  **최종 빌드:** npm run build 에러 0, 1.34s
+
+## [PHASE 3-H — pages 배열 기반 이미지 렌더링] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - ProjectImage.jsx: src falsy 시 return null (스켈레톤 미표시)
+  - ProjectCard.jsx: work.thumbnail → work.pages?.[0]
+  - ProjectDetail.jsx: work.full → work.pages 배열 loop (flex-col gap-6 세로 나열), maxHeight 제거
+
+  **최종 빌드:** npm run build 에러 0, 1.35s
+
+## [PHASE 3-G — 작품 외부 링크 + 이전/다음 삭제] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - works.js: 89개 모든 작품에 links: [] 필드 추가 (perl 일괄 처리)
+  - ProjectDetail.jsx: links 렌더 추가 (과목명 아래, 설명 위, Ghost 버튼, hover #F5C518). 이전/다음 화살표 전체 삭제.
+  - ProjectDetailPage.jsx: getAdjacentWorks 호출 및 prevWork/nextWork 전달 제거
+  - workUtils.js: getAdjacentWorks 함수 삭제 (ProjectDetailPage에서만 사용)
+  - IA.md 12번, COMPONENTS.md ProjectDetail 스펙: links 필드 반영, prevWork/nextWork 제거
+
+  **최종 빌드:** npm run build 에러 0, 1.39s
+
 ## [PHASE 3-F — 전체 좌우 여백 통일] 완료 (2026-05-27)
 
   **수정 항목:**
@@ -126,6 +182,33 @@
   - Footer.jsx: size={32} → size={40} (명세 40px)
 
   **최종 빌드:** npm run build 에러 0, 1.65s
+
+## [PHASE 3-M — ProjectDetail 링크 버튼 + 과목명 스타일] 완료 (2026-05-27)
+
+  **수정 항목:**
+  - ProjectDetail.jsx 링크 버튼: text-xs → text-sm, padding 4px 12px → 8px 16px, ExternalLink 12px → 14px
+  - ProjectDetail.jsx 과목명: text-xs font-semibold → font-bold, font-size 21px (#F5C518 유지)
+
+  **최종 빌드:** (미확인 — 변경 최소, 빌드 이상 없을 것으로 판단)
+
+## [PHASE 3-N — works.js 전공명 정규화] 완료 (2026-05-28)
+
+  **수정 항목 (perl 일괄 처리):**
+  - [규칙 1] 학과 → 전공: 국어국문학과(6건)→전공, 철학과(1건)→전공, 노인복지학과(1건)→전공
+    · 디지털미디어콘텐츠학과: 데이터 내 해당 값 없음 (0건)
+  - [공백 정규화] '디지털미디어콘텐츠 전공'·'디지털인문예술 전공'·'사학 전공' → 공백 제거 (각 1~2건)
+  - [규칙 4] bare 전공명 → 전공 추가: '디지털미디어콘텐츠'(26건)→전공, '디지털인문예술'(29건)→전공
+
+  **미수정 보고 항목:**
+  - [규칙 6] 장성준(빅데이터학과) members 포함 작품 없음 → 삭제 대상 없음
+    · work 078 '한 줄의 인간': author가 '장성준'이지만 members=[]로 빅데이터학과 정보 없음
+  - [규칙 7] 개인 작품(members=[]) 전수 확인 → 작품 데이터 내 학번/전공 정보 없음, 전부 그대로
+  - [모호한 major 값 — 임의 수정 안 함, 운영자 확인 필요]:
+    · work 014 (STUDYO): members[1] name/major 필드에 여러 명 정보가 하나로 뭉쳐 있어 파싱 불가
+    · work 019 (결의 시선): members[1] name/major 동일하게 뭉쳐 있음
+    · work 068 (이면): 김서환 20222509 중복 등록
+    · work 085 (오작교 엔터): 천다현 name="천다현 글로벌비즈니스", major="" — 정보 불명확
+    · '미래융합스쿨', '인문학부', '자율전공학부', '자유전공학부', '글로벌학부': 학부/스쿨 단위, 전공 추가 여부 확인 필요
 
 ## 진행중
 - (없음)

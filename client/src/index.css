@@ -43,6 +43,7 @@ p, dd, span, h1, h2, h3 { word-break: keep-all; }
   outline-offset: 2px;
 }
 
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

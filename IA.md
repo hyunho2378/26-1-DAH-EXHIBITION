@@ -290,6 +290,7 @@ export const works = [
     full: '/works/001/full.webp',
     award: null,              // null | 'grand' | 'excellence' | 'encouragement'
     members: [],              // 팀 작품: [{ name, studentId, major }] / 개인: []
+    links: [],                // 외부 링크: [{ label: '프로젝트 웹사이트', url: 'https://...' }]
   },
   // ...
 ]

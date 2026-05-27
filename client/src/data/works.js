@@ -34,6 +34,7 @@ export const works = [
         ],
         description: '국적과 언어에 관계없이, 혼밥러 모두가 탐색부터 퇴장까지 존중받을 수 있도록 설계한 디지털·오프라인 통합 CX 디자인 프로젝트',
         award: null,
+        links: [],
         pages: [
             '/works/001_free.webp'
         ]
@@ -63,6 +64,7 @@ export const works = [
         ],
         description: '올리브영 앱 내 남성 전용 공간 맨즈에딧이 존재하지만 발견되지 않는 구조를 분석하고, 남성 유저의 탐색 여정을 재설계한 UX 개선 프로젝트',
         award: null,
+        links: [],
         pages: [
             '/works/002_dd3.webp'
         ]
@@ -107,6 +109,9 @@ export const works = [
         ],
         description: '대규모 업데이트에도 해소되지 않은 시니어의 금융 불안을 짚고, 원하는 순간 막힘없이 내 돈을 다룰 수 있는 강릉페이로 재설계한 지역화폐 UX 개선 프로젝트',
         award: null,
+        links: [{ label: 'iOS 앱', url: 'https://gangneung-pay.vercel.app/' },
+        { label: 'Android 앱', url: 'https://gangneung-pay-android.vercel.app/' },
+        { label: '프로젝트 웹사이트', url: 'https://gangneung-pay-ux-project.vercel.app/' },],
         pages: [
             '/works/003_ux.webp'
         ]
@@ -126,7 +131,7 @@ export const works = [
             {
                 name: '서한민',
                 studentId: '20221618',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '오민선',
@@ -136,12 +141,12 @@ export const works = [
             {
                 name: '허준희',
                 studentId: '20231106',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '이소진',
                 studentId: '20242553',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '안승이',
@@ -151,6 +156,7 @@ export const works = [
         ],
         description: '숏폼 시대, 15초로 재해석한 풍류(風流). 정좌·다경·차경의 한국적 리추얼로 빠른 일상 속 느린 멋을 선사하는 체험형 문화콘텐츠.',
         award: null,
+        links: [],
         pages: [
             '/works/004_ccbasic.webp'
         ]
@@ -170,26 +176,27 @@ export const works = [
             {
                 name: '함가연',
                 studentId: '20221240',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '윤현아',
                 studentId: '20237121',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '한혜령',
                 studentId: '20246648',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '장다연',
                 studentId: '20241727',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             }
         ],
         description: 'Immerse·Narrative·Experience·Evolution. 콘텐츠 몰입에서 경제 진화까지, 디지털 경험이 지역 소비로 전환되는 과정을 실증 분석.',
         award: null,
+        links: [],
         pages: [
             '/works/005_regional.webp'
         ]
@@ -204,17 +211,17 @@ export const works = [
             {
                 name: '이동재',
                 studentId: '20222556',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '지현서',
                 studentId: '20251093',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '홍유채',
                 studentId: '20242590',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '안도연',
@@ -239,6 +246,7 @@ export const works = [
         ],
         description: '공연 관람 기록을 지도 위에 핀을 꽂는 표현으로 시각화하고, 예매·후기·커뮤니티를 하나로 연결하여 다른 사람들과 소통하고 채팅하는 통합 공연 아카이빙 앱.',
         award: null,
+        links: [],
         pages: [
             '/works/006_intro.webp'
         ]
@@ -313,6 +321,7 @@ export const works = [
         ],
         description: '운동 인프라가 부족한 비수도권 청년들은 진입 장벽과 함께할 사람의 부재로 웰니스 활동을 지속하기 어렵다. AI 맞춤 운동 루틴을 형성하고 기록을 공유하는 서비스를 기획하였다.',
         award: null,
+        links: [],
         pages: [
             '/works/007_club.webp'
         ]
@@ -352,6 +361,7 @@ export const works = [
         ],
         description: '2030의 추억, 옷입히기가 AI와 만나 힙하게 부활합니다! 성격테스트로 내면을 분석하고, 문화원형인 한복과 현대의 트렌드를 결합한 나만의 맞춤 옷을 코디해 보세요.',
         award: null,
+        links: [],
         pages: [
             '/works/008_classic.webp'
         ]
@@ -365,6 +375,7 @@ export const works = [
         members: [],
         description: '한글의 구조를 통해 높게 이어진 서가와 책의 흐름을 표현하고, 책 속으로 스며드는 듯한 공간감과 책 사이를 거니는 듯한 호기심과 상상의 감각을 담아냈다.',
         award: null,
+        links: [],
         pages: [
             '/works/010_dd1.webp'
         ]
@@ -378,6 +389,7 @@ export const works = [
         members: [],
         description: '태양계의 구조를 모티브로, 고정된 태양(SUN)과 그 주위를 반복적으로 공전하는 행성(PLANET)들의 움직임을 통해 ‘정지와 율동’이란 주제를 타이포그래피 포스터로 시각화했다.',
         award: null,
+        links: [],
         pages: [
             '/works/011_dd1.webp'
         ]
@@ -397,31 +409,32 @@ export const works = [
             {
                 name: '허준희',
                 studentId: '20231106',
-                major: '디지털미디어콘텐츠 전공'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '김민주',
                 studentId: '20241013',
-                major: '디지털미디어콘텐츠 전공'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '오연우',
                 studentId: '20241056',
-                major: '사학 전공'
+                major: '사학전공'
             },
             {
                 name: '강예인',
                 studentId: '20246603',
-                major: '디지털인문예술 전공'
+                major: '디지털인문예술전공'
             },
             {
                 name: '한혜령',
                 studentId: '20246648',
-                major: '디지털인문예술 전공'
+                major: '디지털인문예술전공'
             }
         ],
         description: '춘천 지역 거주자의 시선에서 ‘춘천원예농협 하나로마트’ 앱의 경험을 더욱 편리하고 친근하게 개선하여, 실사용을 높이고자 진행된 UX/UI 리디자인 프로젝트입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/012_ux.webp'
         ]
@@ -436,7 +449,7 @@ export const works = [
             {
                 name: '황도영',
                 studentId: '20222594',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '김민준',
@@ -446,31 +459,32 @@ export const works = [
             {
                 name: '김주희',
                 studentId: '20256606',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '권예주',
                 studentId: '20246606',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '임다빈',
                 studentId: '20221083',
-                major: '국어국문학과'
+                major: '국어국문학전공'
             },
             {
                 name: '정현욱',
                 studentId: '20251727',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김서연',
                 studentId: '20252517',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             }
         ],
         description: '모든 래퍼와 팬들이 모이는 중심지 힙합 장르에 대해 설명, 각 장르별 대표 래퍼 5명과 대표앨범 소개 힙합 공연일정과 커뮤니티 기능을 이용해 관련정보습득',
         award: null,
+        links: [],
         pages: [
             '/works/013_intro.webp'
         ]
@@ -485,7 +499,7 @@ export const works = [
             {
                 name: '손한빈',
                 studentId: '20236621',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '이현창 이서준 김가현, 20251235 최윤하, 20266609 김태희, 20266623 유지민',
@@ -495,6 +509,7 @@ export const works = [
         ],
         description: '모든 학생들이 함께 배우고 질문하며 설명하는 AI 컨설팅 및 오디오북 스터디 웹사이트.',
         award: null,
+        links: [],
         pages: [
             '/works/014_intro.webp'
         ]
@@ -519,17 +534,17 @@ export const works = [
             {
                 name: '윤현아',
                 studentId: '20237121',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김태린',
                 studentId: '20256607',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '손한빈',
                 studentId: '20236621',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김민준',
@@ -539,6 +554,7 @@ export const works = [
         ],
         description: '소담:전통의 현대적 진화 동의보감에서부터 이어져온 k-뷰티의 진화 과정과 전통문화와 패션의 결합사례를 소개하고, 전통문화의 가치를 우리만의 시선으로 제시한다.',
         award: null,
+        links: [],
         pages: [
             '/works/015_ccbasic.webp'
         ]
@@ -553,7 +569,7 @@ export const works = [
             {
                 name: '황도영',
                 studentId: '20222594',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '이화영',
@@ -568,16 +584,17 @@ export const works = [
             {
                 name: '김서연',
                 studentId: '20252517',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '이동재',
                 studentId: '20222556',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             }
         ],
         description: '케이팝데몬헌터스와 스트릿 우먼 파이터에 담겨져있는 한국요소를 찾아 설명하는 포스터입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/016_ccbasic.webp'
         ]
@@ -597,12 +614,12 @@ export const works = [
             {
                 name: '지현서',
                 studentId: '20251093',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '신송희',
                 studentId: '20251049',
-                major: '국어국문학과'
+                major: '국어국문학전공'
             },
             {
                 name: '한다경',
@@ -612,7 +629,7 @@ export const works = [
             {
                 name: '김민주',
                 studentId: '20241013',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '안도연',
@@ -627,6 +644,7 @@ export const works = [
         ],
         description: '잊혀선 안 되는 역사적인 사건 을미사변을 다시 한 번 상기시키고 작품 속 담긴 당시 한국인의 한을 강조한다.',
         award: null,
+        links: [],
         pages: [
             '/works/017_ccbasic.webp'
         ]
@@ -666,6 +684,7 @@ export const works = [
         ],
         description: '괴담이 뒤섞여 버린 거울 속 학교에 갇힌 주인공, 조상신의 힘을 통하여 괴담을 타파하고 현실로 돌아가자.',
         award: null,
+        links: [],
         pages: [
             '/works/018_kcontent.webp'
         ]
@@ -690,6 +709,7 @@ export const works = [
         ],
         description: '안경 브랜드 <젠틀몬스터>와 한국 금속 공예의 콜라보 기획',
         award: null,
+        links: [],
         pages: [
             '/works/019_classic.webp'
         ]
@@ -704,7 +724,7 @@ export const works = [
             {
                 name: '함가연',
                 studentId: '20221240',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '임지우',
@@ -739,6 +759,7 @@ export const works = [
         ],
         description: '호랑이에게 사냥당해 그 종이 된 원혼,창귀를 소재로 다음 희생자를 찾아야만 해방되는 비극적 굴레를 통해 인간의 본능적 공포와 이기심을 나타낸 포스터입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/020_classic.webp'
         ]
@@ -778,6 +799,7 @@ export const works = [
         ],
         description: '전통 하회탈 공방 \'탈바꿈\'은 신화 속 존재들이 인간 사회에 적응할 수 있도록 외형, 성격, 목소리까지 바꾸는 특별한 탈을 제공하는 신분세탁 공간이다.',
         award: null,
+        links: [],
         pages: [
             '/works/021_kcontent.webp'
         ]
@@ -802,7 +824,7 @@ export const works = [
             {
                 name: '백승우',
                 studentId: '20221043',
-                major: '철학과'
+                major: '철학전공'
             },
             {
                 name: '김권서',
@@ -817,6 +839,7 @@ export const works = [
         ],
         description: '한국 문화에 관심 있는 외국인들이 게임을 통해 자연스럽게 한국의 예절을 배우는 콘텐츠입니다. 실제 게임 형식을 활용해 상황에 맞는 예절 행동을 선택하며 진행됩니다.',
         award: null,
+        links: [],
         pages: [
             '/works/022_kcontent.webp'
         ]
@@ -856,6 +879,7 @@ export const works = [
         ],
         description: '한국적 원형이 가진 기묘한 아우라를 동시대적인 비주얼 언어로 치환하여, 가장 한국적이면서도 가장 트렌디한 K-POP 콘텐츠에 녹여내 문화적 리브랜딩 프로젝트를 진행합니다.',
         award: null,
+        links: [],
         pages: [
             '/works/023_kcontent.webp'
         ]
@@ -870,12 +894,12 @@ export const works = [
             {
                 name: '지승현',
                 studentId: '202223259',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김별',
                 studentId: '20252514',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '손예빈',
@@ -890,16 +914,17 @@ export const works = [
             {
                 name: '임채하',
                 studentId: '20256635',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '정현욱',
                 studentId: '20251727',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             }
         ],
         description: '양구버스정보시스템 앱을 이용하는 양구군민의 사용자 경험을 개선하는 프로젝트',
         award: null,
+        links: [],
         pages: [
             '/works/024_ux.webp'
         ]
@@ -944,6 +969,7 @@ export const works = [
         ],
         description: '불필요한 화면 조작 대신 자동 TTS 안내를 설계했습니다. 정보가 먼저 찾아오는 맥락 설계로, 평일 관광객이 폰이 아닌 \'길\' 자체에만 깊이 길들여지는 무결성 동행 경험을 선사.',
         award: null,
+        links: [],
         pages: [
             '/works/025_ux.webp'
         ]
@@ -1008,7 +1034,7 @@ export const works = [
             {
                 name: '신송희',
                 studentId: '20251049',
-                major: '국어국문학과'
+                major: '국어국문학전공'
             },
             {
                 name: '손예빈',
@@ -1023,6 +1049,7 @@ export const works = [
         ],
         description: '춘천의 여름을 상징하는 수달 가이드 ‘하동이’의 캐릭터 숍입니다. 춘천 명소를 생생한 3D 영상으로 투어하고, 하동이의 개성이 담긴 굿즈를 만나는 입체적인 디지털 경험을 제공합니다',
         award: null,
+        links: [],
         pages: [
             '/works/026_club.webp'
         ]
@@ -1062,6 +1089,7 @@ export const works = [
         ],
         description: '탈을 쓴 보부상이 가해자의 꿈에 들어가 유물에 얽힌 억울한 진실을 밝힙니다. 부조리한 세상의 잣대에 지친 2030 청춘들에게 통쾌한 해원과 위로를 전하는 다크 판타지 힐링 활극.',
         award: null,
+        links: [],
         pages: [
             '/works/027_classic.webp'
         ]
@@ -1075,6 +1103,7 @@ export const works = [
         members: [],
         description: '당신은 운명을 믿으시나요? 필연의 굴레에 벌어진 틈은 오류가 아닌 해방입니다. 붉은 실에 베인 균열은 당신이 비로소 자유로워질 준비가 되었다는 서늘하고 정직한 증거입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/028_dd1.webp'
         ]
@@ -1119,6 +1148,7 @@ export const works = [
         ],
         description: '강원도의 스포츠 자산이 지역 관광 활성화에 어떤 영향을 미치는지를 연구한 프로젝트이다.',
         award: null,
+        links: [],
         pages: [
             '/works/029_regional.webp'
         ]
@@ -1158,6 +1188,7 @@ export const works = [
         ],
         description: '연령에 따른 생성형 AI 경험 차이는 미디어 이용 방식 변화를 이끌었고, 이를 한국미디어패널 데이터를 바탕으로 연령별 AI 경험에 따른 OTT 콘텐츠 인식 차이를 분석한다.',
         award: null,
+        links: [],
         pages: [
             '/works/030_regional.webp'
         ]
@@ -1171,6 +1202,7 @@ export const works = [
         members: [],
         description: '정보 비대칭과 익명 커뮤니티의 신뢰 붕괴를 해소하기 위해, 학번 인증·저장 중심·질문 템플릿을 결합한 대학생 특화 멘토링 SNS를 기획한다.',
         award: null,
+        links: [],
         pages: [
             '/works/031_free.webp'
         ]
@@ -1200,7 +1232,7 @@ export const works = [
             {
                 name: '김호연',
                 studentId: '20242521',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '고나영',
@@ -1210,6 +1242,7 @@ export const works = [
         ],
         description: '구전으로 이야기를 팔던 전기수와 문화를 담던 전통주. 잊혀가던 두 유산을 한 자리에서 다시 만나게 한다. 사라질 뻔한 것들이 오늘의 감각으로 되살아나는 전통문화 재해석 프로젝트다.',
         award: null,
+        links: [],
         pages: [
             '/works/032_kcontent.webp'
         ]
@@ -1223,6 +1256,7 @@ export const works = [
         members: [],
         description: '피부 진단 데이터를 AI가 분석해 20가지 타입으로 분류하고, AI로 제작한 3D BI와 브랜드 디자인을 결합해 개인화된 럭셔리 뷰티 경험을 기획하고 설계하여 구현하였다.',
         award: null,
+        links: [],
         pages: [
             '/works/033_free.webp'
         ]
@@ -1252,6 +1286,7 @@ export const works = [
         ],
         description: '한국 가톨릭 성화의 선구자 우석 장발이 지향한 ‘영원성’을 ‘백일몽’이라는 키워드로 재해석한 MD 기획입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/034_free.webp'
         ]
@@ -1271,17 +1306,17 @@ export const works = [
             {
                 name: '김율',
                 studentId: '20232316',
-                major: '노인복지학과'
+                major: '노인복지학전공'
             },
             {
                 name: '신송희',
                 studentId: '20251049',
-                major: '국어국문학과'
+                major: '국어국문학전공'
             },
             {
                 name: '심예은',
                 studentId: '20242534',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '이수민',
@@ -1291,7 +1326,7 @@ export const works = [
             {
                 name: '이효성',
                 studentId: '20232568',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '조윤솔',
@@ -1301,6 +1336,7 @@ export const works = [
         ],
         description: '약자의 공연 관람 장벽을 디지털 기술로 우회하는 무장애 문화 플랫폼입니다. 정보 격차를 해소하고 모두가 평등하게 문화를 향유하는 보편적 설계로 유니버설 디자인 가치를 실현합니다.',
         award: null,
+        links: [],
         pages: [
             '/works/035_intro.webp'
         ]
@@ -1335,6 +1371,7 @@ export const works = [
         ],
         description: '통계청의 36개월간 쇼핑 데이터를 분석하여 패션·뷰티 카테고리의 높은 모바일 의존도를 확인하고, 이를 통해 무신사와 같은 패션 플랫폼의 콘텐츠 중심 전략이 유효함을 입증하는 연구',
         award: null,
+        links: [],
         pages: [
             '/works/036_regional.webp'
         ]
@@ -1369,6 +1406,7 @@ export const works = [
         ],
         description: '고령화로 재활 서비스 수요가 증가하며 \'의료 양극화\' 현상이 심화되고 있습니다. 이에 본 프로젝트에서 데이터 분석을 통해 지역 간 재활 치료 인프라 격차를 가시화 하였습니다.',
         award: null,
+        links: [],
         pages: [
             '/works/037_regional.webp'
         ]
@@ -1382,6 +1420,7 @@ export const works = [
         members: [],
         description: '디지털디자인1 수업에서 타이포를 이용한 실습을 진행했고, 실습 주제 중 \'밀집과 팽창\'을 표현하기 위해 응축되어 있다가 폭발하는 폭죽의 특징을 활용하여 표현했다.',
         award: null,
+        links: [],
         pages: [
             '/works/038_dd1.webp'
         ]
@@ -1395,6 +1434,7 @@ export const works = [
         members: [],
         description: '미정',
         award: null,
+        links: [],
         pages: [
             '/works/039_dd1.webp'
         ]
@@ -1408,6 +1448,7 @@ export const works = [
         members: [],
         description: '미정',
         award: null,
+        links: [],
         pages: [
             '/works/040_dd1.webp'
         ]
@@ -1421,6 +1462,7 @@ export const works = [
         members: [],
         description: '질서와 무질서',
         award: null,
+        links: [],
         pages: [
             '/works/041_dd1.webp'
         ]
@@ -1434,6 +1476,7 @@ export const works = [
         members: [],
         description: '디지털 디자인 1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 아래와 같이 제작하였다. 나의 표현 콘셉트는 향수를 타이포로 하여 aroma라는 단어를 가지고 향수의 분자구조의 모양에서 영감받아 혼란과 안정을 나타내고자 하였다',
         award: null,
+        links: [],
         pages: [
             '/works/042_dd1.webp'
         ]
@@ -1447,6 +1490,7 @@ export const works = [
         members: [],
         description: '미정',
         award: null,
+        links: [],
         pages: [
             '/works/043_dd1.webp'
         ]
@@ -1460,6 +1504,7 @@ export const works = [
         members: [],
         description: '나의 주제인 우주에 맞춰 타이포 실습을 하는 과정에서, 실습 주제인 \'밀집과 팽창\'을 우주 요소 중 밀집, 팽창하는 특이성을 가진 블랙홀과 우주의 상징인 별을 이용해 표현하였다.',
         award: null,
+        links: [],
         pages: [
             '/works/044_dd1.webp'
         ]
@@ -1473,6 +1518,7 @@ export const works = [
         members: [],
         description: '혼란속의 질서',
         award: null,
+        links: [],
         pages: [
             '/works/045_dd1.webp'
         ]
@@ -1486,6 +1532,7 @@ export const works = [
         members: [],
         description: '칼 세이건의 저서 <코스모스>속 \'Pale Blue Dot.\' 구절에서 영감을 받아, 광활한 우주 속 창백하게 푸른 점인 지구의 모습을 타이포그래피로 표현하여 \'혼란과 안정\'을 나타내었다.',
         award: null,
+        links: [],
         pages: [
             '/works/046_dd1.webp'
         ]
@@ -1499,6 +1546,7 @@ export const works = [
         members: [],
         description: '대비되는 개념의 주제를 타이포 디자인을 통해 표현했습니다 (추후수정예정)',
         award: null,
+        links: [],
         pages: [
             '/works/047_dd1.webp'
         ]
@@ -1512,6 +1560,7 @@ export const works = [
         members: [],
         description: '디지털디자인1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 아래와 같이 제작하였다. 나의 표현 소재는 치어팩으로 선정하였다. 치어팩과 관련 있는 영어 단어인 PRESSUER로 안정을 표현하고 각 알파벳을 흩트려 혼란을 나타내고자 하였다.',
         award: null,
+        links: [],
         pages: [
             '/works/048_dd1.webp'
         ]
@@ -1525,6 +1574,7 @@ export const works = [
         members: [],
         description: '태극기 안에 대한민국을 위해 헌신한 전쟁참전용사들의 이름을 담아, 오늘의 자유와 평화가 수많은 희생 위에 존재한다는 의미를 표현하였다.',
         award: null,
+        links: [],
         pages: [
             '/works/049_dd1.webp'
         ]
@@ -1538,6 +1588,7 @@ export const works = [
         members: [],
         description: '영화 <메멘토>를 모티브로 관점에 따른 타이포의 혼란과 안정을 표현함',
         award: null,
+        links: [],
         pages: [
             '/works/050_dd1.webp'
         ]
@@ -1551,6 +1602,7 @@ export const works = [
         members: [],
         description: '불꽃놀이를 사용해 밀집되었다 퍼지는 형태를 이용해 감정의 고도를 토대로 각 색깔의 단어를 배치했습니다.',
         award: null,
+        links: [],
         pages: [
             '/works/051_dd1.webp'
         ]
@@ -1564,6 +1616,7 @@ export const works = [
         members: [],
         description: '율동과 정지\'를 동시에 표현하는 디지털디자인1 과목의 과제로 제작된 포스터입니다. 게임이라는 주제를 선정해 테트리스를 바탕으로 정지/율동되는 블럭을 타이포그래피만으로 표현했습니다',
         award: null,
+        links: [],
         pages: [
             '/works/052_dd1.webp'
         ]
@@ -1577,6 +1630,7 @@ export const works = [
         members: [],
         description: '국립중앙박물관 로고를 리디자인해 전통적인 디자인을 만들었다.',
         award: null,
+        links: [],
         pages: [
             '/works/053_dd1.webp'
         ]
@@ -1621,6 +1675,7 @@ export const works = [
         ],
         description: '쿠팡·스마트스토어 판매자의 정산 누락과 부당환불을 AI가 자동 탐지하고 클레임을 대신 제출해 못 받은 돈을 회수해 주는 서비스 디자인',
         award: null,
+        links: [],
         pages: [
             '/works/054_free.webp'
         ]
@@ -1634,6 +1689,7 @@ export const works = [
         members: [],
         description: '깨지며 흩어지는 얼음의 파편으로 율동을, 아래에 고여 멈춘 물로 정지를 표현했다.',
         award: null,
+        links: [],
         pages: [
             '/works/055_dd1.webp'
         ]
@@ -1647,6 +1703,7 @@ export const works = [
         members: [],
         description: '팝콘을 활용해 다양하게 변화하는 과정을 표현한 타이포그래피 포스터이다.',
         award: null,
+        links: [],
         pages: [
             '/works/056_dd1.webp'
         ]
@@ -1660,6 +1717,7 @@ export const works = [
         members: [],
         description: '비눗방울을 이용해 혼란과 안정을 표현한 포스터이다.',
         award: null,
+        links: [],
         pages: [
             '/works/057_dd1.webp'
         ]
@@ -1673,6 +1731,7 @@ export const works = [
         members: [],
         description: '서로 다른 문화가 하나가 되는 과정을 연리지 나무 타이포그래피로 시각화. 디지털 환경 속에서도 인간적인 연결을 기반으로 형성되는 글로컬 문화의 다층적 구조를 표현.',
         award: null,
+        links: [],
         pages: [
             '/works/058_dd1.webp'
         ]
@@ -1686,6 +1745,7 @@ export const works = [
         members: [],
         description: '디지털디자인1 수업에서 타이포를 이용해 실습했고 실습 주제 중 \'밀집과 확장\'을 표현하는 작품을 제작했다. 콘셉트는 오케스트라로 지휘자와 악기의 거리로 밀집과 확장을 나타냈다.',
         award: null,
+        links: [],
         pages: [
             '/works/059_dd1.webp'
         ]
@@ -1699,6 +1759,7 @@ export const works = [
         members: [],
         description: '디지털디자인1 수업에서 타이포를 이용한 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 아래와 같이 제작하였습니다.',
         award: null,
+        links: [],
         pages: [
             '/works/060_dd1.webp'
         ]
@@ -1713,7 +1774,7 @@ export const works = [
             {
                 name: '허동균',
                 studentId: '20226648',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '유지호',
@@ -1733,6 +1794,7 @@ export const works = [
         ],
         description: '한림대 조각상과 대화하며 진짜 남자친구를 찾는 미연시 추리 프로그램.',
         award: null,
+        links: [],
         pages: [
             '/works/061_storytelling.webp'
         ]
@@ -1746,6 +1808,7 @@ export const works = [
         members: [],
         description: '항공사의 로고와 브랜드 시스템 전반을 리브랜딩한 프로젝트입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/062_aidesign.webp'
         ]
@@ -1760,17 +1823,17 @@ export const works = [
             {
                 name: '허동균',
                 studentId: '20226648',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '장동혁',
                 studentId: '20256636',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김주희',
                 studentId: '20256606',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김민서',
@@ -1780,6 +1843,7 @@ export const works = [
         ],
         description: '부모님과 남겨진 5%의 시간. 버킷리스트를 통해 찰나의 시간을 영원한 기억으로 바꾸는 가족의 기록.',
         award: null,
+        links: [],
         pages: [
             '/works/063_storytelling.webp'
         ]
@@ -1819,6 +1883,7 @@ export const works = [
         ],
         description: '지역 문화 인프라 격차와 청년 디지털 문화 소비의 관계 분석',
         award: null,
+        links: [],
         pages: [
             '/works/064_regional.webp'
         ]
@@ -1833,36 +1898,37 @@ export const works = [
             {
                 name: '김태현',
                 studentId: '20226614',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '이윤건',
                 studentId: '20216628',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '이예진',
                 studentId: '20252564',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '손예솔',
                 studentId: '20237016',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '구슬아',
                 studentId: '20252503',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '송수빈',
                 studentId: '20242530',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             }
         ],
         description: '소설이 현실이 되는 경계를 책의 질감으로 표현하고, 프레임 안에는 작품 속 아포칼립스 세계관을 담았다. 한국적 정체성과 성좌의 신비로움을 배경에 녹여내 원작의 특성을 강조했다.',
         award: null,
+        links: [],
         pages: [
             '/works/065_ccbasic.webp'
         ]
@@ -1876,6 +1942,7 @@ export const works = [
         members: [],
         description: '인제 기적의 도서관의 담긴 의미와 마음을 전달하고자 어린아이부터 다양한 세대가 자연 속에서 책과 하나가 되길 바라는 마음으로 제작하게 되었습니다.',
         award: null,
+        links: [],
         pages: [
             '/works/066_dd1.webp'
         ]
@@ -1889,6 +1956,7 @@ export const works = [
         members: [],
         description: '한국문화를 기반으로 한 팝업 스토어',
         award: null,
+        links: [],
         pages: [
             '/works/067_marketing.webp'
         ]
@@ -1928,6 +1996,7 @@ export const works = [
         ],
         description: '가벼운 무관심이 무거운 종말을 준비합니다. 흩어진 온기 뒤 자라나는 차가운 그림자. 당신이 무감각하게 놓아준 것들은 어디로 갔을까요. 화면 위의 것은 당신이 잃어버린 조각들입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/068_storytelling.webp'
         ]
@@ -1941,6 +2010,7 @@ export const works = [
         members: [],
         description: '에테르 아카데미아는 게임 이름, 아르테르는 이 게임의 브랜드로, 게임과 브랜드를 함께 디자인해 브랜드 디자인에 들어가는 공식 사이트 컨셉을 디자인했습니다.',
         award: null,
+        links: [],
         pages: [
             '/works/069_aidesign.webp'
         ]
@@ -1954,6 +2024,7 @@ export const works = [
         members: [],
         description: 'AI와 AR 기술을 활용해 사라진 문화유산을 디지털로 복원하고, 과거와 현재가 공존하는 새로운 문화 경험을 제안한다.',
         award: null,
+        links: [],
         pages: [
             '/works/070_marketing.webp'
         ]
@@ -1988,6 +2059,7 @@ export const works = [
         ],
         description: '디지털이 낯선 64세 1인 미용실 사장님과 시술 결정이 어려운 손님, 두 사용자의 마찰을 동시에 줄이는 무간섭 서비스를 기획 및 배포해 실제 성과를 이끌어냈습니다.',
         award: null,
+        links: [],
         pages: [
             '/works/071_free.webp'
         ]
@@ -2001,6 +2073,7 @@ export const works = [
         members: [],
         description: '양옆의 집중되는 패턴으로 책장을 표현하고, 위아래의 잔디로 자연을 담았습니다. 도서관 안에서 밖을 바라보는 시선을 시각화한 작품입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/072_dd1.webp'
         ]
@@ -2020,7 +2093,7 @@ export const works = [
             {
                 name: '김서영',
                 studentId: '20256603',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김수민',
@@ -2030,6 +2103,7 @@ export const works = [
         ],
         description: '다양한 리서치와 사용자 관찰을 통해 29CM 경험 속 숨겨진 사용 패턴과 문제 지점을 탐색한다.',
         award: null,
+        links: [],
         pages: [
             '/works/073_dd3.webp'
         ]
@@ -2044,7 +2118,7 @@ export const works = [
             {
                 name: '김주연',
                 studentId: '20241516',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '서상욱',
@@ -2054,12 +2128,12 @@ export const works = [
             {
                 name: '이예진',
                 studentId: '20252564',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '임채하',
                 studentId: '20256635',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '박채빈',
@@ -2079,6 +2153,7 @@ export const works = [
         ],
         description: '시각 정보를 음성과 촉각으로 번역해, 누구나 자신의 스타일과 취향을 독립적으로 표현할 수 있도록 돕는 서비스',
         award: null,
+        links: [],
         pages: [
             '/works/074_intro.webp'
         ]
@@ -2092,6 +2167,7 @@ export const works = [
         members: [],
         description: '세포의 밀집된 에너지가 외곽으로 팽창하며 터져 나오는 순간을 포착했습니다. 생명 분열의 폭발적인 생동감을 조형적으로 구성한 작품입니다',
         award: null,
+        links: [],
         pages: [
             '/works/075_dd1.webp'
         ]
@@ -2131,6 +2207,7 @@ export const works = [
         ],
         description: '시절인연(時節因緣)은 불교에서 ‘모든 일과 관계는 적절한 때가 되어야 자연스럽게 이루어진다’는 뜻으로, 현대에는 ‘인연에는 때가 있다’는 의미로 널리 쓰입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/076_storytelling.webp'
         ]
@@ -2144,6 +2221,7 @@ export const works = [
         members: [],
         description: '전 디렉터의 실패를 셀프 디스 밈으로 활용하여, 온라인 NCM 데이터 복원 이벤트와 오프라인 팝업을 연계해 이탈한 2030 라이더를 다시 트랙으로 부르는 기획입니다.',
         award: null,
+        links: [],
         pages: [
             '/works/077_marketing.webp'
         ]
@@ -2157,6 +2235,7 @@ export const works = [
         members: [],
         description: '정교 디지털 구조를 가르는 불완전한 붓질과 맞닿을 듯한 손으로, 인간 감각이 세계와 지역을 잇는 순간을 표현했다.',
         award: null,
+        links: [],
         pages: [
             '/works/078_free.webp'
         ]
@@ -2206,6 +2285,7 @@ export const works = [
         ],
         description: '강원 횡성군에서 폰을 내려놓을수록 유리해지는 역발상 여행 트래킹 앱입니다. 화면을 끄고 정령을 수집해 횡성 로컬 바우처로 전환하며 온전한 휴식을 경험해 보세요.',
         award: null,
+        links: [],
         pages: [
             '/works/079_intro.webp'
         ]
@@ -2220,7 +2300,7 @@ export const works = [
             {
                 name: '윤현아',
                 studentId: '20237121',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '정서윤',
@@ -2240,6 +2320,7 @@ export const works = [
         ],
         description: '잊혀진 상상친구를 모루 인형으로 구현해, 마음을 위로하고 곁을 지켜주는 존재를 만드는 프로젝트.',
         award: null,
+        links: [],
         pages: [
             '/works/080_storytelling.webp'
         ]
@@ -2253,6 +2334,7 @@ export const works = [
         members: [],
         description: '시간을 모으는 토끼 ‘루루’를 중심으로, 바쁜 현대인에게 위로와 휴식을 전하는 감성 브랜드 세계관을 AI 기반 디자인으로 표현한 프로젝트.',
         award: null,
+        links: [],
         pages: [
             '/works/081_aidesign.webp'
         ]
@@ -2272,7 +2354,7 @@ export const works = [
             {
                 name: '김민우',
                 studentId: '20212510',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '박채빈',
@@ -2292,6 +2374,7 @@ export const works = [
         ],
         description: '기존 \'춘천버스Go\' 앱을 교육 중심 도시 춘천의 대학생과 시민의 이동 시간을 가치 있게 바꾸는 춘천 버스 통합 플랫폼으로 전환하는 프로젝트',
         award: null,
+        links: [],
         pages: [
             '/works/082_ux.webp'
         ]
@@ -2311,7 +2394,7 @@ export const works = [
             {
                 name: '박근영',
                 studentId: '20236613',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김미소',
@@ -2326,7 +2409,7 @@ export const works = [
             {
                 name: '김주연',
                 studentId: '20241516',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '이정연',
@@ -2336,7 +2419,7 @@ export const works = [
             {
                 name: '김지혜',
                 studentId: '20261036',
-                major: '국어국문학과'
+                major: '국어국문학전공'
             },
             {
                 name: '현나경',
@@ -2366,6 +2449,7 @@ export const works = [
         ],
         description: '국립춘천박물관 오리지널 굿즈 \'춘즈\'기획 프로젝트, 지역의 특성과 박물관 유물을 연결하여 굿즈로 기획',
         award: null,
+        links: [],
         pages: [
             '/works/083_club.webp'
         ]
@@ -2385,7 +2469,7 @@ export const works = [
             {
                 name: '박근영',
                 studentId: '20236613',
-                major: '디지털인문예술'
+                major: '디지털인문예술전공'
             },
             {
                 name: '이정연',
@@ -2395,7 +2479,7 @@ export const works = [
             {
                 name: '김주연',
                 studentId: '20241516',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '김미소',
@@ -2415,7 +2499,7 @@ export const works = [
             {
                 name: '김지혜',
                 studentId: '20261036',
-                major: '국어국문학과'
+                major: '국어국문학전공'
             },
             {
                 name: '김재홍',
@@ -2425,6 +2509,7 @@ export const works = [
         ],
         description: '26-1 디지털인문예술전공 프로젝트 전시회 기획 과정 아카이빙',
         award: null,
+        links: [],
         pages: [
             '/works/084_club.webp'
         ]
@@ -2444,7 +2529,7 @@ export const works = [
             {
                 name: '김예원',
                 studentId: '20232519',
-                major: '디지털미디어콘텐츠'
+                major: '디지털미디어콘텐츠전공'
             },
             {
                 name: '천다현 글로벌비즈니스',
@@ -2464,6 +2549,7 @@ export const works = [
         ],
         description: '가상의 아이돌을 만들어 전통 문화 스토리로 세계관 제작을 하여 굿즈, 캐릭터 제작',
         award: null,
+        links: [],
         pages: [
             '/works/085_classic.webp'
         ]
@@ -2498,6 +2584,7 @@ export const works = [
         ],
         description: '에이블리 UX/UI 개선을 위한 리서치 결과 보고서',
         award: null,
+        links: [],
         pages: [
             '/works/086_dd3.webp'
         ]
@@ -2511,6 +2598,7 @@ export const works = [
         members: [],
         description: '아이돌 연습생 공개 과정을 콘텐츠화하여 팬이 데뷔 이전부터 성장과 데뷔조 형성에 참여할 수 있는 플랫폼 기반 신인 아이돌 마케팅 프로젝트.',
         award: null,
+        links: [],
         pages: [
             '/works/087_marketing.webp'
         ]
@@ -2524,6 +2612,7 @@ export const works = [
         members: [],
         description: '쾨니히의 동료라는 컨셉으로 그를 분석해 두 가지 서체를 제작. 제미나이로 캐릭터 분석 및 이미지를 생성. 포토샵·캘리그라퍼로 서체 구현. 윅스 웹사이트, 일러스트 포스터 제작함.',
         award: null,
+        links: [],
         pages: [
             '/works/088_free.webp'
         ]
@@ -2553,6 +2642,7 @@ export const works = [
         ],
         description: 'YES24 티켓\'에서 예매/정보탐색중에 발생하는 사용자들의 불편을 분석한다. 그리고 이를 통해 사용자들의 목적에 맞춘 UX 개선안을 제안하고자 한다.',
         award: null,
+        links: [],
         pages: [
             '/works/089_dd3.webp'
         ]
@@ -2566,6 +2656,7 @@ export const works = [
         members: [],
         description: '추억의 애니 \'캐릭캐릭체인지\'와 코스메틱 브랜드의 콜라보로, 성인이 된 9N, 0N년생들을 저격한 코스메틱 마케팅 프로젝트',
         award: null,
+        links: [],
         pages: [
             '/works/090_marketing.webp'
         ]

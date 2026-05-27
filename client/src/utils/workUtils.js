@@ -2,14 +2,6 @@ export function getWorkById(works, id) {
   return works.find(w => w.id === id) ?? null
 }
 
-export function getAdjacentWorks(works, id) {
-  const index = works.findIndex(w => w.id === id)
-  return {
-    prev: index > 0 ? works[index - 1] : null,
-    next: index < works.length - 1 ? works[index + 1] : null,
-  }
-}
-
 export function filterBySubject(works, subjectId) {
   return subjectId === 'all' ? works : works.filter(w => w.subjectId === subjectId)
 }

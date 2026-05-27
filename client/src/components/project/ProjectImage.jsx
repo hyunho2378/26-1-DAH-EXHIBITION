@@ -3,6 +3,8 @@ import { useState } from 'react'
 export default function ProjectImage({ src, type, alt, className = '' }) {
   const [loaded, setLoaded] = useState(false)
 
+  if (!src) return null
+
   return (
     <div className="relative w-full h-full">
       {!loaded && <div className="absolute inset-0 bg-surface animate-pulse" />}

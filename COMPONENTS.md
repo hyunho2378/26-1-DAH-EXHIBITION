@@ -192,6 +192,11 @@ Props: subject ({name, professor, description})
   작품명 (heading-xl, text-primary)
   author (body-lg, #BABABA) — 라벨 없이 값만. 개인이면 이름, 팀이면 팀명.
   과목명 (caption, #F5C518)
+  외부 링크 목록 (links.length > 0 일 때만):
+    · Ghost 버튼 (border #2a2a2a, radius 8px, px-3 py-1, #f0f0f0)
+    · hover: border #F5C518, text #F5C518, transition 0.2s
+    · ExternalLink 아이콘(12px) + label. target="_blank".
+    · flex row, gap-2, flex-wrap.
   설명 (body-md, 있을 때, word-break keep-all)
   팀원 목록 (members.length > 0 일 때만):
     · 각 줄: 이름 (caption #f0f0f0) + 학번/전공 (caption #BABABA)
@@ -199,8 +204,7 @@ Props: subject ({name, professor, description})
     · "팀원" 한글 라벨 없음. members 비어있으면 섹션 자체 미렌더.
   AwardBadge (있을 때)
   BackLink
-[하단] 이전/다음 화살표
-Props: work (members 포함), prevWork, nextWork
+Props: work (members, links 포함)
 ```
 
 ### `ProjectImage` — `src/components/project/ProjectImage.jsx`

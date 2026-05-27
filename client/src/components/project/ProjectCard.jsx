@@ -10,7 +10,7 @@ export default function ProjectCard({ work }) {
         style={{ aspectRatio: '1 / 1.414', borderRadius: '4px', background: '#141414', border: '1px solid #1f1f1f' }}
       >
         <ProjectImage
-          src={work.thumbnail}
+          src={work.pages?.[0]}
           type={work.type}
           alt={`${work.author} - ${work.title}`}
           className="transition-transform duration-[400ms] group-hover:scale-[1.02]"
