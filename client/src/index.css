@@ -44,6 +44,11 @@ p, dd, span, h1, h2, h3 { word-break: keep-all; }
 }
 
 
+.card-cv {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 350px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

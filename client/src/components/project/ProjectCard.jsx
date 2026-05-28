@@ -4,7 +4,7 @@ import ProjectImage from './ProjectImage'
 
 export default function ProjectCard({ work }) {
   return (
-    <Link to={`/projects/${work.id}`} className="group block">
+    <Link to={`/projects/${work.id}`} className="group block card-cv">
       <div
         className="relative overflow-hidden"
         style={{ aspectRatio: '1 / 1.414', borderRadius: '4px', background: '#141414', border: '1px solid #1f1f1f' }}
@@ -13,6 +13,7 @@ export default function ProjectCard({ work }) {
           src={work.pages?.[0]}
           type={work.type}
           alt={`${work.author} - ${work.title}`}
+          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="transition-transform duration-[400ms] group-hover:scale-[1.02]"
         />
         {work.award && (

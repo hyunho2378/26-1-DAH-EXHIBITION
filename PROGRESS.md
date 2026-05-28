@@ -210,6 +210,102 @@
     · work 085 (오작교 엔터): 천다현 name="천다현 글로벌비즈니스", major="" — 정보 불명확
     · '미래융합스쿨', '인문학부', '자율전공학부', '자유전공학부', '글로벌학부': 학부/스쿨 단위, 전공 추가 여부 확인 필요
 
+## [PHASE 3-O — 015 매거진 캐러셀 + 그리드 lazy loading] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - works.js 015: layout: 'magazine' 플래그 추가, pages 배열 34장으로 확장
+    · pages[0] = 015_ccbasic_1.webp (메인 포스터)
+    · pages[1..33] = 015_ccbasic_02~34.webp (A5 매거진)
+  - ProjectDetail.jsx: magazine 레이아웃 분기
+    · isMagazine=true: 메인 포스터는 pages[0]만 단독 줌, 하단에 magPages(pages[1...]) 캐러셀
+    · 매거진 캐러셀: auto-play 3500ms, < > 버튼, 페이지 카운터, dot 인디케이터(활성 #F5C518)
+    · A5 비율(1:1.414), maxWidth 320px
+    · magIdx useEffect cleanup (언마운트 시 clearInterval)
+    · isMagazine=false: 기존 방식 유지
+  - ProjectImage.jsx: IntersectionObserver lazy loading
+    · active 상태가 false면 <img> 자체를 렌더링하지 않음 (src 미할당)
+    · rootMargin: '300px'로 뷰포트 300px 전 미리 로드 시작
+    · useIntersectionFade와 별도 Observer 인스턴스, 충돌 없음
+
+  **최종 빌드:** npm run build 에러 0, 2.66s
+
+## [PHASE 3-P — 그리드 성능 개선 + 스플래시 조건 변경] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - index.css: `.card-cv { content-visibility: auto; contain-intrinsic-size: 0 350px; }` 추가
+    → 화면 밖 카드 렌더링 자체를 건너뜀 (가장 큰 성능 효과)
+  - ProjectCard.jsx: Link에 `card-cv` 클래스 적용
+    · ProjectImage에 `sizes="(max-width:768px) 50vw, (max-width:1024px) 33vw, 25vw"` 전달
+  - ProjectImage.jsx: `sizes`, `width="300"`, `height="424"` img 속성 추가
+    · sizes prop 인터페이스 추가, 브라우저 디코딩 힌트 제공
+    · IntersectionObserver + decoding="async" + loading="lazy" 유지
+  - App.jsx: 스플래시 조건 sessionStorage 기반으로 변경
+    · shouldShowSplash(): !shown || (isHome && isReload) 로직
+    · 첫 진입(새 세션): 항상 표시
+    · SPA 내비게이션/다른 페이지 새로고침: 미표시
+    · '/' About 페이지 새로고침: 표시 허용
+    · 창 닫으면 sessionStorage 비워짐 → 재진입 시 다시 표시
+    · handleSplashDone: onDone 시 sessionStorage.setItem('splashShown','1')
+
+  **최종 빌드:** npm run build 에러 0, 3.13s
+
+## [PHASE 3-Q — 카드 썸네일 연결 + 깨진 이미지 처리] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - ProjectImage.jsx: thumbOf() 헬퍼 추가 (/works/X → /works/thumbs/X)
+    · imgSrc state: thumbOf(src) 초기값
+    · handleError(): thumb 실패 → 원본 시도 → 원본도 실패 → failed=true
+    · failed=true: "이미지 준비 중" 텍스트 플레이스홀더 (#141414 배경)
+    · ProjectDetail 원본 사용 로직은 그대로 (ProjectImage 미사용)
+  - ProjectDetail.jsx: thumbOf() 헬퍼 추가 (동일 로직)
+    · magThumbFailed: Set<number> state (thumb 실패한 magIdx 추적)
+    · 매거진 img src: !failed → thumbOf(src) / failed → 원본 src
+    · onError: setMagThumbFailed(s => new Set(s).add(magIdx)) → 즉시 원본으로 교체
+    · key={magIdx} 유지 (slide 전환 시 img 리셋)
+
+  **최종 빌드:** npm run build 에러 0, 3.09s
+
+## [PHASE 3-R — 015/085 pages 경로 수정] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - works.js 015: pages[0] = '/works/015_ccbasic.webp' (메인), _2~_34 (매거진 캐러셀)
+    · 이전: _1, _02~_34 (제로패딩 혼용, 파일명 불일치)
+    · 이후: _ccbasic.webp, _2~_34.webp (실제 파일명 일치 34장)
+  - works.js 085: pages 1장 → 3장
+    · '/works/085_classic.webp', '_2.webp', '_3.webp'
+
+## [PHASE 3-S — 필터 상태 URL 유지 + 작품 삭제] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - ProjectsPage.jsx: useState → useSearchParams 교체
+    · activeId: searchParams.get('subject') ?? 'all'
+    · 과목 선택 시: setSearchParams({ subject: id }, { replace: true })
+    · ALL 선택 시: setSearchParams({}, { replace: true }) (쿼리 제거)
+    · 뒤로가기 → /projects?subject=ux 복귀 → 해당 필터 유지
+  - works.js 4개 삭제 (id 재정렬 없음):
+    · id='043' 무제 (고승우)
+    · id='066' 하나의 기적 (권예주)
+    · id='070' 잔상채록(採錄) (유정현)
+    · id='089' YES24_TICKET (NO24)
+
+  **최종 빌드:** npm run build 에러 0, 2.23s
+
+## [PHASE 3-T — 022_kcontent 매거진 캐러셀 적용] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - works.js 022: layout: 'magazine' 추가, pages 1장→6장
+    · pages[0]: 022_kcontent.webp (메인 포스터)
+    · pages[1~5]: _2~_6.webp (매거진 캐러셀)
+  - ProjectDetail.jsx: 변경 없음 (이미 layout==='magazine' 조건으로 일반화됨)
+
+## [PHASE 3-U — 개인작 작가 표시 한 줄 형식] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - ProjectDetail.jsx: members 렌더 분기
+    · members.length === 1: `이름 / 학번, 전공` 한 줄 (이름 font-semibold, 나머지 text-muted)
+    · members.length >= 2: 기존 두 줄 형식 유지
+    · members 빈 배열: 섹션 없음 (hasMembers 조건 유지)
+
 ## 진행중
 - (없음)
 

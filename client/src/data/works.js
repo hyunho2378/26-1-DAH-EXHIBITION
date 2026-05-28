@@ -555,8 +555,42 @@ export const works = [
         description: '소담:전통의 현대적 진화 동의보감에서부터 이어져온 k-뷰티의 진화 과정과 전통문화와 패션의 결합사례를 소개하고, 전통문화의 가치를 우리만의 시선으로 제시한다.',
         award: null,
         links: [],
+        layout: 'magazine',
         pages: [
-            '/works/015_ccbasic.webp'
+            '/works/015_ccbasic.webp',
+            '/works/015_ccbasic_2.webp',
+            '/works/015_ccbasic_3.webp',
+            '/works/015_ccbasic_4.webp',
+            '/works/015_ccbasic_5.webp',
+            '/works/015_ccbasic_6.webp',
+            '/works/015_ccbasic_7.webp',
+            '/works/015_ccbasic_8.webp',
+            '/works/015_ccbasic_9.webp',
+            '/works/015_ccbasic_10.webp',
+            '/works/015_ccbasic_11.webp',
+            '/works/015_ccbasic_12.webp',
+            '/works/015_ccbasic_13.webp',
+            '/works/015_ccbasic_14.webp',
+            '/works/015_ccbasic_15.webp',
+            '/works/015_ccbasic_16.webp',
+            '/works/015_ccbasic_17.webp',
+            '/works/015_ccbasic_18.webp',
+            '/works/015_ccbasic_19.webp',
+            '/works/015_ccbasic_20.webp',
+            '/works/015_ccbasic_21.webp',
+            '/works/015_ccbasic_22.webp',
+            '/works/015_ccbasic_23.webp',
+            '/works/015_ccbasic_24.webp',
+            '/works/015_ccbasic_25.webp',
+            '/works/015_ccbasic_26.webp',
+            '/works/015_ccbasic_27.webp',
+            '/works/015_ccbasic_28.webp',
+            '/works/015_ccbasic_29.webp',
+            '/works/015_ccbasic_30.webp',
+            '/works/015_ccbasic_31.webp',
+            '/works/015_ccbasic_32.webp',
+            '/works/015_ccbasic_33.webp',
+            '/works/015_ccbasic_34.webp'
         ]
     },
     {
@@ -840,8 +874,14 @@ export const works = [
         description: '한국 문화에 관심 있는 외국인들이 게임을 통해 자연스럽게 한국의 예절을 배우는 콘텐츠입니다. 실제 게임 형식을 활용해 상황에 맞는 예절 행동을 선택하며 진행됩니다.',
         award: null,
         links: [],
+        layout: 'magazine',
         pages: [
-            '/works/022_kcontent.webp'
+            '/works/022_kcontent.webp',
+            '/works/022_kcontent_2.webp',
+            '/works/022_kcontent_3.webp',
+            '/works/022_kcontent_4.webp',
+            '/works/022_kcontent_5.webp',
+            '/works/022_kcontent_6.webp'
         ]
     },
     {
@@ -1482,20 +1522,6 @@ export const works = [
         ]
     },
     {
-        id: '043',
-        subjectId: 'dd1',
-        subjectName: '디지털디자인1',
-        title: '무제',
-        author: '고승우',
-        members: [],
-        description: '미정',
-        award: null,
-        links: [],
-        pages: [
-            '/works/043_dd1.webp'
-        ]
-    },
-    {
         id: '044',
         subjectId: 'dd1',
         subjectName: '디지털디자인1',
@@ -1934,34 +1960,6 @@ export const works = [
         ]
     },
     {
-        id: '066',
-        subjectId: 'dd1',
-        subjectName: '디지털디자인1',
-        title: '하나의 기적',
-        author: '권예주',
-        members: [],
-        description: '인제 기적의 도서관의 담긴 의미와 마음을 전달하고자 어린아이부터 다양한 세대가 자연 속에서 책과 하나가 되길 바라는 마음으로 제작하게 되었습니다.',
-        award: null,
-        links: [],
-        pages: [
-            '/works/066_dd1.webp'
-        ]
-    },
-    {
-        id: '067',
-        subjectId: 'marketing',
-        subjectName: '디지털문화콘텐츠마케팅',
-        title: '하나가 되는 팝업',
-        author: '권예주',
-        members: [],
-        description: '한국문화를 기반으로 한 팝업 스토어',
-        award: null,
-        links: [],
-        pages: [
-            '/works/067_marketing.webp'
-        ]
-    },
-    {
         id: '068',
         subjectId: 'storytelling',
         subjectName: '스토리텔링창작실습',
@@ -2013,20 +2011,6 @@ export const works = [
         links: [],
         pages: [
             '/works/069_aidesign.webp'
-        ]
-    },
-    {
-        id: '070',
-        subjectId: 'marketing',
-        subjectName: '디지털문화콘텐츠마케팅',
-        title: '잔상채록(採錄)',
-        author: '유정현',
-        members: [],
-        description: 'AI와 AR 기술을 활용해 사라진 문화유산을 디지털로 복원하고, 과거와 현재가 공존하는 새로운 문화 경험을 제안한다.',
-        award: null,
-        links: [],
-        pages: [
-            '/works/070_marketing.webp'
         ]
     },
     {
@@ -2224,20 +2208,6 @@ export const works = [
         links: [],
         pages: [
             '/works/077_marketing.webp'
-        ]
-    },
-    {
-        id: '078',
-        subjectId: 'free',
-        subjectName: '자율 (개인 또는 팀)',
-        title: '한 줄의 인간',
-        author: '장성준',
-        members: [],
-        description: '정교 디지털 구조를 가르는 불완전한 붓질과 맞닿을 듯한 손으로, 인간 감각이 세계와 지역을 잇는 순간을 표현했다.',
-        award: null,
-        links: [],
-        pages: [
-            '/works/078_free.webp'
         ]
     },
     {
@@ -2551,7 +2521,9 @@ export const works = [
         award: null,
         links: [],
         pages: [
-            '/works/085_classic.webp'
+            '/works/085_classic.webp',
+            '/works/085_classic_2.webp',
+            '/works/085_classic_3.webp'
         ]
     },
     {
@@ -2615,36 +2587,6 @@ export const works = [
         links: [],
         pages: [
             '/works/088_free.webp'
-        ]
-    },
-    {
-        id: '089',
-        subjectId: 'dd3',
-        subjectName: '디지털디자인3',
-        title: 'YES24_TICKET',
-        author: 'NO24',
-        members: [
-            {
-                name: '정재훈',
-                studentId: '20206638',
-                major: '디지털인문예술전공'
-            },
-            {
-                name: '허준희',
-                studentId: '20231106',
-                major: '디지털미디어콘텐츠전공'
-            },
-            {
-                name: '박근영',
-                studentId: '202036613',
-                major: '디지털인문예술전공'
-            }
-        ],
-        description: 'YES24 티켓\'에서 예매/정보탐색중에 발생하는 사용자들의 불편을 분석한다. 그리고 이를 통해 사용자들의 목적에 맞춘 UX 개선안을 제안하고자 한다.',
-        award: null,
-        links: [],
-        pages: [
-            '/works/089_dd3.webp'
         ]
     },
     {

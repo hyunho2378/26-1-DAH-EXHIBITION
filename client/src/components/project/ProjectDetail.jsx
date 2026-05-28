@@ -1,15 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import AwardBadge from '../ui/AwardBadge'
 import BackLink from '../ui/BackLink'
 
+function thumbOf(src) {
+  if (!src || !src.startsWith('/works/')) return src
+  return `/works/thumbs/${src.split('/').pop()}`
+}
+
 export default function ProjectDetail({ work }) {
   const [posterHovered, setPosterHovered] = useState(false)
   const [pageIdx, setPageIdx] = useState(0)
+  const [magIdx, setMagIdx] = useState(0)
+  const [magThumbFailed, setMagThumbFailed] = useState(() => new Set())
   const hasMembers = work.members && work.members.length > 0
   const hasLinks = work.links && work.links.length > 0
+  const isMagazine = work.layout === 'magazine'
   const pages = work.pages ?? []
-  const currentSrc = pages[pageIdx]
+  const mainSrc = isMagazine ? pages[0] : pages[pageIdx]
+  const magPages = isMagazine ? pages.slice(1) : []
+
+  useEffect(() => {
+    if (!magPages.length) return
+    const t = setInterval(() => setMagIdx(i => (i + 1) % magPages.length), 3500)
+    return () => clearInterval(t)
+  }, [magPages.length])
 
   const navBtnStyle = {
     position: 'absolute', top: '50%', transform: 'translateY(-50%)',
@@ -49,9 +64,9 @@ export default function ProjectDetail({ work }) {
               cursor: posterHovered ? 'zoom-out' : 'zoom-in',
             }}
           >
-            {currentSrc && (
+            {mainSrc && (
               <img
-                src={currentSrc}
+                src={mainSrc}
                 alt={`${work.author} - ${work.title}`}
                 loading="lazy"
                 decoding="async"
@@ -59,7 +74,8 @@ export default function ProjectDetail({ work }) {
               />
             )}
 
-            {pages.length > 1 && pageIdx > 0 && (
+            {/* 일반 레이아웃 캐러셀 내비 */}
+            {!isMagazine && pages.length > 1 && pageIdx > 0 && (
               <button
                 onClick={e => { e.stopPropagation(); setPageIdx(i => i - 1) }}
                 style={{ ...navBtnStyle, left: 10 }}
@@ -70,7 +86,7 @@ export default function ProjectDetail({ work }) {
                 <ChevronLeft size={16} />
               </button>
             )}
-            {pages.length > 1 && pageIdx < pages.length - 1 && (
+            {!isMagazine && pages.length > 1 && pageIdx < pages.length - 1 && (
               <button
                 onClick={e => { e.stopPropagation(); setPageIdx(i => i + 1) }}
                 style={{ ...navBtnStyle, right: 10 }}
@@ -83,7 +99,7 @@ export default function ProjectDetail({ work }) {
             )}
           </div>
 
-          {pages.length > 1 && (
+          {!isMagazine && pages.length > 1 && (
             <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginTop: '12px' }}>
               {pages.map((_, i) => (
                 <button
@@ -162,19 +178,119 @@ export default function ProjectDetail({ work }) {
           )}
 
           {hasMembers && (
-            <ul className="flex flex-col gap-1.5 pt-1">
-              {work.members.map((m, i) => (
-                <li key={i} className="flex flex-col">
-                  <span className="text-xs font-semibold text-text-primary font-ui">{m.name}</span>
-                  <span className="text-xs text-text-muted font-ui">{m.studentId}, {m.major}</span>
-                </li>
-              ))}
-            </ul>
+            work.members.length === 1 ? (
+              <p className="text-xs text-text-primary font-ui pt-1">
+                <span className="font-semibold">{work.members[0].name}</span>
+                {' / '}
+                <span className="text-text-muted">{work.members[0].studentId}, {work.members[0].major}</span>
+              </p>
+            ) : (
+              <ul className="flex flex-col gap-1.5 pt-1">
+                {work.members.map((m, i) => (
+                  <li key={i} className="flex flex-col">
+                    <span className="text-xs font-semibold text-text-primary font-ui">{m.name}</span>
+                    <span className="text-xs text-text-muted font-ui">{m.studentId}, {m.major}</span>
+                  </li>
+                ))}
+              </ul>
+            )
           )}
 
           {work.award && <AwardBadge type={work.award} />}
         </div>
       </div>
+
+      {/* 매거진 캐러셀 (layout === 'magazine' && pages > 1) */}
+      {isMagazine && magPages.length > 0 && (
+        <div style={{ marginTop: '48px' }}>
+          <div style={{
+            width: '1px', background: '#2A2A2A', height: '1px',
+            background: 'linear-gradient(to right, transparent, #2A2A2A, transparent)',
+            marginBottom: '32px',
+          }} />
+
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+            {/* 캐러셀 뷰어 */}
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+              {/* 이전 버튼 */}
+              <button
+                onClick={() => setMagIdx(i => (i - 1 + magPages.length) % magPages.length)}
+                style={{
+                  ...navBtnStyle,
+                  position: 'relative', top: 'auto', transform: 'none',
+                  flexShrink: 0, marginRight: '12px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#2A2A2A'; e.currentTarget.style.color = '#f0f0f0' }}
+                aria-label="이전 매거진 페이지"
+              >
+                <ChevronLeft size={16} />
+              </button>
+
+              {/* 이미지 */}
+              <div style={{
+                aspectRatio: '1 / 1.414',
+                maxWidth: '320px',
+                width: '100%',
+                background: '#111111',
+                border: '1px solid #2A2A2A',
+                overflow: 'hidden',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                {magPages[magIdx] && (
+                  <img
+                    key={magIdx}
+                    src={magThumbFailed.has(magIdx) ? magPages[magIdx] : thumbOf(magPages[magIdx])}
+                    alt={`${work.title} 매거진 ${magIdx + 1}페이지`}
+                    loading="lazy"
+                    decoding="async"
+                    onError={() => setMagThumbFailed(s => new Set(s).add(magIdx))}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+                  />
+                )}
+              </div>
+
+              {/* 다음 버튼 */}
+              <button
+                onClick={() => setMagIdx(i => (i + 1) % magPages.length)}
+                style={{
+                  ...navBtnStyle,
+                  position: 'relative', top: 'auto', transform: 'none',
+                  flexShrink: 0, marginLeft: '12px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#2A2A2A'; e.currentTarget.style.color = '#f0f0f0' }}
+                aria-label="다음 매거진 페이지"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+
+            {/* 페이지 카운터 + 도트 */}
+            <p style={{ fontSize: '11px', color: '#BABABA', letterSpacing: '0.1em', userSelect: 'none' }}>
+              {magIdx + 1} / {magPages.length}
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '5px', maxWidth: '320px' }}>
+              {magPages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setMagIdx(i)}
+                  style={{
+                    width: '5px', height: '5px', borderRadius: '50%',
+                    padding: 0, border: 'none',
+                    background: i === magIdx ? '#F5C518' : '#2A2A2A',
+                    cursor: 'pointer',
+                    transition: 'background 200ms ease',
+                  }}
+                  aria-label={`매거진 ${i + 1}페이지`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
