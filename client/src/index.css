@@ -49,6 +49,42 @@ p, dd, span, h1, h2, h3 { word-break: keep-all; }
   contain-intrinsic-size: 0 350px;
 }
 
+/* ── 카드 와이프 애니메이션 ──────────────────────────────────── */
+/* 오버레이: 아래→위 */
+@keyframes wipe-overlay-up {
+  0%   { transform: translateY(101%);  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  37%  { transform: translateY(0);     animation-timing-function: linear; }
+  56%  { transform: translateY(0);     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  100% { transform: translateY(-101%); }
+}
+/* 오버레이: 위→아래 */
+@keyframes wipe-overlay-down {
+  0%   { transform: translateY(-101%); animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  37%  { transform: translateY(0);     animation-timing-function: linear; }
+  56%  { transform: translateY(0);     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  100% { transform: translateY(101%);  }
+}
+/* 오버레이: 오른쪽→왼쪽 */
+@keyframes wipe-overlay-left {
+  0%   { transform: translateX(101%);  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  37%  { transform: translateX(0);     animation-timing-function: linear; }
+  56%  { transform: translateX(0);     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  100% { transform: translateX(-101%); }
+}
+/* 오버레이: 왼쪽→오른쪽 */
+@keyframes wipe-overlay-right {
+  0%   { transform: translateX(-101%); animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  37%  { transform: translateX(0);     animation-timing-function: linear; }
+  56%  { transform: translateX(0);     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  100% { transform: translateX(101%);  }
+}
+/* 이미지: 와이프 아웃 시점(56%)에 맞춰 페이드인 */
+@keyframes wipe-image-reveal {
+  0%   { opacity: 0; }
+  56%  { opacity: 0; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+  100% { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

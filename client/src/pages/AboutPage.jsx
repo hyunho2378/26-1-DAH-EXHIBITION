@@ -3,6 +3,8 @@ import AboutHero from '../components/about/AboutHero'
 import AboutIntro from '../components/about/AboutIntro'
 import AboutSchedule from '../components/about/AboutSchedule'
 import Divider from '../components/ui/Divider'
+import FadeIn from '../components/ui/FadeIn'
+import PageTransition from '../components/ui/PageTransition'
 
 export default function AboutPage() {
   useEffect(() => {
@@ -10,12 +12,12 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <>
+    <PageTransition>
       <AboutHero />
       <Divider />
-      <AboutIntro />
+      <FadeIn><AboutIntro /></FadeIn>
       <Divider />
-      <AboutSchedule />
-    </>
+      <FadeIn delay={80}><AboutSchedule /></FadeIn>
+    </PageTransition>
   )
 }

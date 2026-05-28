@@ -1,9 +1,24 @@
-import FadeIn from '../ui/FadeIn'
+import { useState, useEffect } from 'react'
 import ProjectCard from './ProjectCard'
 
-const DIRS = ['up', 'left', 'right', 'down']
+const FALLBACK_COLOR = '#F5C518'
+
+function keyOf(work) {
+  const src = work.pages?.[0]
+  if (!src) return ''
+  return src.replace('/works/', '').replace('.webp', '')
+}
 
 export default function ProjectGrid({ works }) {
+  const [keycolors, setKeycolors] = useState({})
+
+  useEffect(() => {
+    fetch('/works/keycolors.json')
+      .then(r => r.json())
+      .then(setKeycolors)
+      .catch(() => {})
+  }, [])
+
   if (works.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-3">
@@ -18,9 +33,12 @@ export default function ProjectGrid({ works }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-6">
       {works.map((work, i) => (
-        <FadeIn key={work.id} direction={DIRS[i % 4]} delay={Math.min(i * 30, 400)}>
-          <ProjectCard work={work} />
-        </FadeIn>
+        <ProjectCard
+          key={work.id}
+          work={work}
+          index={i}
+          keycolor={keycolors[keyOf(work)] ?? FALLBACK_COLOR}
+        />
       ))}
     </div>
   )

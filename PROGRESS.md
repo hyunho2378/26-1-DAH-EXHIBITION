@@ -306,6 +306,74 @@
     · members.length >= 2: 기존 두 줄 형식 유지
     · members 빈 배열: 섹션 없음 (hasMembers 조건 유지)
 
+## [PHASE 3-V — Plus X식 인터랙션 전면 적용] 완료 (2026-05-28)
+
+  **새 파일:**
+  - PageTransition.jsx: 페이지 마운트 시 opacity+translateY(10px) → 0.35s ease, reduced-motion 분기
+
+  **수정 파일:**
+  - FadeIn.jsx: scale prop 추가 (scale=true → fromTransform에 'scale(0.96)' 병합)
+  - ProjectGrid.jsx: keycolors.json fetch (once, useState), keyOf() 헬퍼, FadeIn 래퍼 제거, index+keycolor를 ProjectCard에 전달
+  - ProjectCard.jsx: keycolor를 card 배경색으로 사용; IntersectionObserver로 진입 감지 후 이미지 레이어 opacity+translate 애니 (방향 DIRS[8], delay 행·열 기반, --ease-out, reduced-motion 즉시 표시)
+  - AboutPage.jsx: PageTransition + Intro/Schedule FadeIn (delay 0/80ms)
+  - AgainstPage.jsx: PageTransition + AwardHero FadeIn(scale) + 나머지 FadeIn
+  - ContestPage.jsx: PageTransition + contest 3개 stagger FadeIn (delay i*120ms)
+  - AwardPage.jsx: PageTransition + SectionLabel/Grand/Rest FadeIn (delay 0/80/0ms)
+  - LucidPage.jsx: PageTransition + Intro/Committee/History FadeIn 순차
+  - GalleryPage.jsx: PageTransition + GalleryCarousel FadeIn
+
+  **동작 요약:**
+  - 카드 진입: 키컬러 배경 즉시 표시 → 이미지 opacity+translate fade-in (0.5s ease, 행·열 delay)
+  - 페이지 전환: 마운트 시 translateY(10px)→0 + opacity:0→1 (0.35s)
+  - 섹션 reveal: IntersectionObserver once, direction별 translateX/Y
+  - prefers-reduced-motion: 즉시 표시
+
+  **최종 빌드:** npm run build 에러 0, 2.56s
+
+## [PHASE 3-W — 카드 애니 고급화 + Against 콘텐츠] 완료 (2026-05-28)
+
+  **[1] ProjectCard.jsx 애니메이션 개선:**
+  - duration: 0.5s → 1.0s
+  - translate: 20px → 40px (더 멀리서 스르륵)
+  - easing: `cubic-bezier(0.22, 1, 0.36, 1)` (묵직하게 정지)
+  - stagger: (col*100 + row*80)ms, max 500ms
+  - transition 항상 정의 → visible 상태 변경 시 실제 CSS transition 발화 (이전 버전: transition:'none'→'1s'와 opacity 동시 변경으로 애니 미발화 버그 수정)
+
+  **[2] Against the Flow 콘텐츠:**
+  - src/data/against.js: conceptLines (4줄), conceptAccordions (2개 항목)
+  - src/components/against/AgainstConcept.jsx: 컨셉 문구 + 2개 아코디언
+    · 제작 의도 및 시각 요소: 번호 항목 3개 (head + paras 배열, 좌측 2px border 인덴트)
+    · AI 활용 및 학생의 기여: 레이블:값 dl 목록
+    · 기본 접힘, 클릭 시 max-height 0→4000px 0.4s ease-out
+    · hover 시 타이틀 #F5C518 (onMouseEnter/Leave)
+  - AgainstPage.jsx: AgainstConcept 섹션 추가 (AwardHero → Divider → AgainstConcept → Divider → HistoryAccordion → Divider → DesignSystemCTA)
+
+  **최종 빌드:** npm run build 에러 0, 2.66s (AgainstPage: 6.81 kB)
+
+## [PHASE 3-X — 카드 진입 2단계 키컬러 와이프] 완료 (2026-05-28)
+
+  **구현 방식: CSS @keyframes + IntersectionObserver**
+  - React transition 방식 폐기 (transition+opacity 동시 변경 → 브라우저 발화 안 함)
+  - CSS animation에 3단계 시퀀스 완전 위임
+
+  **index.css — 5개 @keyframes 추가:**
+  - wipe-overlay-up/down/left/right: 3단계 타임라인
+    · 0%→37% (0→0.5s): 오버레이 슬라이드 인, cubic-bezier(0.22,1,0.36,1)
+    · 37%→56% (0.5→0.75s): 홀드, linear
+    · 56%→100% (0.75→1.35s): 오버레이 슬라이드 아웃, cubic-bezier(0.22,1,0.36,1)
+    · animation-timing-function per-keyframe 사용
+  - wipe-image-reveal: 56% opacity:0 유지 → 100% opacity:1 (오버레이 퇴장과 동기)
+
+  **ProjectCard.jsx 재작성:**
+  - 카드 배경: keycolor → #0a0a0a (오버레이가 keycolor 담당)
+  - IO fires → entered=true → anim=true → CSS animation 시작
+  - 이미지 레이어: animation-fill-mode:both → 딜레이 중 opacity:0, 완료 후 opacity:1 유지
+  - 키컬러 오버레이: animation-fill-mode:both → 딜레이 중 off-screen, 완료 후 off-screen 유지
+  - stagger delay: (col×100 + row×80)ms, max 500ms
+  - reduced-motion: entered=true 즉시, anim=false → 이미지 opacity:1 즉시
+
+  **최종 빌드:** npm run build 에러 0, 2.15s
+
 ## 진행중
 - (없음)
 

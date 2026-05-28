@@ -4,6 +4,8 @@ import AwardGrandSection from '../components/award/AwardGrandSection'
 import AwardRestSection from '../components/award/AwardRestSection'
 import SectionLabel from '../components/ui/SectionLabel'
 import Divider from '../components/ui/Divider'
+import FadeIn from '../components/ui/FadeIn'
+import PageTransition from '../components/ui/PageTransition'
 import { works } from '../data/works'
 import { getAwardWorks } from '../utils/workUtils'
 
@@ -15,18 +17,18 @@ export default function AwardPage() {
   const { grand, rest } = getAwardWorks(works)
 
   return (
-    <div className="pt-10 pb-24">
+    <PageTransition className="pt-10 pb-24">
       <PageHeader title="Award" />
 
       <section className="mb-16">
-        <SectionLabel>최우수상</SectionLabel>
+        <FadeIn><SectionLabel>최우수상</SectionLabel></FadeIn>
         <Divider className="mt-4 mb-10" />
-        <AwardGrandSection work={grand[0] ?? null} />
+        <FadeIn delay={80}><AwardGrandSection work={grand[0] ?? null} /></FadeIn>
       </section>
 
       <section>
-        <AwardRestSection works={rest} />
+        <FadeIn><AwardRestSection works={rest} /></FadeIn>
       </section>
-    </div>
+    </PageTransition>
   )
 }

@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import PageHeader from '../components/ui/PageHeader'
 import GalleryCarousel from '../components/gallery/GalleryCarousel'
+import FadeIn from '../components/ui/FadeIn'
+import PageTransition from '../components/ui/PageTransition'
 
 export default function GalleryPage() {
   useEffect(() => {
@@ -8,9 +10,9 @@ export default function GalleryPage() {
   }, [])
 
   return (
-    <div className="pt-10 pb-24">
+    <PageTransition className="pt-10 pb-24">
       <PageHeader title="Gallery" />
-      <GalleryCarousel photos={[]} />
-    </div>
+      <FadeIn><GalleryCarousel photos={[]} /></FadeIn>
+    </PageTransition>
   )
 }
