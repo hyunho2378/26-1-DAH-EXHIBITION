@@ -51,7 +51,7 @@ export default function Header() {
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `font-ui text-xs uppercase transition-colors duration-200 ${
+                `font-ui text-sm transition-colors duration-200 ${
                   isActive ? 'text-accent font-extrabold' : 'text-text-muted font-bold hover:text-text-primary'
                 }`
               }

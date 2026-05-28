@@ -374,6 +374,29 @@
 
   **최종 빌드:** npm run build 에러 0, 2.15s
 
+## [PHASE 3-Y — Against 레이아웃 정리] 완료 (2026-05-28)
+
+  **수정 항목:**
+  - AwardHero.jsx: 우측 컬럼에 컨셉 문구(conceptLines) + 2개 아코디언(conceptAccordions) + Design System 버튼 통합
+    · 기존: AwardHero(제목+rows) / AgainstConcept(개념+아코디언) / DesignSystemCTA(버튼) 3개 분리
+    · 이후: 포스터 좌 / 우측 단일 컬럼(제목→rows→컨셉→아코디언→버튼) 연속 흐름
+    · useState(openIdx) 아코디언 상태 AwardHero 내부로 이동
+    · Button variant="primary" to="/against/design-system" 우측 컬럼 하단 left-align
+  - HistoryAccordion.jsx: Divider + borderBottom 제거 (여백만으로 구분)
+  - AgainstPage.jsx: AgainstConcept / DesignSystemCTA / 모든 Divider 제거
+    · FadeIn(scale)+AwardHero / FadeIn+HistoryAccordion 2개 섹션만 유지
+
+  **최종 빌드:** npm run build 에러 0, 2.16s
+
+## [PHASE 3-Z — works.js 작품 삭제 (dd1 2건)] 완료 (2026-05-29)
+
+  **수정 항목:**
+  - id='039' 박석범 (subjectId: 'dd1') 삭제
+  - id='072' 김소연 (subjectId: 'dd1') 삭제
+  - id 재정렬 없음 (기존 id 유지)
+
+  **최종 빌드:** npm run build 에러 0, 2.89s
+
 ## 진행중
 - (없음)
 

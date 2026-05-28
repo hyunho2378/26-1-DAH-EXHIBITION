@@ -1466,20 +1466,6 @@ export const works = [
         ]
     },
     {
-        id: '039',
-        subjectId: 'dd1',
-        subjectName: '디지털디자인1',
-        title: '미정',
-        author: '박석범',
-        members: [],
-        description: '미정',
-        award: null,
-        links: [],
-        pages: [
-            '/works/039_dd1.webp'
-        ]
-    },
-    {
         id: '040',
         subjectId: 'dd1',
         subjectName: '디지털디자인1',
@@ -2046,20 +2032,6 @@ export const works = [
         links: [],
         pages: [
             '/works/071_free.webp'
-        ]
-    },
-    {
-        id: '072',
-        subjectId: 'dd1',
-        subjectName: '디지털디자인1',
-        title: '인제로 열린 창',
-        author: '김소연',
-        members: [],
-        description: '양옆의 집중되는 패턴으로 책장을 표현하고, 위아래의 잔디로 자연을 담았습니다. 도서관 안에서 밖을 바라보는 시선을 시각화한 작품입니다.',
-        award: null,
-        links: [],
-        pages: [
-            '/works/072_dd1.webp'
         ]
     },
     {

@@ -28,7 +28,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             end={to === '/'}
             onClick={onClose}
             className={({ isActive }) =>
-              `py-3 text-sm font-semibold font-ui tracking-widest uppercase transition-colors duration-200 ${
+              `py-3 text-sm font-semibold font-ui tracking-widest transition-colors duration-200 ${
                 isActive ? 'text-accent' : 'text-text-muted hover:text-text-primary'
               }`
             }

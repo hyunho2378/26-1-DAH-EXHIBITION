@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import SectionLabel from '../ui/SectionLabel'
-import Divider from '../ui/Divider'
 import { history } from '../../data/history'
 
 export default function HistoryAccordion() {
@@ -10,8 +9,7 @@ export default function HistoryAccordion() {
   return (
     <section className="py-12 md:py-16">
       <SectionLabel>역대 전시</SectionLabel>
-      <Divider className="mt-4 mb-6" />
-      <div style={{ borderBottom: '1px solid #1f1f1f' }}>
+      <div className="mt-4">
         <button
           onClick={() => setOpen(o => !o)}
           className="w-full flex items-center justify-between py-4 text-left transition-colors duration-200 font-body font-semibold"

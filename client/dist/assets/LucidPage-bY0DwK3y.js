@@ -1,4 +1,4 @@
-import{j as e,r as n}from"./index-CxTRtdDv.js";import{P as l}from"./PageHeader-BEIn1h0X.js";import{F as a,P as x}from"./PageTransition-BfH4sG-O.js";import{S as i}from"./SectionLabel-C7i_88Uo.js";import{D as m}from"./Divider-CiYQszqm.js";import{C as c}from"./chevron-down-DRl94Qs2.js";function d({size:s=40,className:t=""}){return e.jsx("img",{src:"/logo-color.svg",alt:"LUCID 로고",width:s,height:s,className:t,style:{display:"block"}})}const f=`물감은 섞일수록 어두워지지만, 빛은 섞일수록 밝고 투명해집니다.
+import{j as e,r as n}from"./index-BXnRa4wM.js";import{P as l}from"./PageHeader-BvRe6zhh.js";import{F as a,P as x}from"./PageTransition-BNF-RTvL.js";import{S as i}from"./SectionLabel-DmwlwVpz.js";import{D as m}from"./Divider-C5xnA6-b.js";import{C as c}from"./chevron-down-B8GsC2uJ.js";function d({size:s=40,className:t=""}){return e.jsx("img",{src:"/logo-color.svg",alt:"LUCID 로고",width:s,height:s,className:t,style:{display:"block"}})}const f=`물감은 섞일수록 어두워지지만, 빛은 섞일수록 밝고 투명해집니다.
 LUCID는 인문과 기술, 다양한 전공이 모인 이곳에서 나다움을 잃지 않으면서도
 서로를 빛내주는 시너지를 만들고자 합니다.
 다양한 색이 모여 만드는 가장 눈부신 가능성을 마음껏 펼칠 수 있도록
