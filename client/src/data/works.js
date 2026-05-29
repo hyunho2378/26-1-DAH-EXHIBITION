@@ -2140,7 +2140,6 @@ export const works = [
         description: '디지털이 낯선 64세 1인 미용실 사장님과 시술 결정이 어려운 손님, 두 사용자의 마찰을 동시에 줄이는 무간섭 서비스를 기획 및 배포해 실제 성과를 이끌어냈습니다.',
         award: null,
         links: [
-            { label: 'N9 개인 맞춤 서비스', url: 'https://numer9-personal-ai.vercel.app/' },
             { label: '프로젝트 웹사이트', url: 'https://numer9-personal-ai.vercel.app/' }
         ],
         pages: [
