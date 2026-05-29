@@ -55,8 +55,8 @@ export default function AwardHero() {
               ))}
             </dl>
 
-            {/* 작가 표기 — 한 줄 + 하단 구분선 */}
-            <div className="mt-8 pb-6 mb-8" style={{ borderBottom: '1px solid #1f1f1f', ...anim('hero-fade-up', '0.7s', 425) }}>
+            {/* 작가 표기 — 한 줄 */}
+            <div className="mt-8" style={anim('hero-fade-up', '0.7s', 425)}>
               <p className="font-body font-bold text-text-primary" style={{ fontSize: '1.05rem' }}>
                 주현호{' '}
                 <span className="text-text-muted font-normal" style={{ fontSize: '0.8rem' }}>
@@ -68,8 +68,8 @@ export default function AwardHero() {
 
           {/* 하단 그룹: 작품 설명 + 아코디언 + 버튼 */}
           <div>
-            {/* 작품 설명 (conceptLines) — 화이트, 이탤릭 */}
-            <div className="flex flex-col gap-3" style={anim('hero-fade-up', '0.7s', 500)}>
+            {/* 작품 설명 (conceptLines) — 위아래 선 + 동일 py-8 패딩 */}
+            <div className="py-8 flex flex-col gap-3" style={{ borderTop: '1px solid #1f1f1f', borderBottom: '1px solid #1f1f1f', ...anim('hero-fade-up', '0.7s', 500) }}>
               {conceptLines.map((line, i) => (
                 <p key={i} className="text-sm font-body leading-relaxed" style={{ color: '#f0f0f0', fontStyle: 'italic', wordBreak: 'keep-all' }}>
                   {line}
@@ -78,7 +78,7 @@ export default function AwardHero() {
             </div>
 
             {/* 아코디언 */}
-            <div className="mt-8" style={{ borderTop: '1px solid #1f1f1f', ...anim('hero-fade-up', '0.7s', 650) }}>
+            <div className="mt-6" style={anim('hero-fade-up', '0.7s', 650)}>
               {conceptAccordions.map((acc, idx) => (
                 <div key={idx} style={{ borderBottom: '1px solid #1f1f1f' }}>
                   <button

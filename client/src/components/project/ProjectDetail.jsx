@@ -105,9 +105,9 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
             )}
 
             {/* 일반 레이아웃 캐러셀 내비 */}
-            {!isMagazine && pages.length > 1 && pageIdx > 0 && (
+            {!isMagazine && pages.length > 1 && (
               <button
-                onClick={e => { e.stopPropagation(); setPageIdx(i => i - 1) }}
+                onClick={e => { e.stopPropagation(); setPageIdx(i => (i - 1 + pages.length) % pages.length) }}
                 style={{ ...navBtnStyle, left: 10 }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = '#2A2A2A'; e.currentTarget.style.color = '#f0f0f0' }}
@@ -116,9 +116,9 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
                 <ChevronLeft size={16} />
               </button>
             )}
-            {!isMagazine && pages.length > 1 && pageIdx < pages.length - 1 && (
+            {!isMagazine && pages.length > 1 && (
               <button
-                onClick={e => { e.stopPropagation(); setPageIdx(i => i + 1) }}
+                onClick={e => { e.stopPropagation(); setPageIdx(i => (i + 1) % pages.length) }}
                 style={{ ...navBtnStyle, right: 10 }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = '#2A2A2A'; e.currentTarget.style.color = '#f0f0f0' }}

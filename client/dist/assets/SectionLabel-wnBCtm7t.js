@@ -1,1 +1,0 @@
-import{j as t}from"./index-zrRqnQoH.js";function i({children:s,number:e}){return t.jsxs("span",{className:"inline-flex items-center gap-2 font-ui text-xs font-semibold tracking-[0.15em] uppercase text-text-muted",children:[e&&t.jsx("span",{children:e}),s]})}export{i as S};
