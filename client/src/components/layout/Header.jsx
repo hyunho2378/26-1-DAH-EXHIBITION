@@ -51,8 +51,8 @@ export default function Header() {
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `font-ui text-sm transition-colors duration-200 ${
-                  isActive ? 'text-accent font-extrabold' : 'text-text-muted font-bold hover:text-text-primary'
+                `font-ui text-sm font-bold transition-[color,opacity] duration-[250ms] ease active:opacity-70 active:duration-150 ${
+                  isActive ? 'text-accent' : 'text-text-muted hover:text-text-primary'
                 }`
               }
               style={{ letterSpacing: '0.08em' }}

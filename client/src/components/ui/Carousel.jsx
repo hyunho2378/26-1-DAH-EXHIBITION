@@ -6,7 +6,7 @@ export default function Carousel({ photos = [] }) {
 
   if (photos.length === 0) {
     return (
-      <div className="relative w-full aspect-video bg-surface flex items-center justify-center">
+      <div className="relative w-full bg-surface flex items-center justify-center" style={{ maxHeight: '90vh', minHeight: '320px' }}>
         <div className="flex flex-col items-center gap-3">
           <span className="text-xs text-text-muted font-ui uppercase tracking-widest">Coming Soon</span>
           <p className="text-sm text-text-muted font-body text-center max-w-xs" style={{ wordBreak: 'keep-all' }}>
@@ -36,7 +36,7 @@ export default function Carousel({ photos = [] }) {
       <img
         src={photos[idx]}
         alt={`전시 현장 ${idx + 1}`}
-        className="w-full object-contain max-h-[80vh]"
+        className="w-full object-contain max-h-[90vh]"
         loading="lazy"
       />
       <button

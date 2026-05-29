@@ -397,6 +397,268 @@
 
   **최종 빌드:** npm run build 에러 0, 2.89s
 
+## [PHASE 3-AA — 수정 1/2/3/4 복합] 완료 (2026-05-29)
+
+  **[수정 1] ProjectDetail.jsx — members 분기 명시적 재작성**
+  - `renderMembers()` 함수로 추출, `membersLen = work.members?.length ?? 0` 기반 조건 명시화
+  - membersLen === 0 → null (섹션 미렌더)
+  - membersLen === 1 → `{name} / {studentId}, {major}` 한 줄
+  - membersLen >= 2 → 두 줄 (이름 + 학번/전공) 리스트
+
+  **[수정 2] ProjectsPage.jsx — ALL 마운트당 Fisher-Yates 셔플**
+  - `shuffle(arr)` 헬퍼 추가
+  - `const [shuffledAll] = useState(() => shuffle(works))` — 마운트당 1회, 리렌더 시 재셔플 없음
+  - ALL: `shuffledAll` 사용 / 특정 과목: `filterBySubject(works, activeId)` (id 순 유지)
+
+  **[수정 3] 상세→목록 복귀 시 과목 필터 복원**
+  - ProjectsPage → `<ProjectGrid subject={activeId} />`
+  - ProjectGrid → `<ProjectCard subject={subject} />` (prop 추가)
+  - ProjectCard → `<Link state={{ subject }}>` (Link state로 subject 전달)
+  - ProjectDetailPage → `useLocation().state?.subject` 읽어 `fromSubject` prop 전달
+  - ProjectDetail → `fromSubject` prop 추가, BackLink to: `/projects?subject=${fromSubject}` 또는 `/projects`
+
+  **[수정 4] ProjectCard IO 수정 — 와이프 누락 카드 해소**
+  - threshold: 0.05 → 0.01
+  - 마운트 시 `getBoundingClientRect()` 초기 체크: 이미 뷰포트 안이면 즉시 entered=true
+  - off-screen 카드만 IO 등록 (초기 체크 통과 시 IO 생략)
+
+  **최종 빌드:** npm run build 에러 0, 2.44s
+
+## [PHASE 3-AB — Against 포스터/텍스트 블록 수정] 완료 (2026-05-29)
+
+  **수정 항목 (AwardHero.jsx):**
+  - 포스터 좌측: img를 `<div>`로 감싸고 아래에 작가 두 줄 추가
+    · 주현호 (text-sm font-semibold text-text-primary)
+    · 20222583, 디지털인문예술전공 (text-xs text-text-muted)
+  - 제목 h2: '18'만 `<span style={{ color: '#F5C518' }}>` 처리 (인라인 JSX, 데이터 변경 없음)
+  - dl: space-y-3 → gap 20px, 각 항목 label/value 수직 구조 (mb-1 라벨 + dd)
+  - conceptLines: mt-4 → mt-10 (주최와 큰 여백), color: '#F5C518' (프라이머리 강조)
+  - 아코디언/버튼 위치 유지
+
+  **최종 빌드:** npm run build 에러 0, 2.00s
+
+## [PHASE 3-AC — 이미지/레이아웃/LUCID/About 복합 수정] 완료 (2026-05-29)
+
+  **[1] ProjectImage.jsx — object-cover → object-contain (카드 잘림 방지)**
+
+  **[2] Carousel.jsx — Gallery 높이 축소**
+  - 빈 상태: aspect-video → max-h 60vh
+  - 사진 상태: max-h-[80vh] → max-h-[60vh]
+
+  **[3] Award 안내 문구 변경**
+  - AwardGrandSection.jsx: "최우수상 수상작은 6월 이후 공개됩니다." → "수상작은 6월 4일 시상식 발표 후 업로드됩니다."
+  - AwardRestSection.jsx: 동일
+
+  **[LUCID 1] 선 제거**
+  - LucidPage.jsx: CommitteeList~HistoryList 사이 Divider 제거 (연혁 위쪽 선)
+  - HistoryList.jsx: 내부 Divider + borderBottom 제거, mt-6 여백으로 구분
+
+  **[LUCID 2] 연혁 이름 강조 (HistoryList.jsx)**
+  - `renderName()` 헬퍼: regex `/^(제)(\d+)(대 학생회 )(.+)$/` 로 숫자+학생회명 gold 처리
+  - '임시 학생회' → 강조 없음
+
+  **[LUCID 3] LucidIntro.jsx**
+  - LogoMark size: 120 → 180 (1.5배)
+  - p max-w-2xl → max-w-4xl
+  - 로고 아래 "LUCID 사이트" Ghost 버튼 추가 (href: dah-lucid-site.vercel.app)
+
+  **[LUCID 4] CommitteeList.jsx + lucid.js**
+  - lucid.js: '주현호(디지털인문예술 22)' → '주현호 (디지털인문예술 22)' (부위원장 동일)
+  - CommitteeList: 위원장/부위원장 dt gold+bold, 이름 gold+bold (괄호 정보는 muted)
+
+  **[About 6] AboutPage.jsx**
+  - AboutIntro~AboutSchedule 사이 Divider 제거 (02 위쪽 선)
+
+  **[About 7/8] about.js**
+  - heroTitle: '제18회 디인예 전시회' → 'Against the Flow'
+  - heroSubtitleKo: '「 Against the Flow 」' → '제18회 디지털인문예술전공 프로젝트 전시회'
+
+  **[About 9] AboutIntro.jsx**
+  - p max-w-3xl → max-w-5xl
+
+  **[About 10] Button.jsx**
+  - 모든 variant: font-semibold → font-bold
+  - base에 rounded-lg (8px) 추가 (전역 적용)
+
+  **최종 빌드:** npm run build 에러 0, 2.27s
+
+## [PHASE 3-AD — 전 페이지 고급 인터랙션 통일] 완료 (2026-05-29)
+
+  **공통 easing: cubic-bezier(0.22, 1, 0.36, 1), duration 0.7~1.1s, CSS+IO only**
+
+  **[1] Against the Flow 타이틀 시퀀스 (AboutHero.jsx)**
+  - h1 전체: `title-clip-reveal` (좌→우 clip-path inset reveal, 1.0s)
+  - "Flow" span(inline-block): `title-flow-flip` (0.9s, delay 900ms)
+    · 0→40%: blur(2px) 흐름 표현 / 100%: scaleX(-1) 반전 유지 (흐름을 거스르다 시각화)
+  - h2: `hero-fade-up` 0.7s delay 1600ms
+  - p: `hero-fade-up` 0.7s delay 1800ms
+  - buttons: `hero-fade-up` 0.7s delay 2000ms
+  - FadeIn 래퍼 제거, reducedMotion 분기 포함
+
+  **[2] index.css — 신규 keyframes 4종 추가**
+  - `title-clip-reveal`: h1 좌→우 reveal
+  - `title-flow-flip`: "Flow" scaleX(-1) + blur 흐름
+  - `hero-fade-up`: opacity+translateY(20px) fade-up
+  - `poster-reveal`: scale(0.97)+translateY(12px) fade-in
+
+  **[3] PageTransition.jsx 미세 조정**
+  - translateY(10px) → 8px, duration 0.35s → 0.4s
+
+  **[4] Against 포스터/텍스트 stagger (AwardHero.jsx)**
+  - 포스터 div: `poster-reveal` 1.0s delay 100ms
+  - h2: `hero-fade-up` 0.7s delay 200ms
+  - dl(전시 정보): `hero-fade-up` 0.7s delay 350ms
+  - conceptLines: `hero-fade-up` 0.7s delay 500ms
+  - 아코디언: `hero-fade-up` 0.7s delay 650ms
+  - 버튼: `hero-fade-up` 0.7s delay 800ms
+  - AgainstPage: `<FadeIn scale><AwardHero />` → `<AwardHero />` (내부 처리)
+
+  **[5] Contest 카드 Plus X 키컬러 와이프 (ContestSection.jsx)**
+  - index prop 추가, DIRS['up','left','right'] 방향 순환
+  - IO + getBoundingClientRect 초기 체크 (ProjectCard 동일 로직)
+  - 이미지 컨테이너: relative overflow-hidden
+  - `wipe-image-reveal` + `wipe-overlay-${dir}` CSS animation
+  - delay: index*150ms (카드 간 시간차)
+  - FadeIn 외부 래퍼 제거
+  - ContestPage: FadeIn 래퍼 제거, index prop 전달
+
+  **[6] LUCID 페이지 stagger**
+  - LucidIntro: 로고+버튼 FadeIn(delay 0) / 텍스트 FadeIn(delay 150) 분리
+  - CommitteeList: 라벨+Divider FadeIn / 각 항목 FadeIn(delay i*80ms)
+  - HistoryList: FadeIn import 추가, 아코디언 내부 항목 FadeIn(delay i*60ms)
+  - LucidPage: LucidIntro/CommitteeList FadeIn 래퍼 제거 (내부에서 처리)
+
+  **최종 빌드:** npm run build 에러 0, 2.27s
+
+## [PHASE 3-AE — Against 작가 표기·텍스트 스타일 수정] 완료 (2026-05-29)
+
+  **수정 파일: client/src/components/against/AwardHero.jsx**
+
+  **[1] 작가 표기 위치 이동**
+  - 포스터 하단 작가 두 줄 제거 (주현호 / 20222583, 디지털인문예술전공)
+  - 우측 텍스트 블록 → dl(전시 정보) 아래에 작가 블록 추가 (delay 425ms)
+    · "Against the Flow" 레이블 (text-xs, tracking-widest, #F5C518)
+    · "주현호" (font-bold, 1.05rem, text-text-primary)
+    · "20222583, 디지털인문예술전공" (text-xs, text-text-muted)
+
+  **[2] 작품 설명(conceptLines) 스타일**
+  - color: '#F5C518' → '#f0f0f0' (화이트)
+  - fontStyle: 'italic' 추가
+
+  **[3] 아코디언 제목 크기 축소**
+  - 아코디언 버튼: `font-body font-semibold` → `font-body font-semibold text-sm`
+
+  **[4] "Against the Flow" 강조**
+  - 작가 블록 상단 레이블로 표기, color: '#F5C518'
+
+  **최종 빌드:** npm run build 에러 0, 2.29s
+
+## [PHASE 3-AF — Header 네비 layout shift 수정 + 클릭 인터랙션] 완료 (2026-05-29)
+
+  **[1] Header.jsx — 데스크탑 NavLink layout shift 수정**
+  - 원인: active `font-extrabold`(800) vs 비active `font-bold`(700) 굵기 차이로 글자 너비 변화
+  - 수정: `font-extrabold` 제거 → 양쪽 모두 `font-bold`(700) 고정 (className에서 active 분기 제거)
+  - 색만 분기: active `text-accent` / 비active `text-text-muted hover:text-text-primary`
+
+  **[2] Header.jsx + MobileMenu.jsx — 클릭 마이크로 인터랙션**
+  - `transition-colors duration-200` → `transition-[color,opacity] duration-[250ms] ease`
+  - `active:opacity-70 active:duration-150` 추가 (눌리는 느낌, 150ms)
+  - MobileMenu: 이미 weight 동일(`font-semibold` 고정)이라 layout shift 없음, 인터랙션만 동일 적용
+
+  **최종 빌드:** npm run build 에러 0, 2.34s
+
+## [PHASE 3-AG — About Hero 원복 + 소개 텍스트 폭 + Gallery 높이] 완료 (2026-05-29)
+
+  **[1] AboutHero.jsx — "Flow" 좌우반전 제거**
+  - heroTitle 마지막 단어 분리 로직(words/lastWord/prefix) 제거
+  - h1 내용: `{prefix}<span ...>{lastWord}</span>` → `{heroTitle}` 단순화
+  - `title-flow-flip` 애니메이션 제거 (scaleX(-1) + blur)
+  - `title-clip-reveal` (h1 좌→우 reveal) 애니메이션은 유지
+  - h2/p/버튼 fade-up 시퀀스 유지
+
+  **[2] AboutIntro.jsx — 텍스트 폭 제약 제거**
+  - 원인: `p.max-w-5xl` (1024px 캡)이 단독 제약. 부모 체인(Layout max-w-1280px, FadeIn, section) 에는 폭 제약 없음.
+  - 수정: `max-w-5xl` 클래스 제거 → 부모 컨테이너 폭(max 1280px)까지 자연스럽게 확장
+
+  **[3] Carousel.jsx — Gallery 높이 2배**
+  - 빈 상태: `maxHeight: '60vh', minHeight: '200px'` → `maxHeight: '90vh', minHeight: '320px'`
+  - 사진 상태: `max-h-[60vh]` → `max-h-[90vh]` (object-contain 유지)
+  - 90vh = 화면 내에 수용되면서 이전(60vh)의 ~1.5× 확장
+
+  **최종 빌드:** npm run build 에러 0, 2.26s
+
+## [PHASE 3-AH — LUCID/Contest/SubjectPanel 수정] 완료 (2026-05-29)
+
+  **[1] LucidIntro.jsx — 로고-텍스트 간격 + 정렬**
+  - gap-8 (32px) → gap-10 (40px)
+  - items-start → items-start md:items-center (데스크탑 row에서 수직 중앙 정렬)
+
+  **[2] CommitteeList.jsx — 위원장/부위원장 이름 색상 변경**
+  - renderLeaderMember: 이름 color #F5C518 → #f0f0f0 (화이트, fontWeight 700 유지)
+  - 괄호 정보: text-text-muted (#BABABA) → color #F5C518 (골드로 전환)
+
+  **[3] ContestSection.jsx — 카드 전체 축소**
+  - section py-10 → py-6 (80px → 48px 상하 여백)
+  - Divider mb-6 → mb-4
+  - 이미지 컨테이너 maxWidth 360px → 240px (포스터 높이 480px → 320px, 3/4 비율 유지)
+  - 이미지 컨테이너 mb-6 → mb-4
+  - description mb-6 → mb-4
+
+  **[4] SubjectInfoPanel.jsx — 자율 프로젝트 지도교수 미표시**
+  - subject.id !== 'free' 조건 추가, free 선택 시 "지도교수:" 줄 미렌더
+
+  **최종 빌드:** npm run build 에러 0, 2.33s
+
+## [PHASE 3-AI — Against AwardHero 텍스트·레이아웃 수정] 완료 (2026-05-29)
+
+  **수정 파일: client/src/components/against/AwardHero.jsx**
+
+  **[1] 제목 줄 수정**
+  - '18' gold span 제거 → 전체 텍스트 기본색(#f0f0f0) 유지
+  - 콜론 뒤 " Against the Flow" 추가: `<span style={{ color: '#F5C518' }}>` 처리
+  - word-break: keep-all 유지, 자연 줄바꿈
+
+  **[2] 작가 표기 한 줄 통합**
+  - 기존: 주현호(p 1줄) + 20222583, 디지털인문예술전공(p 2줄)
+  - 변경: 단일 `<p>` — "주현호 (20222583, 디지털인문예술전공)"
+    · 이름: font-bold, 1.05rem, text-text-primary 유지
+    · 괄호 정보: inline `<span>` font-normal, 0.8rem, text-text-muted
+
+  **[3] 포스터-우측 블록 세로 높이 정렬**
+  - 부모 flex row: `items-start` 제거 → default(items-stretch) 적용
+    → 우측 컬럼이 포스터 높이만큼 자동 stretch
+  - 우측 컬럼: `justify-between` 추가
+  - 상단 그룹 `<div>` 래핑: h2 + dl + 작가 블록
+  - 하단 그룹 `<div>` 래핑: conceptLines + 아코디언 + 버튼
+  - conceptLines div: `mt-8` 제거 (하단 그룹 첫 요소)
+  - 포스터 > 우측 내용 높이: 우측이 포스터 바닥까지 늘어남
+  - 우측 > 포스터 높이: 우측이 자연스럽게 넘침 (세로 스크롤)
+
+  **최종 빌드:** npm run build 에러 0, 2.74s
+
+## [PHASE 3-AJ — Against 아코디언 인터랙션 + 여백 수정] 완료 (2026-05-29)
+
+  **수정 파일: client/src/components/against/AwardHero.jsx**
+
+  **[1] Design System 버튼 제거**
+  - 이전 세션에서 이미 제거 완료. 현재 파일에 없음 확인.
+
+  **[2] 아코디언 인터랙션 개선**
+  - 콘텐츠 div: opacity 0↔1 추가 (transition 0.35s ease)
+  - 콘텐츠 div: max-height transition `0.4s ease-out` → `0.45s cubic-bezier(0.22,1,0.36,1)`
+  - ChevronDown: className `transition-transform duration-300` 제거, inline style `transition: 'transform 0.35s ease'`
+  - 헤더(button)에는 transform/translate 없음 — 헤더 고정, 콘텐츠만 펼침 확인
+
+  **[3] 아코디언 콘텐츠 상단 여백**
+  - acc.items 내부 div: `pb-8` → `pt-8 pb-8` (32px top padding 추가)
+  - acc.credits 내부 dl: `pb-6` → `pt-8 pb-6` (32px top padding 추가)
+
+  **[4] 작품 설명 위아래 여백 통일**
+  - 위쪽 border: 작가 블록 `mb-8`(32px) — 유지
+  - 아래쪽 border: 아코디언 래퍼 `mt-6`(24px) → `mt-8`(32px) — 32px로 통일
+
+  **최종 빌드:** npm run build 에러 0, 2.22s
+
 ## 진행중
 - (없음)
 

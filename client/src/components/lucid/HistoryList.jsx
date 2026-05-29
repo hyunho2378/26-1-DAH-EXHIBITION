@@ -1,8 +1,23 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import FadeIn from '../ui/FadeIn'
 import SectionLabel from '../ui/SectionLabel'
-import Divider from '../ui/Divider'
 import { history } from '../../data/lucid'
+
+// '제N대 학생회 NAME' 에서 N과 NAME을 #F5C518 강조. 임시 학생회는 그대로.
+function renderName(name) {
+  const m = name.match(/^(제)(\d+)(대 학생회 )(.+)$/)
+  if (!m) return <span>{name}</span>
+  const [, pre, num, mid, council] = m
+  return (
+    <>
+      {pre}
+      <span style={{ color: '#F5C518' }}>{num}</span>
+      {mid}
+      <span style={{ color: '#F5C518' }}>{council}</span>
+    </>
+  )
+}
 
 export default function HistoryList() {
   const [open, setOpen] = useState(false)
@@ -10,8 +25,7 @@ export default function HistoryList() {
   return (
     <section className="py-12">
       <SectionLabel>History</SectionLabel>
-      <Divider className="mt-4 mb-6" />
-      <div style={{ borderBottom: '1px solid #1f1f1f' }}>
+      <div className="mt-6">
         <button
           onClick={() => setOpen(o => !o)}
           className="w-full flex items-center justify-between py-4 text-left transition-colors duration-200 font-body font-semibold"
@@ -33,15 +47,19 @@ export default function HistoryList() {
         >
           <dl className="pb-6 space-y-4 max-w-lg">
             {history.map((item, i) => (
-              <div key={i} className="flex gap-6">
-                <dt className="font-ui text-xs font-semibold text-text-muted tracking-wide w-12 shrink-0 pt-0.5">
-                  {item.year}
-                </dt>
-                <div>
-                  <dd className="text-sm font-semibold text-text-primary font-body">{item.name}</dd>
-                  <dd className="text-xs text-text-muted font-body mt-0.5">{item.members.join(', ')}</dd>
+              <FadeIn key={i} delay={i * 60}>
+                <div className="flex gap-6">
+                  <dt className="font-ui text-xs font-semibold text-text-muted tracking-wide w-12 shrink-0 pt-0.5">
+                    {item.year}
+                  </dt>
+                  <div>
+                    <dd className="text-sm font-semibold text-text-primary font-body">
+                      {renderName(item.name)}
+                    </dd>
+                    <dd className="text-xs text-text-muted font-body mt-0.5">{item.members.join(', ')}</dd>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </dl>
         </div>

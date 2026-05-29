@@ -11,7 +11,7 @@ export default function AgainstPage() {
 
   return (
     <PageTransition>
-      <FadeIn scale><AwardHero /></FadeIn>
+      <AwardHero />
       <FadeIn><HistoryAccordion /></FadeIn>
     </PageTransition>
   )

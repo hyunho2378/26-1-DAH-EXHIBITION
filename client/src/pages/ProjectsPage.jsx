@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import PageHeader from '../components/ui/PageHeader'
 import ProjectFilter from '../components/project/ProjectFilter'
@@ -8,9 +8,22 @@ import { subjects } from '../data/subjects'
 import { works } from '../data/works'
 import { filterBySubject } from '../utils/workUtils'
 
+// Fisher-Yates shuffle
+function shuffle(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 export default function ProjectsPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const activeId = searchParams.get('subject') ?? 'all'
+
+  // 마운트당 1회 셔플 (스크롤/리렌더 시 재셔플 없음)
+  const [shuffledAll] = useState(() => shuffle(works))
 
   useEffect(() => {
     document.title = 'Projects — 26-1 DAH EXHIBITION'
@@ -20,7 +33,8 @@ export default function ProjectsPage() {
     setSearchParams(id === 'all' ? {} : { subject: id }, { replace: true })
   }
 
-  const filtered = filterBySubject(works, activeId)
+  // ALL: 셔플 순서 / 특정 과목: id 순 유지
+  const filtered = activeId === 'all' ? shuffledAll : filterBySubject(works, activeId)
   const activeSubject = subjects.find(s => s.id === activeId)
 
   return (
@@ -41,7 +55,7 @@ export default function ProjectsPage() {
         {/* 콘텐츠 */}
         <div className="flex-1 min-w-0">
           <SubjectInfoPanel subject={activeSubject} />
-          <ProjectGrid works={filtered} />
+          <ProjectGrid works={filtered} subject={activeId} />
         </div>
       </div>
     </div>

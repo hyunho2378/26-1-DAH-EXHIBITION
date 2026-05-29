@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       className="mt-auto page-px py-8 md:py-10"
       style={{ borderTop: '1px solid #1f1f1f', background: '#0a0a0a' }}
     >
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between gap-8">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8">
         {/* 좌측 */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
@@ -17,22 +18,31 @@ export default function Footer() {
             </svg>
             <span className="text-xs text-text-muted font-body">한림대학교 디지털인문예술전공</span>
           </div>
-          <a
-            href="https://sites.google.com/glab.hallym.ac.kr/dah-hallym/about?authuser=0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-text-primary transition-colors font-body"
-          >
-            Hallym University DAH
-            <ExternalLink size={10} />
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://sites.google.com/glab.hallym.ac.kr/dah-hallym/about?authuser=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-text-primary transition-colors font-body"
+            >
+              Hallym University DAH
+              <ExternalLink size={10} />
+            </a>
+            <Link
+              to="/against/design-system"
+              className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-text-primary transition-colors font-body"
+            >
+              Design System
+              <ExternalLink size={10} />
+            </Link>
+          </div>
           <p className="text-xs text-text-muted font-body">
             &copy; 2026 디지털인문예술전공. All rights reserved.
           </p>
         </div>
 
         {/* 우측 */}
-        <div className="flex flex-col gap-1 md:text-right">
+        <div className="flex flex-col gap-1">
           <p className="text-xs text-text-muted font-body">한림대학교 디지털인문예술전공 운영위원회 LUCID</p>
           <p className="text-xs text-text-muted font-body">강원특별자치도 춘천시 한림대학길 1 Campus Life Center 1F</p>
           <p className="text-xs text-text-muted font-body">

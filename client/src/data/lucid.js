@@ -8,8 +8,8 @@ LUCID는 인문과 기술, 다양한 전공이 모인 이곳에서 나다움을 
 
 // COMMITTEE — 운영위원회 구성
 export const committee = [
-  { role: '위원장', members: ['주현호(디지털인문예술 22)'] },
-  { role: '부위원장', members: ['윤현아(디지털인문예술 23)'] },
+  { role: '위원장', members: ['주현호 (디지털인문예술 22)'] },
+  { role: '부위원장', members: ['윤현아 (디지털인문예술 23)'] },
   { role: '기획부', members: ['한수빈', '김소연'] },
   { role: '홍보부', members: ['여동규', '김지연', '송은채', '정민서'] },
   { role: '웹전시부', members: ['임지우', '임세연'] },

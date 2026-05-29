@@ -7,13 +7,13 @@ const SIZES = {
 }
 
 const VARIANTS = {
-  primary: 'bg-accent text-text-inverse font-semibold hover:bg-accent-dim',
-  ghost:   'border border-border-default text-text-primary hover:border-border-strong',
-  text:    'text-text-muted hover:text-text-primary',
+  primary: 'bg-accent text-text-inverse font-bold hover:bg-accent-dim',
+  ghost:   'border border-border-default text-text-primary font-bold hover:border-border-strong',
+  text:    'text-text-muted font-bold hover:text-text-primary',
 }
 
 export default function Button({ variant = 'primary', size = 'md', onClick, href, to, children, disabled, className = '' }) {
-  const base = `inline-flex items-center justify-center font-ui transition-colors duration-200 ${SIZES[size]} ${VARIANTS[variant]} ${className}`
+  const base = `inline-flex items-center justify-center font-ui rounded-lg transition-colors duration-200 ${SIZES[size]} ${VARIANTS[variant]} ${className}`
 
   if (to) return <Link to={to} className={base}>{children}</Link>
   if (href) return <a href={href} target="_blank" rel="noopener noreferrer" className={base}>{children}</a>

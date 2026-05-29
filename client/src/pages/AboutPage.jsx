@@ -16,7 +16,6 @@ export default function AboutPage() {
       <AboutHero />
       <Divider />
       <FadeIn><AboutIntro /></FadeIn>
-      <Divider />
       <FadeIn delay={80}><AboutSchedule /></FadeIn>
     </PageTransition>
   )

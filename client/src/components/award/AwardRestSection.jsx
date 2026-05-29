@@ -5,7 +5,7 @@ export default function AwardRestSection({ works }) {
     return (
       <div className="flex flex-col items-center justify-center py-16 gap-3">
         <p className="text-sm text-text-muted font-body" style={{ wordBreak: 'keep-all' }}>
-          수상작은 6월 이후 공개됩니다.
+          수상작은 6월 4일 시상식 발표 후 업로드됩니다.
         </p>
       </div>
     )

@@ -49,7 +49,7 @@ export default function ProjectImage({ src, type, alt, sizes, className = '' }) 
               sizes={sizes}
               loading="lazy"
               decoding="async"
-              className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+              className={`w-full h-full object-contain transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`}
               onLoad={() => setLoaded(true)}
               onError={handleError}
             />

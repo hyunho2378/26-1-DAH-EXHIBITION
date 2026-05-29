@@ -8,17 +8,20 @@ function thumbOf(src) {
   return `/works/thumbs/${src.split('/').pop()}`
 }
 
-export default function ProjectDetail({ work }) {
+export default function ProjectDetail({ work, fromSubject = 'all' }) {
   const [posterHovered, setPosterHovered] = useState(false)
   const [pageIdx, setPageIdx] = useState(0)
   const [magIdx, setMagIdx] = useState(0)
   const [magThumbFailed, setMagThumbFailed] = useState(() => new Set())
-  const hasMembers = work.members && work.members.length > 0
   const hasLinks = work.links && work.links.length > 0
   const isMagazine = work.layout === 'magazine'
   const pages = work.pages ?? []
   const mainSrc = isMagazine ? pages[0] : pages[pageIdx]
   const magPages = isMagazine ? pages.slice(1) : []
+
+  const backTo = fromSubject && fromSubject !== 'all'
+    ? `/projects?subject=${fromSubject}`
+    : '/projects'
 
   useEffect(() => {
     if (!magPages.length) return
@@ -33,10 +36,37 @@ export default function ProjectDetail({ work }) {
     display: 'flex', alignItems: 'center', transition: 'border-color 150ms ease, color 150ms ease',
   }
 
+  // members 렌더 분기 (명시적 length 조건)
+  const membersLen = work.members?.length ?? 0
+  const renderMembers = () => {
+    if (membersLen === 0) return null
+    if (membersLen === 1) {
+      const m = work.members[0]
+      return (
+        <p className="text-xs text-text-primary font-ui pt-1">
+          <span className="font-semibold">{m.name}</span>
+          {' / '}
+          <span className="text-text-muted">{m.studentId}, {m.major}</span>
+        </p>
+      )
+    }
+    // membersLen >= 2
+    return (
+      <ul className="flex flex-col gap-1.5 pt-1">
+        {work.members.map((m, i) => (
+          <li key={i} className="flex flex-col">
+            <span className="text-xs font-semibold text-text-primary font-ui">{m.name}</span>
+            <span className="text-xs text-text-muted font-ui">{m.studentId}, {m.major}</span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
   return (
     <div>
       <div className="mb-6">
-        <BackLink to="/projects">Projects 목록으로</BackLink>
+        <BackLink to={backTo}>Projects 목록으로</BackLink>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10">
@@ -177,24 +207,7 @@ export default function ProjectDetail({ work }) {
             </p>
           )}
 
-          {hasMembers && (
-            work.members.length === 1 ? (
-              <p className="text-xs text-text-primary font-ui pt-1">
-                <span className="font-semibold">{work.members[0].name}</span>
-                {' / '}
-                <span className="text-text-muted">{work.members[0].studentId}, {work.members[0].major}</span>
-              </p>
-            ) : (
-              <ul className="flex flex-col gap-1.5 pt-1">
-                {work.members.map((m, i) => (
-                  <li key={i} className="flex flex-col">
-                    <span className="text-xs font-semibold text-text-primary font-ui">{m.name}</span>
-                    <span className="text-xs text-text-muted font-ui">{m.studentId}, {m.major}</span>
-                  </li>
-                ))}
-              </ul>
-            )
-          )}
+          {renderMembers()}
 
           {work.award && <AwardBadge type={work.award} />}
         </div>

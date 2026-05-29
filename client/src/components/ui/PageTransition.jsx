@@ -7,9 +7,9 @@ export default function PageTransition({ children, className = '' }) {
     const el = ref.current
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     el.style.opacity = '0'
-    el.style.transform = 'translateY(10px)'
+    el.style.transform = 'translateY(8px)'
     const id = requestAnimationFrame(() => {
-      el.style.transition = 'opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out)'
+      el.style.transition = 'opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out)'
       el.style.opacity = '1'
       el.style.transform = 'translateY(0)'
       el.addEventListener('transitionend', () => {

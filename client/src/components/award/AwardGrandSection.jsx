@@ -7,7 +7,7 @@ export default function AwardGrandSection({ work }) {
       <div className="flex flex-col items-center justify-center py-24 gap-3">
         <AwardBadge type="grand" />
         <p className="text-sm text-text-muted font-body mt-4" style={{ wordBreak: 'keep-all' }}>
-          최우수상 수상작은 6월 이후 공개됩니다.
+          수상작은 6월 4일 시상식 발표 후 업로드됩니다.
         </p>
       </div>
     )

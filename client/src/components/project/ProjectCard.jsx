@@ -6,7 +6,7 @@ import ProjectImage from './ProjectImage'
 // 방향 순환: 8가지 조합으로 카드마다 다른 와이프 방향
 const DIRS = ['up', 'left', 'up', 'right', 'down', 'right', 'down', 'left']
 
-export default function ProjectCard({ work, index = 0, keycolor = '#F5C518' }) {
+export default function ProjectCard({ work, index = 0, keycolor = '#F5C518', subject = 'all' }) {
   const cardRef = useRef(null)
   const [entered, setEntered] = useState(false)
 
@@ -14,7 +14,6 @@ export default function ProjectCard({ work, index = 0, keycolor = '#F5C518' }) {
     && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   const dir = DIRS[index % DIRS.length]
-  // stagger: 열 100ms + 행 80ms, 최대 500ms
   const delay = Math.min((index % 4) * 100 + Math.floor(index / 4) * 80, 500)
 
   useEffect(() => {
@@ -22,19 +21,27 @@ export default function ProjectCard({ work, index = 0, keycolor = '#F5C518' }) {
       setEntered(true)
       return
     }
+    const el = cardRef.current
+    if (!el) return
+
+    // 마운트 시 이미 뷰포트 안에 있는 카드 즉시 트리거
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setEntered(true)
+      return
+    }
+
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setEntered(true); obs.disconnect() }
-    }, { threshold: 0.05 })
-    if (cardRef.current) obs.observe(cardRef.current)
+    }, { threshold: 0.01 })
+    obs.observe(el)
     return () => obs.disconnect()
   }, [])
 
-  // anim=true 이면 CSS animation에 시퀀스를 완전히 위임
-  // (React transition 방식은 property+transition 동시 변경으로 발화 안 되는 버그가 있음)
   const anim = entered && !reducedMotion
 
   return (
-    <Link to={`/projects/${work.id}`} className="group block card-cv">
+    <Link to={`/projects/${work.id}`} state={{ subject }} className="group block card-cv">
       <div
         ref={cardRef}
         className="relative overflow-hidden"

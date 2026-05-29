@@ -15,10 +15,9 @@ export default function LucidPage() {
   return (
     <PageTransition className="pt-10 pb-24">
       <PageHeader title="LUCID" subtitle="한림대학교 디지털인문예술전공 운영위원회" />
-      <FadeIn><LucidIntro /></FadeIn>
+      <LucidIntro />
       <Divider />
-      <FadeIn><CommitteeList /></FadeIn>
-      <Divider />
+      <CommitteeList />
       <FadeIn><HistoryList /></FadeIn>
     </PageTransition>
   )

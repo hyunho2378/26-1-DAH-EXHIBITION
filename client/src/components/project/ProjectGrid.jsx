@@ -9,7 +9,7 @@ function keyOf(work) {
   return src.replace('/works/', '').replace('.webp', '')
 }
 
-export default function ProjectGrid({ works }) {
+export default function ProjectGrid({ works, subject = 'all' }) {
   const [keycolors, setKeycolors] = useState({})
 
   useEffect(() => {
@@ -38,6 +38,7 @@ export default function ProjectGrid({ works }) {
           work={work}
           index={i}
           keycolor={keycolors[keyOf(work)] ?? FALLBACK_COLOR}
+          subject={subject}
         />
       ))}
     </div>

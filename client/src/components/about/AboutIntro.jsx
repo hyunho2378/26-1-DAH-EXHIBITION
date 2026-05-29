@@ -9,7 +9,7 @@ export default function AboutIntro() {
       <FadeIn>
         <SectionLabel number="01">전시회 소개</SectionLabel>
         <Divider className="mt-4 mb-8" />
-        <p className="text-base text-text-primary font-body leading-relaxed max-w-3xl whitespace-pre-line" style={{ wordBreak: 'keep-all' }}>
+        <p className="text-base text-text-primary font-body leading-relaxed whitespace-pre-line" style={{ wordBreak: 'keep-all' }}>
           {introBody}
         </p>
       </FadeIn>
