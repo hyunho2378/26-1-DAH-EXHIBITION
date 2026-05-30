@@ -2522,8 +2522,8 @@ export const works = [
         description: '강원 횡성군에서 폰을 내려놓을수록 유리해지는 역발상 여행 트래킹 앱입니다. 화면을 끄고 정령을 수집해 횡성 로컬 바우처로 전환하며 온전한 휴식을 경험해 보세요.',
         award: null,
         links: [
-            { label: '앱', url: 'https://m.site.naver.com/28Qql' },
-            { label: '프로젝트 웹사이트', url: 'https://m.site.naver.com/28QpL' }
+            { label: '프로젝트 웹사이트', url: 'https://m.site.naver.com/28Qql' },
+            { label: '앱', url: 'https://m.site.naver.com/28QpL' }
         ],
         pages: [
             '/works/079_intro.webp'
