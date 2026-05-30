@@ -713,6 +713,37 @@
 
   **최종 빌드:** npm run build 에러 0, 2.22s
 
+## [PHASE 3-AN — Contest 호버/Against 여백/LUCID 수정] 완료 (2026-05-30)
+
+  **[1] ContestSection.jsx — 공모전 포스터 호버 인터랙션**
+  - `hovered` state 추가 (onMouseEnter/Leave on 이미지 컨테이너)
+  - 이미지 컨테이너: `borderRadius: '4px'`, `border: 1px solid #2a2a2a → #F5C518` (transition 0.3s)
+  - 이미지 컨테이너: `boxShadow: 0 20px 60px rgba(0,0,0,0.5)` on hover (transition 0.4s)
+  - `<img>` 양쪽(link/no-link): `transform: scale(1.03)` on hover, `transition: 0.4s cubic-bezier(0.22,1,0.36,1)`
+  - 힌트 텍스트 overlay (link 있을 때만): 하단 `rgba(10,10,10,0.7)` 배경 + "공모전 보러가기" (zIndex 2, pointerEvents none, opacity 0→1 0.3s)
+  - 기존 wipe 와이프 애니메이션 유지. 레이아웃 시프트 없음 (transform/border-color/box-shadow만)
+
+  **[2] AwardHero.jsx — Against the Flow 상단 여백 축소**
+  - `py-12 md:py-20` → `pt-8 pb-12 md:pt-12 md:pb-20`
+  - 상단 padding: 모바일 48px→32px(67%), 데스크탑 80px→48px(60%)
+  - 하단 padding 유지. 헤더(56px)와 겹침 없음.
+
+  **[3] LucidPage.jsx — COMMITTEE 위 선 제거**
+  - LucidIntro와 CommitteeList 사이 `<Divider />` 제거
+  - 미사용 `Divider` import 제거
+
+  **[4] LucidIntro.jsx — 로고-텍스트 간격 + 줄바꿈 제거**
+  - `gap-10`(40px) → `gap-16`(64px) (로고와 소개 글 충분히 이격)
+  - `whitespace-pre-line` 제거 → \n 강제 줄바꿈 해소
+  - `max-w-4xl` 제거 → 부모 컨테이너(max-w-1280px) 폭까지 자연 확장
+
+  **[5] lucid.js — intro 강제 줄바꿈 제거**
+  - 원인 진단: template literal의 `\n` + `whitespace-pre-line` CSS 조합이 강제 줄바꿈 발생
+  - template literal → 단일 문자열(따옴표)로 교체, 문장 사이 공백으로 이음
+  - `word-break: keep-all` 유지 → 컨테이너 폭에 따라 자연 줄바꿈
+
+  **최종 빌드:** npm run build 에러 0, 4.55s
+
 ## 진행중
 - (없음)
 

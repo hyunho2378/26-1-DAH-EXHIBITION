@@ -6,7 +6,7 @@ import { intro } from '../../data/lucid'
 export default function LucidIntro() {
   return (
     <section className="py-12 md:py-20">
-      <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
+      <div className="flex flex-col md:flex-row gap-16 items-start md:items-center">
         <FadeIn delay={0}>
           <div className="flex flex-col gap-4 shrink-0">
             <LogoMark size={180} />
@@ -16,7 +16,7 @@ export default function LucidIntro() {
           </div>
         </FadeIn>
         <FadeIn delay={150}>
-          <p className="text-base md:text-lg text-text-primary font-body leading-relaxed whitespace-pre-line max-w-4xl" style={{ wordBreak: 'keep-all' }}>
+          <p className="text-base md:text-lg text-text-primary font-body leading-relaxed" style={{ wordBreak: 'keep-all' }}>
             {intro}
           </p>
         </FadeIn>

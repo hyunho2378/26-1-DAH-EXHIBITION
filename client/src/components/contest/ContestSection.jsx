@@ -7,6 +7,7 @@ const DIRS = ['up', 'left', 'right']
 export default function ContestSection({ contest, index = 0 }) {
   const imgRef = useRef(null)
   const [entered, setEntered] = useState(false)
+  const [hovered, setHovered] = useState(false)
 
   const reducedMotion = typeof window !== 'undefined'
     && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -28,6 +29,7 @@ export default function ContestSection({ contest, index = 0 }) {
   }, [])
 
   const anim = entered && !reducedMotion
+  const imgScale = hovered && !reducedMotion ? 'scale(1.03)' : 'scale(1)'
 
   return (
     <section className="py-6 flex flex-col items-center text-center">
@@ -40,7 +42,17 @@ export default function ContestSection({ contest, index = 0 }) {
       <div
         ref={imgRef}
         className="relative overflow-hidden mx-auto mb-4"
-        style={{ maxWidth: '240px', width: '100%', aspectRatio: '3/4' }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          maxWidth: '240px',
+          width: '100%',
+          aspectRatio: '3/4',
+          borderRadius: '4px',
+          border: `1px solid ${hovered ? '#F5C518' : '#2a2a2a'}`,
+          boxShadow: hovered ? '0 20px 60px rgba(0,0,0,0.5)' : 'none',
+          transition: 'border-color 0.3s ease, box-shadow 0.4s ease',
+        }}
       >
         {/* 이미지 레이어 */}
         <div
@@ -56,7 +68,11 @@ export default function ContestSection({ contest, index = 0 }) {
                 src={`/contest/${contest.id}.webp`}
                 alt={contest.title}
                 className="w-full h-full"
-                style={{ objectFit: 'cover' }}
+                style={{
+                  objectFit: 'cover',
+                  transform: imgScale,
+                  transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
+                }}
                 onError={e => {
                   e.currentTarget.style.display = 'none'
                   e.currentTarget.parentElement.querySelector('.link-fallback').style.display = 'inline-flex'
@@ -75,7 +91,11 @@ export default function ContestSection({ contest, index = 0 }) {
               src={`/contest/${contest.id}.webp`}
               alt={contest.title}
               className="w-full h-full"
-              style={{ objectFit: 'cover' }}
+              style={{
+                objectFit: 'cover',
+                transform: imgScale,
+                transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
+              }}
               onError={e => { e.currentTarget.style.display = 'none' }}
             />
           )}
@@ -92,6 +112,26 @@ export default function ContestSection({ contest, index = 0 }) {
             animation: anim ? `wipe-overlay-${dir} 1.35s linear ${delay}ms both` : 'none',
           }}
         />
+
+        {/* 호버 힌트 텍스트 */}
+        {contest.link && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              padding: '8px 12px',
+              background: 'rgba(10,10,10,0.7)',
+              opacity: hovered ? 1 : 0,
+              transition: 'opacity 0.3s ease',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
+          >
+            <span className="text-xs text-text-primary font-ui tracking-wide">공모전 보러가기</span>
+          </div>
+        )}
       </div>
 
       {contest.description && (

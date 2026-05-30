@@ -13,7 +13,7 @@ export default function AwardHero() {
   const [openIdx, setOpenIdx] = useState(null)
 
   return (
-    <section className="py-12 md:py-20">
+    <section className="pt-8 pb-12 md:pt-12 md:pb-20">
       <div className="flex flex-col md:flex-row gap-10 md:gap-16">
 
         {/* 좌측: 포스터 */}
