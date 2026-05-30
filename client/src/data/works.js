@@ -2604,9 +2604,9 @@ export const works = [
                 major: '디지털미디어콘텐츠전공'
             },
             {
-                name: '천다현 글로벌비즈니스',
+                name: '천다현',
                 studentId: '20251538',
-                major: ''
+                major: '글로벌비즈니스전공'
             },
             {
                 name: '이세빈',
