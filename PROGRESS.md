@@ -744,6 +744,36 @@
 
   **최종 빌드:** npm run build 에러 0, 4.55s
 
+## [PHASE 3-AO — LUCID 로고/버튼 shrink 수정] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/lucid/LucidIntro.jsx**
+
+  **원인 진단:**
+  - FadeIn은 `<div>`로 렌더되는 flex 아이템. 좌측 FadeIn에 `shrink-0`이 없어서
+    flex row에서 FadeIn div 자체가 축소 → 내부 LogoMark(180px) + Button이 함께 줄어듦.
+  - 우측 FadeIn에 `flex-1`이 없어서 텍스트가 남은 공간을 온전히 차지하지 못함.
+  - 내부 `div.shrink-0`은 FadeIn div 내부 flex에만 적용 → 부모 flex에서의 축소를 막지 못함.
+
+  **수정:**
+  - 좌측 FadeIn: `className="shrink-0"` 추가 → 로고+버튼 컬럼 크기 고정
+  - 우측 FadeIn: `className="flex-1 min-w-0"` 추가 → 텍스트가 나머지 공간 전부 차지
+  - 내부 div의 기존 `shrink-0` 제거 (FadeIn에 이동됨, 중복 제거)
+  - LogoMark size={180} 유지 (이미 1.5배 적용 상태)
+
+  **최종 빌드:** npm run build 에러 0, 2.21s
+
+## [PHASE 3-AP — About Hero 텍스트 등장 타이밍 수정] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/about/AboutHero.jsx**
+
+  - h1 "Against the Flow": delay 0ms → 유지 (첫 번째 요소, 변경 없음)
+  - h2 "제18회...": delay 1600ms → 1200ms (-400ms)
+  - p (desc): delay 1800ms → 1400ms (-400ms)
+  - div (button): delay 2000ms → 1600ms (-400ms)
+  - 전체 시퀀스 느낌 유지, 0ms 이하 항목 없음
+
+  **최종 빌드:** npm run build 에러 0, 2.11s
+
 ## 진행중
 - (없음)
 

@@ -65,7 +65,7 @@ export default function AboutHero() {
         style={{
           fontSize: 'clamp(22px, 3vw, 44px)',
           wordBreak: 'keep-all',
-          ...anim('hero-fade-up', '0.7s', 1600),
+          ...anim('hero-fade-up', '0.7s', 1200),
         }}
       >
         {heroSubtitleKo}
@@ -73,12 +73,12 @@ export default function AboutHero() {
 
       <p
         className="text-base text-text-muted font-body mb-10 max-w-xl"
-        style={{ wordBreak: 'keep-all', ...anim('hero-fade-up', '0.7s', 1800) }}
+        style={{ wordBreak: 'keep-all', ...anim('hero-fade-up', '0.7s', 1400) }}
       >
         {heroDesc}
       </p>
 
-      <div style={anim('hero-fade-up', '0.7s', 2000)}>
+      <div style={anim('hero-fade-up', '0.7s', 1600)}>
         <Link
           to="/projects"
           className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold font-ui rounded-lg border border-accent text-accent bg-bg-primary hover:bg-bg-elevated transition-colors duration-200"
