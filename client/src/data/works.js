@@ -711,7 +711,7 @@ export const works = [
             {
                 name: '한다경',
                 studentId: '20251652',
-                major: '일본어학과'
+                major: '일본학과'
             },
             {
                 name: '김민주',
