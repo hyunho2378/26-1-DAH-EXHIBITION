@@ -2081,8 +2081,8 @@ export const works = [
         description: '항공사의 로고와 브랜드 시스템 전반을 리브랜딩한 프로젝트입니다.',
         award: null,
         links: [
-            { label: '리디자인 웹사이트', url: 'https://m.site.naver.com/28PEG' },
-            { label: '리디자인 드라이브', url: 'https://m.site.naver.com/28Pj7' }
+            { label: '리디자인 드라이브', url: 'https://m.site.naver.com/28PEG' },
+            { label: '리디자인 웹사이트', url: 'https://m.site.naver.com/28Pj7' }
         ],
         pages: [
             '/works/062_aidesign.webp'
