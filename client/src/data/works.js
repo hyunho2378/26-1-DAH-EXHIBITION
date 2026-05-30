@@ -81,7 +81,7 @@ export const works = [
         members: [
             {
                 name: '김민경',
-                studentId: '20226606',
+                studentId: '20222606',
                 major: '광고홍보학과'
             },
             {
