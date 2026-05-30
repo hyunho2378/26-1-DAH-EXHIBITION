@@ -45,7 +45,7 @@ export default function App() {
       <Layout>
       <Suspense fallback={<PageFallback />}>
         <Routes>
-          <Route path="/"                       element={<AboutPage />} />
+          <Route path="/"                       element={<AboutPage splashDone={splashDone} />} />
           <Route path="/against"                element={<AgainstPage />} />
           <Route path="/against/design-system"  element={<DesignSystemPage />} />
           <Route path="/projects"               element={<ProjectsPage />} />

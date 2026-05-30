@@ -385,7 +385,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '<사이의 서가>',
         author: '송은채',
-        members: [],
+        members: [
+            {
+                name: '송은채',
+                studentId: '20241049',
+                major: '국어국문학전공'
+            }
+        ],
         description: '한글의 구조를 통해 높게 이어진 서가와 책의 흐름을 표현하고, 책 속으로 스며드는 듯한 공간감과 책 사이를 거니는 듯한 호기심과 상상의 감각을 담아냈다.',
         award: null,
         links: [],
@@ -399,7 +405,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'Orbit of Rhythm',
         author: '김성경',
-        members: [],
+        members: [
+            {
+                name: '김성경',
+                studentId: '20241203',
+                major: '영어영문학과'
+            }
+        ],
         description: '태양계의 구조를 모티브로, 고정된 태양(SUN)과 그 주위를 반복적으로 공전하는 행성(PLANET)들의 움직임을 통해 ‘정지와 율동’이란 주제를 타이포그래피 포스터로 시각화했다.',
         award: null,
         links: [],
@@ -591,6 +603,7 @@ export const works = [
         ],
         description: '소담:전통의 현대적 진화 동의보감에서부터 이어져온 k-뷰티의 진화 과정과 전통문화와 패션의 결합사례를 소개하고, 전통문화의 가치를 우리만의 시선으로 제시한다.',
         award: null,
+        layout: 'magazine',
         links: [
             { label: '웹사이트', url: 'https://linktr.ee/SODAM?utm_source=qr_code' }
         ],
@@ -934,6 +947,7 @@ export const works = [
         ],
         description: '한국 문화에 관심 있는 외국인들이 게임을 통해 자연스럽게 한국의 예절을 배우는 콘텐츠입니다. 실제 게임 형식을 활용해 상황에 맞는 예절 행동을 선택하며 진행됩니다.',
         award: null,
+        layout: 'magazine',
         links: [
             { label: '게임 트레일러', url: 'https://drive.google.com/drive/mobile/folders/1qJATb_Ha2LJEu8lU707Ax2zAeY7b4NsV?usp=share_link' }
         ],
@@ -1212,7 +1226,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '운명의 틈',
         author: '손예빈',
-        members: [],
+        members: [
+            {
+                name: '손예빈',
+                studentId: '20252971',
+                major: '경영학과'
+            }
+        ],
         description: '당신은 운명을 믿으시나요? 필연의 굴레에 벌어진 틈은 오류가 아닌 해방입니다. 붉은 실에 베인 균열은 당신이 비로소 자유로워질 준비가 되었다는 서늘하고 정직한 증거입니다.',
         award: null,
         links: [
@@ -1318,7 +1338,13 @@ export const works = [
         subjectName: '자율 (개인 또는 팀)',
         title: '[UOSNS]대학 온보딩 소셜 네트워크 서비스 프로젝트 연구 기획',
         author: '장현지',
-        members: [],
+        members: [
+            {
+                name: '장현지',
+                studentId: '20223732',
+                major: '환경생명공학과'
+            }
+        ],
         description: '정보 비대칭과 익명 커뮤니티의 신뢰 붕괴를 해소하기 위해, 학번 인증·저장 중심·질문 템플릿을 결합한 대학생 특화 멘토링 SNS를 기획한다.',
         award: null,
         links: [
@@ -1377,7 +1403,13 @@ export const works = [
         subjectName: '자율 (개인 또는 팀)',
         title: 'AXIOM: AI 피부 진단 기반 하이엔드 뷰티 큐레이션 플랫폼 경험 디자인',
         author: '주현호',
-        members: [],
+        members: [
+            {
+                name: '주현호',
+                studentId: '20222583',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '피부 진단 데이터를 AI가 분석해 20가지 타입으로 분류하고, AI로 제작한 3D BI와 브랜드 디자인을 결합해 개인화된 럭셔리 뷰티 경험을 기획하고 설계하여 구현하였다.',
         award: null,
         links: [
@@ -1554,7 +1586,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'FIREWORK',
         author: '박서현',
-        members: [],
+        members: [
+            {
+                name: '박서현',
+                studentId: '20232534',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용한 실습을 진행했고, 실습 주제 중 \'밀집과 팽창\'을 표현하기 위해 응축되어 있다가 폭발하는 폭죽의 특징을 활용하여 표현했다.',
         award: null,
         links: [],
@@ -1568,7 +1606,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '코스모스',
         author: '정다운',
-        members: [],
+        members: [
+            {
+                name: '정다운',
+                studentId: '20232575',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '디지털디자인1 실습 중 \'밀집과 팽창\'을 주제로, 칼 세이건의 코스모스 명언들을 타이포로 활용해 텍스트가 중심으로 모여 밀집되고 바깥으로 흩어지며 팽창하는 우주의 밀도를 표현했다.',
         award: null,
         links: [],
@@ -1582,7 +1626,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '코카콜라',
         author: '25학번 김현진',
-        members: [],
+        members: [
+            {
+                name: '김현진',
+                studentId: '20256609',
+                major: '미래융합스쿨'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 활용한 실습을 진행했고, 실습 주제 중 ‘혼란과 안정’을 주제로 코카콜라의 로고와 다양한 타이포를 활용하여 작품을 제작하였다. 특히 빨간 타이포가 콜라병의 형태처럼 보이도록 구성해 브랜드의 특징을 시각적으로 표현하였다. 강한 색감과 자유로운 글자의 배치를 통해 혼란스러운 분위기를 나타냈고, 반복되는 로고와 전체적인 균형감을 통해 안정적인 느낌도 함께 담아내고자 하였다.',
         award: null,
         links: [],
@@ -1596,7 +1646,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '향의 골격',
         author: '문병찬',
-        members: [],
+        members: [
+            {
+                name: '문병찬',
+                studentId: '20252949',
+                major: '경영학과'
+            }
+        ],
         description: '디지털 디자인 1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 아래와 같이 제작하였다. 나의 표현 콘셉트는 향수를 타이포로 하여 aroma라는 단어를 가지고 향수의 분자구조의 모양에서 영감받아 혼란과 안정을 나타내고자 하였다',
         award: null,
         links: [],
@@ -1610,7 +1666,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'Singularity',
         author: '김민우',
-        members: [],
+        members: [
+            {
+                name: '김민우',
+                studentId: '20212510',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '나의 주제인 우주에 맞춰 타이포 실습을 하는 과정에서, 실습 주제인 \'밀집과 팽창\'을 우주 요소 중 밀집, 팽창하는 특이성을 가진 블랙홀과 우주의 상징인 별을 이용해 표현하였다.',
         award: null,
         links: [],
@@ -1624,7 +1686,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '빗속의 해',
         author: '오연수',
-        members: [],
+        members: [
+            {
+                name: '오연수',
+                studentId: '20221624',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '디지털 디자인 1 수업에서 타이포를 이용하여 디자인 실습을 진행하였고, 실습 주제 중 \'밀집과 팽창\'을 주제로 제작하였다. 비는 우울과 불안 같은 부정적인 언어들로, 웅덩이는 행복과 위로의 언어들로 나타내어 밀집을 표현하였고, 우산 없이 빗속을 걷는 인물은 감정 속에서 스스로를 해방시키는 인간의 모습을 팽창으로 나타내었다. 또한 비가 미세먼지를 씻어내듯, 사람의 부정적인 감정들도 사라지고 결국 긍정적인 감정만 남는다는 메시지를 담고자하였다.',
         award: null,
         links: [],
@@ -1638,7 +1706,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'Pale Blud Dot.',
         author: '이동재',
-        members: [],
+        members: [
+            {
+                name: '이동재',
+                studentId: '20222556',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '칼 세이건의 저서 <코스모스>속 \'Pale Blue Dot.\' 구절에서 영감을 받아, 광활한 우주 속 창백하게 푸른 점인 지구의 모습을 타이포그래피로 표현하여 \'혼란과 안정\'을 나타내었다.',
         award: null,
         links: [],
@@ -1652,7 +1726,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '고래밥',
         author: '송유경',
-        members: [],
+        members: [
+            {
+                name: '송유경',
+                studentId: '20226623',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용하여 실습을 진행하였고, 오직 텍스트의 밀도와 배치, 그리고 형태적 확장만을 활용하여 \'율동과 정지\'를 표현하는 작품을 제작했습니다 저의 표현 콘셉은 과자 중 고래밥의 해양생물을 가지고 타이포의 투명도와 크기 등을 변형하여 율동과 정지를 표현하고자 했습니다 상단 부분은 정지를 표현하기 위해 고딕과 볼드가 들어간 폰트를 사용, 행간과 자간을 극도로 밀착시키고 전체적인 배열 또한 동일한 여백과 크기들로 통일감을 주었습니다 하단 부분은 율동을 표현하기 위해 텍스트를 해양생물들의 외곽선을 따라 배치하였고, 점진적인 크기 및 위치, 투명도 변화를 통해 정형화된 틀을 깨고 헤엄쳐나아가는 해류의 율동감을 표현하고자했습니다 특히 하단의 \'오리온 고래밥\' 메인 텍스트는 자잘한 패턴들과 극명한 대비를 이루도록 압도적인 크기로 배치했으며, 곡선 맞춰 텍스트를 변형하여 글자 자체에서 율동감을 주고자했습니다 아래의 불가사리(별모양)와의 잘 어우러지게 하기 위해 해당 텍스트에도 투명도가 다른 레이어들을 추가하였습니다 이 작품의 디테일은 율동과 정지를 표현하면서도 고래밥이라는 주제 자체의 재미요소를 넣고자 사용되는 텍스트 내용을 고래밥 해양생물들을 영어로 기재했다는 점입니다',
         award: null,
         links: [],
@@ -1666,7 +1746,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'Under Pressure',
         author: '황도영',
-        members: [],
+        members: [
+            {
+                name: '황도영',
+                studentId: '20222594',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 아래와 같이 제작하였다. 나의 표현 소재는 치어팩으로 선정하였다. 치어팩과 관련 있는 영어 단어인 PRESSUER로 안정을 표현하고 각 알파벳을 흩트려 혼란을 나타내고자 하였다.',
         award: null,
         links: [],
@@ -1680,7 +1766,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '자유를 지켜낸 이름들',
         author: '이소진',
-        members: [],
+        members: [
+            {
+                name: '이소진',
+                studentId: '20242553',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '태극기 안에 대한민국을 위해 헌신한 전쟁참전용사들의 이름을 담아, 오늘의 자유와 평화가 수많은 희생 위에 존재한다는 의미를 표현하였다.',
         award: null,
         links: [],
@@ -1694,7 +1786,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'standpoint',
         author: '지현서',
-        members: [],
+        members: [
+            {
+                name: '지현서',
+                studentId: '20251093',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '영화 <메멘토>를 모티브로 관점에 따른 타이포의 혼란과 안정을 표현함',
         award: null,
         links: [],
@@ -1708,7 +1806,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '밀집과 팽창',
         author: '이혜린',
-        members: [],
+        members: [
+            {
+                name: '이혜린',
+                studentId: '20236634',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '불꽃놀이를 사용해 밀집되었다 퍼지는 형태를 이용해 감정의 고도를 토대로 각 색깔의 단어를 배치했습니다.',
         award: null,
         links: [],
@@ -1722,7 +1826,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'TETRIS DROP',
         author: '이서준',
-        members: [],
+        members: [
+            {
+                name: '이서준',
+                studentId: '20242548',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '율동과 정지\'를 동시에 표현하는 디지털디자인1 과목의 과제로 제작된 포스터입니다. 게임이라는 주제를 선정해 테트리스를 바탕으로 정지/율동되는 블럭을 타이포그래피만으로 표현했습니다',
         award: null,
         links: [],
@@ -1736,7 +1846,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '열기구',
         author: '문정훈',
-        members: [],
+        members: [
+            {
+                name: '문정훈',
+                studentId: '20242220',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '디지털디자인1강의에서 타이포를 이용한 실습 속 \'혼란과 안정\'이라는 주제로 만든 작품이다. 채도와 명도를 다르게 한 나열된 초록색 열기구 사이 흰색의 불안정하게 추락하는 열기구를 혼란으로 표현했다. 검은색 배경을 활용해 전체적인 분위기를 혼란스럽게 제작했다.',
         award: null,
         links: [],
@@ -1798,7 +1914,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '떨어진 얼음',
         author: '오지원',
-        members: [],
+        members: [
+            {
+                name: '오지원',
+                studentId: '20232554',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '다양한 크기의 얼음이 떨어지며 생기는 움직임으로 율동을, 아래에 고여 멈춘 물로 정지를 표현했다.',
         award: null,
         links: [],
@@ -1812,7 +1934,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '팝콘',
         author: '변유나',
-        members: [],
+        members: [
+            {
+                name: '변유나',
+                studentId: '20242620',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 제작하였다. 나의 표현 콘셉트는 사방으로 불규칙적으로 튀는 팝콘의 \'혼란\'과, 일정하고 규칙적인 형태의 \'안정\'을 \'팝콘\' 텍스트로 시각화 하여서, 혼란과 안정을 나타내고자 하였다.',
         award: null,
         links: [],
@@ -1826,7 +1954,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: '버블',
         author: '손예지',
-        members: [],
+        members: [
+            {
+                name: '손예지',
+                studentId: '20246629',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 제작하였다. 비눗방울을 타이포 요소로 활용하여 위쪽 글자는 비눗방울 요소들을 불규칙하게 퍼지고 크기가 달라지도록 배치하여 비눗방울들이 떠다니며 흐트러지는 혼란의 이미지를 나타냈고 아래쪽 글자는 같은 비눗방울을 일정한 간격과 규칙적인 배열로 구성하여 정돈되고 차분한 안정감을 표현하였다.',
         award: null,
         links: [],
@@ -1840,7 +1974,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'The Entwined Tree',
         author: '서한민',
-        members: [],
+        members: [
+            {
+                name: '서한민',
+                studentId: '20221618',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '서로 다른 문화가 하나가 되는 과정을 연리지 나무 타이포그래피로 시각화. 디지털 환경 속에서도 인간적인 연결을 기반으로 형성되는 글로컬 문화의 다층적 구조를 표현.',
         award: null,
         links: [],
@@ -1854,7 +1994,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'Orchestra',
         author: '최현비',
-        members: [],
+        members: [
+            {
+                name: '최현비',
+                studentId: '20266643',
+                major: '미래융합스쿨'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용해 실습했고 실습 주제 중 \'밀집과 확장\'을 표현하는 작품을 제작했다. 콘셉트는 오케스트라로 지휘자와 악기의 거리로 밀집과 확장을 나타냈다.',
         award: null,
         links: [],
@@ -1868,7 +2014,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'MUSIC',
         author: '조은표',
-        members: [],
+        members: [
+            {
+                name: '조은표',
+                studentId: '20266639',
+                major: '미래융합스쿨'
+            }
+        ],
         description: '디지털디자인1 수업에서 타이포를 이용한 실습을 진행했고, 실습 주제 중 \'혼란과 안정\'을 표현하는 작품을 아래와 같이 제작하였습니다.',
         award: null,
         links: [],
@@ -1919,7 +2071,13 @@ export const works = [
         subjectName: 'AI디자인',
         title: '항공사 리브랜딩',
         author: '허동균',
-        members: [],
+        members: [
+            {
+                name: '허동균',
+                studentId: '20226648',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '항공사의 로고와 브랜드 시스템 전반을 리브랜딩한 프로젝트입니다.',
         award: null,
         links: [
@@ -2099,7 +2257,13 @@ export const works = [
         subjectName: 'AI디자인',
         title: '에테르 아카데미아(아르테르)',
         author: '이혜린',
-        members: [],
+        members: [
+            {
+                name: '이혜린',
+                studentId: '20236634',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '에테르 아카데미아는 게임 이름, 아르테르는 이 게임의 브랜드로, 게임과 브랜드를 함께 디자인해 브랜드 디자인에 들어가는 공식 사이트 컨셉을 디자인했습니다.',
         award: null,
         links: [
@@ -2234,7 +2398,13 @@ export const works = [
         subjectName: '디지털디자인1',
         title: 'CORE',
         author: '김현지',
-        members: [],
+        members: [
+            {
+                name: '김현지',
+                studentId: '20222520',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '세포의 밀집된 에너지가 외곽으로 팽창하며 터져 나오는 순간을 포착했습니다. 생명 분열의 폭발적인 생동감을 조형적으로 구성한 작품입니다',
         award: null,
         links: [],
@@ -2290,7 +2460,13 @@ export const works = [
         subjectName: '디지털문화콘텐츠마케팅',
         title: '프로젝트 리타이어 : 18년 전 출발선으로',
         author: '여동규',
-        members: [],
+        members: [
+            {
+                name: '여동규',
+                studentId: '20237047',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '전 디렉터의 실패를 셀프 디스 밈으로 활용하여, 온라인 NCM 데이터 복원 이벤트와 오프라인 팝업을 연계해 이탈한 2030 라이더를 다시 트랙으로 부르는 기획입니다.',
         award: null,
         links: [
@@ -2346,7 +2522,7 @@ export const works = [
         description: '강원 횡성군에서 폰을 내려놓을수록 유리해지는 역발상 여행 트래킹 앱입니다. 화면을 끄고 정령을 수집해 횡성 로컬 바우처로 전환하며 온전한 휴식을 경험해 보세요.',
         award: null,
         links: [
-            { label: '앱 체험', url: 'https://m.site.naver.com/28Qql' },
+            { label: '앱', url: 'https://m.site.naver.com/28Qql' },
             { label: '프로젝트 웹사이트', url: 'https://m.site.naver.com/28QpL' }
         ],
         pages: [
@@ -2396,7 +2572,13 @@ export const works = [
         subjectName: 'AI디자인',
         title: '나만의 세계관을 가진 캐릭터 브랜드 디자인',
         author: '정민서',
-        members: [],
+        members: [
+            {
+                name: '정민서',
+                studentId: '20256637',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '시간을 모으는 토끼 ‘루루’를 중심으로, 바쁜 현대인에게 위로와 휴식을 전하는 감성 브랜드 세계관을 AI 기반 디자인으로 표현한 프로젝트.',
         award: null,
         links: [],
@@ -2669,7 +2851,13 @@ export const works = [
         subjectName: '디지털문화콘텐츠마케팅',
         title: 'NEXT ID',
         author: '홍유채',
-        members: [],
+        members: [
+            {
+                name: '홍유채',
+                studentId: '20242590',
+                major: '디지털미디어콘텐츠전공'
+            }
+        ],
         description: '아이돌 연습생 공개 과정을 콘텐츠화하여 팬이 데뷔 이전부터 성장과 데뷔조 형성에 참여할 수 있는 플랫폼 기반 신인 아이돌 마케팅 프로젝트.',
         award: null,
         links: [
@@ -2686,7 +2874,13 @@ export const works = [
         subjectName: '자율 (개인 또는 팀)',
         title: 'PROJECT: PSYCHE-TYPE',
         author: '이지현',
-        members: [],
+        members: [
+            {
+                name: '이지현',
+                studentId: '20236632',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '쾨니히의 동료라는 컨셉으로 그를 분석해 두 가지 서체를 제작. 제미나이로 캐릭터 분석 및 이미지를 생성. 포토샵·캘리그라퍼로 서체 구현. 윅스 웹사이트, 일러스트 포스터 제작함.',
         award: null,
         links: [
@@ -2703,7 +2897,13 @@ export const works = [
         subjectName: '디지털문화콘텐츠마케팅',
         title: '올리브영X캐릭캐릭체인지',
         author: '한수빈',
-        members: [],
+        members: [
+            {
+                name: '한수빈',
+                studentId: '20236643',
+                major: '디지털인문예술전공'
+            }
+        ],
         description: '추억의 애니 \'캐릭캐릭체인지\'와 코스메틱 브랜드의 콜라보로, 성인이 된 9N, 0N년생들을 저격한 코스메틱 마케팅 프로젝트',
         award: null,
         links: [

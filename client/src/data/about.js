@@ -3,7 +3,7 @@
 
 export const heroTitle = 'Against the Flow'
 export const heroSubtitleKo = '제18회 디지털인문예술전공 프로젝트 전시회'
-export const heroDesc = 'AI를 동료 삼아, 사람의 감각으로 만든 81개의 결과물.'
+export const heroDesc = '기술의 흐름 위에서, 사람의 방향으로'
 
 export const introBody = `디지털인문예술전공의 18번째 프로젝트 전시회 'Against the Flow'에 오신 것을 환영합니다.
 2017년 시작된 이래 18회를 맞은 이번 전시는, 전공이 본격적으로 AX(AI Transformation)를 받아들인 첫 학기의 기록입니다.

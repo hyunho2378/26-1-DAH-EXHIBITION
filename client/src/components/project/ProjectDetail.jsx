@@ -3,15 +3,16 @@ import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import AwardBadge from '../ui/AwardBadge'
 import BackLink from '../ui/BackLink'
 
-function thumbOf(src) {
+function detailOf(src) {
   if (!src || !src.startsWith('/works/')) return src
-  return `/works/thumbs/${src.split('/').pop()}`
+  return `/works/detail/${src.split('/').pop()}`
 }
 
 export default function ProjectDetail({ work, fromSubject = 'all' }) {
   const [posterHovered, setPosterHovered] = useState(false)
   const [pageIdx, setPageIdx] = useState(0)
   const [magIdx, setMagIdx] = useState(0)
+  const [mainDetailFailed, setMainDetailFailed] = useState(() => new Set())
   const [magThumbFailed, setMagThumbFailed] = useState(() => new Set())
   const hasLinks = work.links && work.links.length > 0
   const isMagazine = work.layout === 'magazine'
@@ -36,21 +37,9 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
     display: 'flex', alignItems: 'center', transition: 'border-color 150ms ease, color 150ms ease',
   }
 
-  // members 렌더 분기 (명시적 length 조건)
   const membersLen = work.members?.length ?? 0
   const renderMembers = () => {
-    if (membersLen === 0) return null
-    if (membersLen === 1) {
-      const m = work.members[0]
-      return (
-        <p className="text-xs text-text-primary font-ui pt-1">
-          <span className="font-semibold">{m.name}</span>
-          {' / '}
-          <span className="text-text-muted">{m.studentId}, {m.major}</span>
-        </p>
-      )
-    }
-    // membersLen >= 2
+    if (membersLen <= 1) return null
     return (
       <ul className="flex flex-col gap-1.5 pt-1">
         {work.members.map((m, i) => (
@@ -96,10 +85,12 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
           >
             {mainSrc && (
               <img
-                src={mainSrc}
+                key={mainSrc}
+                src={mainDetailFailed.has(mainSrc) ? mainSrc : detailOf(mainSrc)}
                 alt={`${work.author} - ${work.title}`}
                 loading="lazy"
                 decoding="async"
+                onError={() => setMainDetailFailed(s => { const n = new Set(s); n.add(mainSrc); return n })}
                 style={{ height: '100%', width: 'auto', objectFit: 'contain', display: 'block' }}
               />
             )}
@@ -178,7 +169,14 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
           <h1 className="text-2xl md:text-3xl font-bold text-text-primary font-body leading-snug" style={{ wordBreak: 'keep-all' }}>
             {work.title}
           </h1>
-          <p className="text-base text-text-muted font-body">{work.author}</p>
+          {membersLen === 1 ? (
+            <p className="text-base font-body">
+              <span className="font-semibold text-text-primary">{work.members[0].name}</span>
+              <span className="text-text-muted">{' / '}{work.members[0].studentId}, {work.members[0].major}</span>
+            </p>
+          ) : (
+            <p className="text-base text-text-muted font-body">{work.author}</p>
+          )}
           <p className="font-bold font-ui tracking-wider uppercase text-accent" style={{ fontSize: '21px' }}>{work.subjectName}</p>
 
           {hasLinks && (
@@ -243,7 +241,7 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
               {/* 이미지 */}
               <div style={{
                 aspectRatio: '1 / 1.414',
-                maxWidth: '320px',
+                maxWidth: '220px',
                 width: '100%',
                 background: '#111111',
                 border: '1px solid #2A2A2A',
@@ -255,7 +253,7 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
                 {magPages[magIdx] && (
                   <img
                     key={magIdx}
-                    src={magThumbFailed.has(magIdx) ? magPages[magIdx] : thumbOf(magPages[magIdx])}
+                    src={magThumbFailed.has(magIdx) ? magPages[magIdx] : detailOf(magPages[magIdx])}
                     alt={`${work.title} 매거진 ${magIdx + 1}페이지`}
                     loading="lazy"
                     decoding="async"

@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* 우측 */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 md:items-end md:text-right">
           <p className="text-xs text-text-muted font-body">한림대학교 디지털인문예술전공 운영위원회 LUCID</p>
           <p className="text-xs text-text-muted font-body">강원특별자치도 춘천시 한림대학길 1 Campus Life Center 1F</p>
           <p className="text-xs text-text-muted font-body">

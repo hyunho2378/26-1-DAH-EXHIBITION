@@ -16,9 +16,17 @@ export default function LucidIntro() {
           </div>
         </FadeIn>
         <FadeIn delay={150} className="flex-1 min-w-0">
-          <p className="text-base md:text-lg text-text-primary font-body leading-relaxed" style={{ wordBreak: 'keep-all' }}>
-            {intro}
-          </p>
+          <div>
+            {intro.map((sentence, i) => (
+              <p
+                key={i}
+                className="text-base md:text-lg text-text-primary font-body leading-relaxed"
+                style={{ wordBreak: 'keep-all', marginBottom: i < intro.length - 1 ? '0.9em' : 0 }}
+              >
+                {sentence}
+              </p>
+            ))}
+          </div>
         </FadeIn>
       </div>
     </section>

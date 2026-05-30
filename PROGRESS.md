@@ -774,6 +774,169 @@
 
   **최종 빌드:** npm run build 에러 0, 2.11s
 
+## [PHASE 3-AQ — 상세페이지 detail 이미지 연결] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/project/ProjectDetail.jsx**
+
+  - `thumbOf` 함수 제거 (미사용이 됨), `detailOf` 함수로 교체
+    · `/works/[파일명]` → `/works/detail/[파일명]`
+  - 메인 이미지: `mainDetailFailed` Set<string> 상태 추가
+    · `src`: `detailOf(mainSrc)` 우선, failed 시 `mainSrc` 폴백
+    · `key={mainSrc}`: 페이지 전환 시 img 리마운트 → 새 detail src 재시도
+    · `onError`: 해당 src를 `mainDetailFailed`에 추가 → 즉시 원본으로 교체
+  - 매거진 캐러셀: `thumbOf(magPages[magIdx])` → `detailOf(magPages[magIdx])`
+    · 기존 `magThumbFailed` Set + onError 로직 그대로 유지
+  - ProjectCard.jsx(그리드 썸네일) 변경 없음. ProjectImage.jsx의 thumbs/ 로직 유지.
+
+  **최종 빌드:** npm run build 에러 0, 2.53s
+
+## [PHASE 3-AR — About Hero 애니메이션 스플래시 이후 트리거] 완료 (2026-05-30)
+
+  **문제:** 스플래시 재생 중 AboutHero가 이미 마운트되어 CSS animation이 실행 완료 → 스플래시 종료 후 이미 다 나와 있음.
+
+  **수정 파일:**
+  - App.jsx: `<AboutPage splashDone={splashDone} />` — splashDone 상태 전달
+  - AboutPage.jsx: `{ splashDone = true }` prop 수신 → `<AboutHero animReady={splashDone} />`
+  - AboutHero.jsx:
+    · module-level `const anim` → component 내부 `function anim`으로 이동 (animReady 캡처)
+    · `animReady=false` 시: `anim` → `{ opacity: 0 }`, `bgAnim` → `{ opacity: 0 }`
+    · `animReady=true` 시: 기존 CSS animation 그대로 실행 (delay 0/1200/1400/1600ms)
+    · prop default `animReady = true` → 재방문(스플래시 없음) 시 마운트 즉시 실행 유지
+
+  **동작:**
+  - 최초 진입(스플래시 있음): splashDone=false → Hero 요소 opacity:0 → 스플래시 완료 → splashDone=true → CSS animation 시작
+  - 재방문(스플래시 없음): splashDone=true 초기값 → 마운트 즉시 animation 실행
+
+  **최종 빌드:** npm run build 에러 0, 3.02s
+
+## [PHASE 3-AS — About Hero 애니메이션 타이밍 재조정] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/about/AboutHero.jsx**
+
+  - h1 "Against the Flow" duration: `1.0s` → `1.5s` (1.5×, 좌→우 더 느리게)
+  - h2 "제18회..." delay: `1200ms` → `1600ms` (h1 종료(1500ms) + 100ms 직후)
+  - p (desc) delay: `1400ms` → `1800ms`
+  - button delay: `1600ms` → `2000ms`
+  - easing 유지: cubic-bezier(0.22, 1, 0.36, 1)
+
+  **최종 빌드:** npm run build 에러 0, 2.87s
+
+## [PHASE 3-AT — About Hero h2 delay 고정값 분리] 완료 (2026-05-30)
+
+  **진단:**
+  - h2 delay는 코드에 구조적 의존성 없음 (anim()은 단순 문자열 조합)
+  - 원인: 편집 패턴 — h1 duration 변경 시마다 "h1_end + buffer"로 h2 delay 수동 재계산
+    · PHASE 3-AP: h1=1.0s, h2=1200ms / PHASE 3-AS: h1=1.5s, h2=1600ms (+400ms 누적)
+  - splashDone 이중 지연 없음. setTimeout/상태 체인 없음.
+
+  **수정 (client/src/components/about/AboutHero.jsx):**
+  - h2 delay: 1600ms → **1500ms** (h1 종료 시점, h1 duration과 무관한 고정값)
+  - p delay: 1800ms → **1700ms**
+  - button delay: 2000ms → **1900ms**
+  - h1 duration(1.5s) 변경 시 이 값들은 따라 바뀌지 않음 (절대 고정값)
+
+  **최종 빌드:** npm run build 에러 0, 3.45s
+
+## [PHASE 3-AU — Design System 페이지 인터랙션 추가] 완료 (2026-05-30)
+
+  **수정 파일: client/src/pages/DesignSystemPage.jsx**
+
+  **[1] 헤더 마운트 진입 애니메이션**
+  - BackLink + PageHeader 래퍼: opacity 0→1 + translateY 16px→0
+  - duration 0.7s, cubic-bezier(0.22,1,0.36,1)
+  - useEffect → setMounted(true) 패턴 (reducedMotion 즉시 표시)
+
+  **[2] 섹션 스크롤 진입 + 아이템 stagger**
+  - `useSectionReveal()` 커스텀 훅: IO(threshold 0.05) + 초기 viewport 체크
+  - 4개 섹션 각각 ref 연결 (colorS / typS / compS / spacingS)
+  - `stagger(visible, i)`: translateY 20px→0, opacity 0→1, 0.6s, delay i*50ms
+  - COLOR TOKENS 칩 10개 / TYPE SCALE 행 8개 / Components 3개 / Spacing 바 9개 순차 진입
+
+  **[3] 컬러 칩 호버**
+  - hoveredChip state: onMouseEnter/Leave로 칩 이름 추적
+  - 스와치 div: transform scale(1→1.05), transition 0.25s ease
+  - HEX 텍스트: color #BABABA→#f0f0f0 (brightness), transition 0.25s ease
+
+  **최종 빌드:** npm run build 에러 0, 2.52s
+
+## [PHASE 3-AV — LUCID 인트로 문장 단락 분리] 완료 (2026-05-30)
+
+  **수정 파일:**
+  - lucid.js: `intro` 단일 문자열 → 3요소 배열로 교체
+    · [0] '물감은 섞일수록 어두워지지만, 빛은 섞일수록 밝고 투명해집니다.'
+    · [1] 'LUCID는 인문과 기술...'
+    · [2] '다양한 색이 모여...'
+  - LucidIntro.jsx: `<p>{intro}</p>` → `intro.map()` 3개 `<p>` 렌더
+    · 각 문장 `style={{ wordBreak: 'keep-all', marginBottom: i < intro.length-1 ? '0.9em' : 0 }}`
+    · 마지막 문장 marginBottom 0 (trailing 여백 없음)
+
+  **최종 빌드:** npm run build 에러 0, 2.68s
+
+## [PHASE 3-AW — About Hero 시퀀스 타이밍 단축] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/about/AboutHero.jsx**
+
+  | 요소 | 이전 | 이후 |
+  |---|---|---|
+  | h1 duration | 1.5s | 1.0s |
+  | h2 delay | 1500ms | 900ms (h1 끝 100ms 전 오버랩) |
+  | p delay | 1700ms | 1100ms |
+  | button delay | 1900ms | 1300ms |
+  - h1 easing 유지. h2/p/button delay 고정 절대값 (h1 duration과 연동 없음).
+
+  **최종 빌드:** npm run build 에러 0, 2.46s
+
+## [PHASE 3-AX — About Hero h2/p/button delay 800ms 단축] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/about/AboutHero.jsx**
+
+  | 요소 | 이전 | 이후 |
+  |---|---|---|
+  | h2 delay | 900ms | 100ms |
+  | p delay | 1100ms | 300ms |
+  | button delay | 1300ms | 500ms |
+  - h1 duration/easing 변경 없음 (1.0s, cubic-bezier(0.22,1,0.36,1) 유지).
+
+  **최종 빌드:** npm run build 에러 0, 3.23s
+
+## [PHASE 3-AY — magazine 캐러셀 적용 확대 (015/022)] 완료 (2026-05-30)
+
+  **진단:**
+  - works.js에 `layout` 필드 자체가 없음 확인 (PROGRESS.md PHASE 3-O/3-T 기록과 불일치)
+  - id='015' (소담/담소): pages 34장, layout 미적용 상태
+  - id='022' (Dumb Ways to Die: K-manner / Yeah~ee): pages 6장, layout 미적용 상태
+  - ※ 사용자 명단의 4개 항목은 사실상 2개 작품의 title+author 쌍
+
+  **수정 파일:**
+  - works.js id='015': `layout: 'magazine'` 추가 (links 앞)
+  - works.js id='022': `layout: 'magazine'` 추가 (links 앞)
+  - ProjectDetail.jsx: 매거진 캐러셀 `maxWidth: '320px'` → `'220px'` (명세 200~240px)
+
+  **렌더 로직 확인 (변경 없음):**
+  - `isMagazine`: pages[0] 메인 포스터 단독 (< > 버튼 없음 — `!isMagazine` 조건으로 이미 처리)
+  - `magPages`: pages[1...] 하단 캐러셀 (auto 3.5s, < >, dot 인디케이터)
+  - 비율 1:1.414 유지
+
+  **최종 빌드:** npm run build 에러 0, 3.24s
+
+## [PHASE 3-AZ — ProjectDetail 작가 표시 구조 수정] 완료 (2026-05-30)
+
+  **수정 파일: client/src/components/project/ProjectDetail.jsx**
+
+  **변경 내용:**
+  - `renderMembers()`: `membersLen === 0/1` 두 분기 → `membersLen <= 1` 단일 null 반환으로 통합
+    · membersLen >= 2만 팀원 목록 렌더 (기존 두 줄 형식 유지)
+  - 제목 아래 author 줄: 단순 `{work.author}` → membersLen 분기
+    · membersLen === 1: `{members[0].name} / {studentId}, {major}` (이름 font-semibold, 나머지 text-muted)
+    · membersLen !== 1 (0 또는 2+): `{work.author}` text-muted 기존 유지
+
+  **케이스별 결과:**
+  - 개인작(1명): 제목 → "이름 / 학번, 전공" 한 줄, 하단 members 없음
+  - 팀작(2명+): 제목 → 팀명(author), 하단 팀원 목록
+  - 정보 없음(0명): 제목 → author, 하단 없음
+
+  **최종 빌드:** npm run build 에러 0, 3.78s
+
 ## 진행중
 - (없음)
 
