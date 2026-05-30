@@ -937,6 +937,13 @@
 
   **최종 빌드:** npm run build 에러 0, 3.78s
 
+## [PHASE 3-BA — vercel.json SPA fallback 수정] 완료 (2026-05-31)
+
+  **수정 파일: client/vercel.json**
+  - 기존: `{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }`
+  - 변경: `destination: "/index.html"` (명시적 index.html 지정)
+  - Vercel rootDirectory=client 설정 시 모든 경로를 index.html로 fallback → React Router 처리
+
 ## 진행중
 - (없음)
 
