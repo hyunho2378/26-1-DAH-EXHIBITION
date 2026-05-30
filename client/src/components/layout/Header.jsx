@@ -33,7 +33,8 @@ export default function Header() {
         borderBottom: '1px solid #F5C518',
       }}
     >
-      <div className="flex items-center justify-between h-full page-px max-w-[1440px] mx-auto">
+      <div className="h-full page-px">
+        <div className="flex items-center justify-between h-full max-w-[1280px] mx-auto w-full">
         {/* 로고 */}
         <NavLink
           to="/"
@@ -70,6 +71,7 @@ export default function Header() {
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
+        </div>
       </div>
 
       <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />

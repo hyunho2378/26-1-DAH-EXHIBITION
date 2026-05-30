@@ -246,7 +246,7 @@ export const works = [
             {
                 name: '천다현',
                 studentId: '20251538',
-                major: '글로벌학부'
+                major: '글로벌비즈니스전공'
             },
             {
                 name: '김은빈',

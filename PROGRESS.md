@@ -636,6 +636,60 @@
 
   **최종 빌드:** npm run build 에러 0, 2.74s
 
+## [PHASE 3-AM — Header 좌우 여백 정렬 수정] 완료 (2026-05-30)
+
+  **진단:**
+  - 원인: 헤더 inner div에서 `page-px`(패딩)가 `max-w-[1440px]` 안에 적용, 본문은 `page-px`가 max-w 바깥(main)에 적용 — 구조 불일치
+  - 헤더: `div.page-px.max-w-[1440px].mx-auto` (패딩이 max-w 컨테이너 내부)
+  - 본문: `main.page-px > div.max-w-[1280px].mx-auto` (패딩이 max-w 외부)
+  - 결과: 1280px+ 화면에서 헤더 로고가 본문 콘텐츠보다 최대 16px 왼쪽으로 돌출
+  - max-w 값도 헤더 1440px vs 본문 1280px로 불일치
+
+  **수정 (Header.jsx):**
+  - 기존: `<div class="flex ... page-px max-w-[1440px] mx-auto">`
+  - 변경: 두 단계 래핑으로 본문과 동일한 구조 적용
+    · 외부: `<div class="h-full page-px">` (패딩 외부 컨테이너)
+    · 내부: `<div class="flex items-center justify-between h-full max-w-[1280px] mx-auto w-full">`
+  - MobileMenu는 바깥 래퍼의 형제로 유지 (영향 없음)
+
+  **정렬 확인:**
+  - 모바일: 로고·Gallery 모두 `page-px-mobile`(1.5rem) 정렬 일치 ✓
+  - 태블릿: `page-px-tablet`(2.5rem) 정렬 일치 ✓
+  - 데스크탑: `page-px-desktop`(4rem) + `max-w-[1280px].mx-auto` 정렬 일치 ✓
+
+  **최종 빌드:** npm run build 에러 0, 2.23s
+
+## [PHASE 3-AL — About 텍스트/Hero 버튼·디센더·오버레이 수정] 완료 (2026-05-30)
+
+  **수정 파일:**
+  - about.js:
+    · heroDesc: "디지털 기술과 인문학적 상상력..." → "AI를 동료 삼아, 사람의 감각으로 만든 81개의 결과물."
+    · introBody: 전면 교체 (AX 첫 학기 기록, 81개 결과물, 온·오프라인 6/2-4, 시상식 6/4 C.Square Blue)
+  - AboutHero.jsx:
+    · [descender 수정] h1: `leading-none` 제거, `lineHeight: '1.15'`, `paddingBottom: '0.1em'` 추가
+      → clip-path inset 박스가 descender 포함 영역으로 확장 (g 잘림 해소)
+    · [오버레이] gradient 상단 0.3→0.45, 60% 지점 0.6→0.7으로 어둡게
+    · [버튼] "전시회 소개" Button 제거, scrollDown 함수 제거
+    · [버튼] "전시 작품 보기": Button(primary) → Link(border-accent text-accent bg-bg-primary hover:bg-bg-elevated)
+    · Button import 제거 (my 변경으로 미사용)
+
+  **최종 빌드:** npm run build 에러 0, 2.60s
+
+## [PHASE 3-AK — About Hero 배경 이미지 추가] 완료 (2026-05-30)
+
+  **수정 파일:**
+  - index.css: `@keyframes hero-bg-reveal` 추가 (opacity 0→1, ease-out, 1.2s)
+  - AboutHero.jsx: section → relative 컨테이너(min-height 100vh)로 변경
+    · `<img src="/against/hero.webp">` absolute inset-0, object-fit cover, loading eager, decoding async
+    · 진입 애니메이션: hero-bg-reveal 1.2s ease-out (reducedMotion 분기)
+    · onError: display none (폴백 #0a0a0a, 오류 메시지 없음)
+    · 그라디언트 오버레이: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,1) 100%)
+    · 기존 텍스트/버튼: `<div style={{ position: 'relative', zIndex: 1 }}>` 래핑, 기존 애니메이션 유지
+    · section min-h-[80vh] → min-height: 100vh
+  - 운영자 업로드 필요: public/against/hero.webp (이미 배치됨 확인)
+
+  **최종 빌드:** npm run build 에러 0, 3.01s
+
 ## [PHASE 3-AJ — Against 아코디언 인터랙션 + 여백 수정] 완료 (2026-05-29)
 
   **수정 파일: client/src/components/against/AwardHero.jsx**

@@ -85,6 +85,12 @@ p, dd, span, h1, h2, h3 { word-break: keep-all; }
   100% { opacity: 1; }
 }
 
+/* ── Hero 배경 이미지 페이드인 ──────────────────────────────── */
+@keyframes hero-bg-reveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ── Hero/포스터 진입 애니메이션 ────────────────────────────── */
 /* h1 전체: 좌→우 clip-path reveal */
 @keyframes title-clip-reveal {

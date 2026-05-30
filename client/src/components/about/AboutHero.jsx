@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom'
-import Button from '../ui/Button'
+import { useNavigate, Link } from 'react-router-dom'
 import { heroTitle, heroSubtitleKo, heroDesc } from '../../data/about'
 
 const reducedMotion = typeof window !== 'undefined'
@@ -11,17 +10,49 @@ const anim = (name, dur, delay) =>
 export default function AboutHero() {
   const navigate = useNavigate()
 
-  const scrollDown = () => {
-    document.getElementById('about-intro')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const bgAnim = reducedMotion ? {} : { animation: 'hero-bg-reveal 1.2s ease-out both' }
 
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center pt-20 pb-16">
+    <section
+      style={{ position: 'relative', width: '100%', minHeight: '100vh' }}
+      className="flex flex-col justify-center pt-20 pb-16"
+    >
+      {/* 배경 이미지 */}
+      <img
+        src="/against/hero.webp"
+        alt=""
+        loading="eager"
+        decoding="async"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          ...bgAnim,
+        }}
+        onError={e => { e.currentTarget.style.display = 'none' }}
+      />
+
+      {/* 그라디언트 오버레이 */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.7) 60%, rgba(10,10,10,1) 100%)',
+        }}
+      />
+
+      {/* 기존 텍스트 콘텐츠 */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
       <h1
-        className="font-body font-black leading-none text-text-primary mb-3"
+        className="font-body font-black text-text-primary mb-3"
         style={{
           fontSize: 'clamp(56px, 11vw, 140px)',
+          lineHeight: '1.15',
           letterSpacing: '-0.02em',
+          paddingBottom: '0.1em',
           ...anim('title-clip-reveal', '1.0s', 0),
         }}
       >
@@ -47,9 +78,14 @@ export default function AboutHero() {
         {heroDesc}
       </p>
 
-      <div className="flex flex-wrap gap-4" style={anim('hero-fade-up', '0.7s', 2000)}>
-        <Button variant="primary" to="/projects">전시 작품 보기</Button>
-        <Button variant="ghost" onClick={scrollDown}>전시회 소개</Button>
+      <div style={anim('hero-fade-up', '0.7s', 2000)}>
+        <Link
+          to="/projects"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold font-ui rounded-lg border border-accent text-accent bg-bg-primary hover:bg-bg-elevated transition-colors duration-200"
+        >
+          전시 작품 보기
+        </Link>
+      </div>
       </div>
     </section>
   )
