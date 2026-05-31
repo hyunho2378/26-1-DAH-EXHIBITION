@@ -2622,8 +2622,8 @@ export const works = [
         description: '기존 \'춘천버스Go\' 앱을 교육 중심 도시 춘천의 대학생과 시민의 이동 시간을 가치 있게 바꾸는 춘천 버스 통합 플랫폼으로 전환하는 프로젝트',
         award: null,
         links: [
-            { label: 'Prototype', url: 'https://m.site.naver.com/28PSZ' },
-            { label: 'Project site', url: 'https://m.site.naver.com/28Qbo' }
+            { label: '프로젝트 웹사이트', url: 'https://m.site.naver.com/28PSZ' },
+            { label: 'Figma Prototype', url: 'https://m.site.naver.com/28Qbo' }
         ],
         pages: [
             '/works/082_ux.webp'
