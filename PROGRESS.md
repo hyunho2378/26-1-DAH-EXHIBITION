@@ -944,6 +944,69 @@
   - 변경: `destination: "/index.html"` (명시적 index.html 지정)
   - Vercel rootDirectory=client 설정 시 모든 경로를 index.html로 fallback → React Router 처리
 
+## [PHASE 3-BB — ProjectDetail 풀스크린 라이트박스 추가] 완료 (2026-05-31)
+
+  **수정 파일:**
+  - index.css: `@keyframes lightbox-in` 추가 (opacity 0→1 + scale 0.96→1, ease-out)
+  - ProjectDetail.jsx: 라이트박스 구현
+
+  **[1] "hover to zoom" → 버튼 교체**
+  - `<p>hover to zoom</p>` 제거
+  - Ghost 버튼: border #2a2a2a, text #BABABA, hover border/text #F5C518
+  - Maximize 아이콘(11px) + "크게 보기" 텍스트
+  - 포스터 hover 시 opacity 0 (기존 동작 유지)
+
+  **[2] 라이트박스**
+  - `lightboxOpen` state 추가
+  - 포스터 div `onClick` + 버튼 `onClick` 둘 다 라이트박스 열기
+  - ESC 키 + 배경 클릭 닫기 (useEffect keydown 리스너)
+  - 스크롤 잠금: `document.body.style.overflow = 'hidden'`, 닫으면 복원
+  - 오버레이: `position fixed, inset 0, z-index 9999, rgba(10,10,10,0.95)`
+  - 이미지: `max-width 95vw, max-height 95vh, object-fit contain`
+  - 이미지 src: `detailOf(mainSrc)` 우선, `mainDetailFailed` 폴백 (포스터와 동일)
+  - X 버튼: 우상단, border #2A2A2A → #F5C518 hover
+  - 진입 애니메이션: `lightbox-in 0.3s ease-out` (reducedMotion 분기)
+  - `reducedMotion` 모듈 레벨 상수 추가
+
+  **[3] magazine 작품**
+  - 메인 포스터(pages[0] = mainSrc)에만 라이트박스 적용 — 변경 없음
+
+  **최종 빌드:** npm run build 에러 0, 1.92s
+
+## [PHASE 3-BC — ProjectDetail 호버 민감도 + 버튼 개선] 완료 (2026-05-31)
+
+  **수정 파일: client/src/components/project/ProjectDetail.jsx**
+
+  **[1] 진입 직후 호버 강제 발동 방지**
+  - `hasLeftOnce` state 추가 (초기값 false)
+  - `onMouseEnter`: `hasLeftOnce`가 true일 때만 `setPosterHovered(true)` 실행
+  - `onMouseLeave`: `setHasLeftOnce(true)` + `setPosterHovered(false)`
+  - 결과: 포스터 밖으로 마우스가 한 번 나간 뒤부터만 호버 확대 허용
+
+  **[2] "크게 보기" 버튼 개선**
+  - marginTop: 10px → 20px (포스터에서 더 이격)
+  - padding: 5px 12px → 8px 18px
+  - fontSize: 11px → 13px (body-sm)
+  - fontFamily: SUIT → Pretendard (한글 본문 폰트)
+  - Maximize 아이콘: size 11 → 14
+  - opacity 조건 제거 — 항상 보임 (호버 여부 무관)
+  - transition: opacity 항목 제거 (border/color만 유지)
+
+  **최종 빌드:** npm run build 에러 0, 2.56s
+
+## [PHASE 3-BD — ProjectDetail 버튼 2개 분리] 완료 (2026-05-31)
+
+  **수정 파일: client/src/components/project/ProjectDetail.jsx**
+
+  - 기존 단일 "크게 보기" 버튼 → 2개 버튼 가로 배치 (gap 12px)
+  - [버튼 1] "크게 보기" (Maximize) — 라이트박스 오버레이 (기존 동작 유지)
+  - [버튼 2] "전체 화면 보기" (ExternalLink) — `window.open(detailOf(mainSrc), '_blank', 'noopener,noreferrer')`
+    · detail 버전(/works/detail/) 우선 열기, mainSrc null 가드 포함
+  - 두 버튼 동일 Ghost 스타일 (border #2a2a2a, text #BABABA, hover #F5C518, 8×18px pad, 13px)
+  - hasLeftOnce / 라이트박스 / 매거진 동작 변경 없음
+
+  **최종 빌드:** npm run build 에러 0, 2.82s
+
 ## 진행중
 - (없음)
 

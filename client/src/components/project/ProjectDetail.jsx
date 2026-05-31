@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Maximize, X } from 'lucide-react'
 import AwardBadge from '../ui/AwardBadge'
 import BackLink from '../ui/BackLink'
+
+const reducedMotion = typeof window !== 'undefined'
+  && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 function detailOf(src) {
   if (!src || !src.startsWith('/works/')) return src
@@ -14,6 +17,8 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
   const [magIdx, setMagIdx] = useState(0)
   const [mainDetailFailed, setMainDetailFailed] = useState(() => new Set())
   const [magThumbFailed, setMagThumbFailed] = useState(() => new Set())
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [hasLeftOnce, setHasLeftOnce] = useState(false)
   const hasLinks = work.links && work.links.length > 0
   const isMagazine = work.layout === 'magazine'
   const pages = work.pages ?? []
@@ -29,6 +34,17 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
     const t = setInterval(() => setMagIdx(i => (i + 1) % magPages.length), 3500)
     return () => clearInterval(t)
   }, [magPages.length])
+
+  useEffect(() => {
+    if (!lightboxOpen) return
+    const onKey = e => { if (e.key === 'Escape') setLightboxOpen(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [lightboxOpen])
 
   const navBtnStyle = {
     position: 'absolute', top: '50%', transform: 'translateY(-50%)',
@@ -62,8 +78,9 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
         {/* 이미지 */}
         <div className="lg:w-[60%]">
           <div
-            onMouseEnter={() => setPosterHovered(true)}
-            onMouseLeave={() => setPosterHovered(false)}
+            onMouseEnter={() => { if (hasLeftOnce) setPosterHovered(true) }}
+            onMouseLeave={() => { setHasLeftOnce(true); setPosterHovered(false) }}
+            onClick={() => setLightboxOpen(true)}
             style={{
               position: 'relative',
               height: 'clamp(300px, calc(100vh - 220px), 700px)',
@@ -139,19 +156,44 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
             </div>
           )}
 
-          <p style={{
-            fontSize: '10px',
-            color: '#BABABA',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            marginTop: '10px',
-            textAlign: 'center',
-            userSelect: 'none',
-            opacity: posterHovered ? 0 : 0.7,
-            transition: 'opacity 200ms ease',
-          }}>
-            hover to zoom
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '20px' }}>
+            <button
+              onClick={() => setLightboxOpen(true)}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '7px',
+                padding: '8px 18px',
+                border: '1px solid #2a2a2a', borderRadius: '8px',
+                background: 'transparent', cursor: 'pointer',
+                color: '#BABABA', fontSize: '13px',
+                letterSpacing: '0.04em', fontFamily: 'Pretendard Variable, sans-serif',
+                transition: 'border-color 200ms ease, color 200ms ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.color = '#BABABA' }}
+              aria-label="크게 보기"
+            >
+              <Maximize size={14} />
+              크게 보기
+            </button>
+            <button
+              onClick={() => { if (mainSrc) window.open(detailOf(mainSrc), '_blank', 'noopener,noreferrer') }}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '7px',
+                padding: '8px 18px',
+                border: '1px solid #2a2a2a', borderRadius: '8px',
+                background: 'transparent', cursor: 'pointer',
+                color: '#BABABA', fontSize: '13px',
+                letterSpacing: '0.04em', fontFamily: 'Pretendard Variable, sans-serif',
+                transition: 'border-color 200ms ease, color 200ms ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.color = '#BABABA' }}
+              aria-label="전체 화면 보기"
+            >
+              <ExternalLink size={14} />
+              전체 화면 보기
+            </button>
+          </div>
         </div>
 
         {/* 정보 */}
@@ -300,6 +342,44 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* 라이트박스 */}
+      {lightboxOpen && mainSrc && (
+        <div
+          onClick={() => setLightboxOpen(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 9999,
+            background: 'rgba(10,10,10,0.95)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            animation: reducedMotion ? 'none' : 'lightbox-in 0.3s ease-out',
+          }}
+        >
+          <button
+            onClick={e => { e.stopPropagation(); setLightboxOpen(false) }}
+            style={{
+              position: 'absolute', top: '20px', right: '20px',
+              background: 'transparent', border: '1px solid #2A2A2A',
+              color: '#f0f0f0', borderRadius: '4px', padding: '8px',
+              cursor: 'pointer', display: 'flex', alignItems: 'center',
+              transition: 'border-color 150ms ease, color 150ms ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#F5C518'; e.currentTarget.style.color = '#F5C518' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = '#2A2A2A'; e.currentTarget.style.color = '#f0f0f0' }}
+            aria-label="닫기"
+          >
+            <X size={18} />
+          </button>
+          <img
+            src={mainDetailFailed.has(mainSrc) ? mainSrc : detailOf(mainSrc)}
+            alt={`${work.author} - ${work.title}`}
+            onClick={e => e.stopPropagation()}
+            style={{
+              maxWidth: '95vw', maxHeight: '95vh',
+              objectFit: 'contain', display: 'block',
+            }}
+          />
         </div>
       )}
     </div>
