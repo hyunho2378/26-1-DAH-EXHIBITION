@@ -1901,7 +1901,7 @@ export const works = [
         description: '쿠팡·스마트스토어 판매자의 정산 누락과 부당환불을 AI가 자동 탐지하고 클레임을 대신 제출해 못 받은 돈을 회수해 주는 서비스 디자인',
         award: null,
         links: [
-            { label: '앱', url: 'https://seller-guard.vercel.app/dashboard' },
+            { label: '웹앱', url: 'https://seller-guard.vercel.app/dashboard' },
             { label: '프로젝트 웹사이트', url: 'https://return-hound-project-web.vercel.app/' }
         ],
         pages: [
