@@ -1007,6 +1007,20 @@
 
   **최종 빌드:** npm run build 에러 0, 2.82s
 
+## [PHASE 3-BE — ProjectDetail 팝업 차단 안내] 완료 (2026-05-31)
+
+  **수정 파일: client/src/components/project/ProjectDetail.jsx**
+
+  - `popupBlocked` state 추가
+  - "전체 화면 보기" onClick: `window.open()` 반환값으로 차단 여부 감지
+    · `!newTab || newTab.closed || typeof newTab.closed === 'undefined'` 조건
+    · 차단 시: `setPopupBlocked(true)`, 5초 후 `setTimeout(() => setPopupBlocked(false), 5000)` 자동 해제
+  - 버튼 div 아래 인라인 안내 텍스트 (`popupBlocked` 시 렌더):
+    · "팝업이 차단됐습니다. 주소창 우측의 팝업 허용 아이콘을 클릭해주세요."
+    · color: #BABABA, fontSize: 13px (body-sm), Pretendard Variable, textAlign center
+
+  **최종 빌드:** npm run build 에러 0, 2.41s
+
 ## 진행중
 - (없음)
 

@@ -19,6 +19,7 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
   const [magThumbFailed, setMagThumbFailed] = useState(() => new Set())
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [hasLeftOnce, setHasLeftOnce] = useState(false)
+  const [popupBlocked, setPopupBlocked] = useState(false)
   const hasLinks = work.links && work.links.length > 0
   const isMagazine = work.layout === 'magazine'
   const pages = work.pages ?? []
@@ -176,7 +177,14 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
               크게 보기
             </button>
             <button
-              onClick={() => { if (mainSrc) window.open(detailOf(mainSrc), '_blank', 'noopener,noreferrer') }}
+              onClick={() => {
+                if (!mainSrc) return
+                const newTab = window.open(detailOf(mainSrc), '_blank', 'noopener,noreferrer')
+                if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+                  setPopupBlocked(true)
+                  setTimeout(() => setPopupBlocked(false), 5000)
+                }
+              }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '7px',
                 padding: '8px 18px',
@@ -194,6 +202,11 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
               전체 화면 보기
             </button>
           </div>
+          {popupBlocked && (
+            <p style={{ textAlign: 'center', marginTop: '8px', fontSize: '13px', color: '#BABABA', fontFamily: 'Pretendard Variable, sans-serif' }}>
+              팝업이 차단됐습니다. 주소창 우측의 팝업 허용 아이콘을 클릭해주세요.
+            </p>
+          )}
         </div>
 
         {/* 정보 */}
