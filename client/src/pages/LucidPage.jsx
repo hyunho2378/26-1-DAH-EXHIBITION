@@ -8,7 +8,7 @@ import PageTransition from '../components/ui/PageTransition'
 
 export default function LucidPage() {
   useEffect(() => {
-    document.title = 'LUCID — 26-1 DAH EXHIBITION'
+    document.title = 'LUCID — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   return (

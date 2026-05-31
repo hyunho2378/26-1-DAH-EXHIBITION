@@ -1021,6 +1021,26 @@
 
   **최종 빌드:** npm run build 에러 0, 2.41s
 
+## [PHASE 3-BF — 사이트 타이틀 + OG 메타태그] 완료 (2026-05-31)
+
+  **[1] index.html `<title>` 변경**
+  - `26-1 DAH EXHIBITION` → `26-1 DAH EXHIBITION: Against the Flow`
+
+  **[2] index.html OG / Twitter 메타태그 추가 (`<title>` 바로 아래)**
+  - `og:title`, `og:description`, `og:type`, `og:url`, `og:image`
+  - `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`
+  - og:url / og:image 도메인: `https://26-1-dah-exhibition.vercel.app/`
+  - og:image: `/against/hero.webp`
+
+  **[3] 각 페이지 `document.title` 업데이트**
+  - 공통 suffix `26-1 DAH EXHIBITION` → `26-1 DAH EXHIBITION: Against the Flow` (10개 파일)
+  - AboutPage: `'26-1 DAH EXHIBITION — 디지털인문예술전공 프로젝트 전시회'` → `'26-1 DAH EXHIBITION: Against the Flow'`
+  - ProjectDetailPage: `` `${work.title} — 26-1 DAH EXHIBITION: Against the Flow` `` (작품명 prefix 유지)
+
+  **수정 파일:** index.html, AboutPage / AgainstPage / AwardPage / ContestPage / DesignSystemPage / GalleryPage / LucidPage / NotFoundPage / ProjectDetailPage / ProjectsPage.jsx (10개)
+
+  **최종 빌드:** npm run build 에러 0, 3.34s
+
 ## 진행중
 - (없음)
 

@@ -6,7 +6,7 @@ import PageTransition from '../components/ui/PageTransition'
 
 export default function GalleryPage() {
   useEffect(() => {
-    document.title = 'Gallery — 26-1 DAH EXHIBITION'
+    document.title = 'Gallery — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   return (

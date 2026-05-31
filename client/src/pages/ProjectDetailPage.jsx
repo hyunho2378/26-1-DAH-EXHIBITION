@@ -10,7 +10,7 @@ export default function ProjectDetailPage() {
   const work = getWorkById(works, id)
 
   useEffect(() => {
-    if (work) document.title = `${work.title} — 26-1 DAH EXHIBITION`
+    if (work) document.title = `${work.title} — 26-1 DAH EXHIBITION: Against the Flow`
   }, [work])
 
   if (!work) return <Navigate to="/404" replace />

@@ -8,7 +8,7 @@ import PageTransition from '../components/ui/PageTransition'
 
 export default function AboutPage({ splashDone = true }) {
   useEffect(() => {
-    document.title = '26-1 DAH EXHIBITION — 디지털인문예술전공 프로젝트 전시회'
+    document.title = '26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   return (

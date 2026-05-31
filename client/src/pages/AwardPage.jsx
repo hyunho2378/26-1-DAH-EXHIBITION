@@ -11,7 +11,7 @@ import { getAwardWorks } from '../utils/workUtils'
 
 export default function AwardPage() {
   useEffect(() => {
-    document.title = 'Award — 26-1 DAH EXHIBITION'
+    document.title = 'Award — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   const { grand, rest } = getAwardWorks(works)

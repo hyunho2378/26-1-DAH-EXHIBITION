@@ -6,7 +6,7 @@ import PageTransition from '../components/ui/PageTransition'
 
 export default function AgainstPage() {
   useEffect(() => {
-    document.title = 'Against the Flow — 26-1 DAH EXHIBITION'
+    document.title = 'Against the Flow — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   return (

@@ -6,7 +6,7 @@ import { contests } from '../data/contests'
 
 export default function ContestPage() {
   useEffect(() => {
-    document.title = 'Contest — 26-1 DAH EXHIBITION'
+    document.title = 'Contest — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   return (

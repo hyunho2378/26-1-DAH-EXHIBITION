@@ -71,7 +71,7 @@ export default function DesignSystemPage() {
   const [hoveredChip, setHoveredChip] = useState(null)
 
   useEffect(() => {
-    document.title = 'Design System — 26-1 DAH EXHIBITION'
+    document.title = 'Design System — 26-1 DAH EXHIBITION: Against the Flow'
     if (!reducedMotion) setMounted(true)
   }, [])
 

@@ -26,7 +26,7 @@ export default function ProjectsPage() {
   const [shuffledAll] = useState(() => shuffle(works))
 
   useEffect(() => {
-    document.title = 'Projects — 26-1 DAH EXHIBITION'
+    document.title = 'Projects — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   function handleChange(id) {

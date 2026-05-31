@@ -6,7 +6,7 @@ export default function NotFoundPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    document.title = '404 — 26-1 DAH EXHIBITION'
+    document.title = '404 — 26-1 DAH EXHIBITION: Against the Flow'
   }, [])
 
   return (
