@@ -524,11 +524,6 @@ export const works = [
         author: 'STUDYO(스터디오)',
         members: [
             {
-                name: '손한빈',
-                studentId: '20236621',
-                major: '디지털인문예술전공'
-            },
-            {
                 name: '이현창',
                 studentId: '20232567',
                 major: '디지털미디어콘텐츠'
@@ -547,11 +542,6 @@ export const works = [
                 name: '최윤하',
                 studentId: '20251235',
                 major: '영어영문학과'
-            },
-            {
-                name: '양다연',
-                studentId: '20251052',
-                major: '국어국문학전공'
             },
             {
                 name: '김태희',
@@ -1803,7 +1793,7 @@ export const works = [
                 major: '디지털인문예술전공'
             }
         ],
-        description: '영화 <메멘토>를 모티브로 관점에 따른 타이포의 혼란과 안정을 표현함',
+        description: '디지털디자인1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 \'율동과 정지\'를 표현하기 위해 \'영화의 몰입과 관점\'이라는 주제로 눈의 소실점을 이용하여 표현하였다.',
         award: null,
         links: [],
         pages: [
