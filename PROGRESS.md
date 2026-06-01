@@ -1055,6 +1055,13 @@
   **수정 파일: client/src/data/works.js id='050' (standpoint, 지현서)**
   - description 교체: 기존 → "디지털디자인1 수업에서 타이포를 이용하여 실습을 진행했고, 실습 주제 중 '율동과 정지'를 표현하기 위해 '영화의 몰입과 관점'이라는 주제로 눈의 소실점을 이용하여 표현하였다."
 
+## [PHASE 3-BI — 074 썸네일/detail 재생성] 완료 (2026-06-01)
+
+  - 소스: public/works/074_intro.webp (446K, Jun 1 14:25 교체본)
+  - 구버전 삭제: thumbs/074_intro.webp (May 28), detail/074_intro.webp (May 30)
+  - thumb 재생성: 424×600, 24.3KB (긴 변 600px, quality 78)
+  - detail 재생성: 1414×2000, 144KB (긴 변 2000px, quality 87)
+
 ## 진행중
 - (없음)
 
