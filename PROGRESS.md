@@ -1041,6 +1041,15 @@
 
   **최종 빌드:** npm run build 에러 0, 3.34s
 
+## [PHASE 3-BG — works.js 014 members 수정] 완료 (2026-06-01)
+
+  **수정 파일: client/src/data/works.js id='014' (STUDYO)**
+
+  - index 0에 팀장 추가: `{ name: '손한빈', studentId: '20236621', major: '디지털인문예술전공' }`
+  - 마지막에 팀원 추가: `{ name: '양다연', studentId: '20251052', major: '국어국문학전공' }`
+  - 기존 6명(이현창/이서준/김가현/최윤하/김태희/유지민) 순서/내용 변경 없음
+  - 최종 members: 8명
+
 ## 진행중
 - (없음)
 

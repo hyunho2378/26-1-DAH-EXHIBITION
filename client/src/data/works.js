@@ -524,6 +524,11 @@ export const works = [
         author: 'STUDYO(스터디오)',
         members: [
             {
+                name: '손한빈',
+                studentId: '20236621',
+                major: '디지털인문예술전공'
+            },
+            {
                 name: '이현창',
                 studentId: '20232567',
                 major: '디지털미디어콘텐츠'
@@ -542,6 +547,11 @@ export const works = [
                 name: '최윤하',
                 studentId: '20251235',
                 major: '영어영문학과'
+            },
+            {
+                name: '양다연',
+                studentId: '20251052',
+                major: '국어국문학전공'
             },
             {
                 name: '김태희',
