@@ -2448,7 +2448,7 @@ export const works = [
         description: '시절인연(時節因緣)은 불교에서 ‘모든 일과 관계는 적절한 때가 되어야 자연스럽게 이루어진다’는 뜻으로, 현대에는 ‘인연에는 때가 있다’는 의미로 널리 쓰입니다.',
         award: null,
         links: [
-            { label: '노션', url: 'https://m.site.naver.com/28QuC' }
+            { label: '노션 사이트', url: 'https://m.site.naver.com/28QuC' }
         ],
         pages: [
             '/works/076_storytelling.webp'
