@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 
 function thumbOf(src) {
   if (!src || !src.startsWith('/works/')) return src
+  if (src.startsWith('/works/detail/') || src.startsWith('/works/thumbs/')) return src
   return `/works/thumbs/${src.split('/').pop()}`
 }
 
@@ -22,7 +23,10 @@ export default function ProjectImage({ src, type, alt, sizes, className = '' }) 
   }, [src])
 
   function handleError() {
-    if (imgSrc !== src) {
+    if (imgSrc.startsWith('/works/detail/')) {
+      const original = `/works/${imgSrc.split('/').pop()}`
+      setImgSrc(original)  // detail 실패 → 원본 시도
+    } else if (imgSrc !== src) {
       setImgSrc(src)       // thumb 실패 → 원본 시도
     } else {
       setFailed(true)      // 원본도 실패 → 플레이스홀더

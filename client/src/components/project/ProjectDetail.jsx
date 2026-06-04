@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, ExternalLink, Maximize, X } from 'lucide-react'
-import AwardBadge from '../ui/AwardBadge'
 import BackLink from '../ui/BackLink'
 
 const reducedMotion = typeof window !== 'undefined'
@@ -232,7 +231,27 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
           ) : (
             <p className="text-base text-text-muted font-body">{work.author}</p>
           )}
-          <p className="font-bold font-ui tracking-wider uppercase text-accent" style={{ fontSize: '21px' }}>{work.subjectName}</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <p className="font-bold font-ui tracking-wider uppercase text-accent" style={{ fontSize: '21px' }}>{work.subjectName}</p>
+            {work.award && (
+              <span style={{
+                border: '1px solid #F5C518',
+                color: '#F5C518',
+                background: 'transparent',
+                padding: '2px 8px',
+                borderRadius: '8px',
+                fontSize: '11px',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                display: 'inline-block',
+                flexShrink: 0,
+                fontFamily: "'SUIT Variable', 'SUIT', sans-serif",
+              }}>
+                {work.award === 'grand' ? '최우수상' : '우수상'}
+              </span>
+            )}
+          </div>
 
           {hasLinks && (
             <div className="flex flex-row flex-wrap gap-2">
@@ -261,8 +280,6 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
           )}
 
           {renderMembers()}
-
-          {work.award && <AwardBadge type={work.award} />}
         </div>
       </div>
 

@@ -1062,6 +1062,115 @@
   - thumb 재생성: 424×600, 24.3KB (긴 변 600px, quality 78)
   - detail 재생성: 1414×2000, 144KB (긴 변 2000px, quality 87)
 
+## [PHASE 3-BJ — 수상작 award 필드 입력 + Award 페이지 정렬] 완료 (2026-06-01)
+
+  **[1] works.js — award 필드 업데이트 (14개)**
+  - `award: 'grand'`: id='035' (403: Bypass)
+  - `award: 'excellence'` (13개): 003, 010, 015, 018, 020, 026, 036, 052, 062, 063, 073, 077, 088
+  - 나머지 전체: `award: null` 유지
+
+  **[2] workUtils.js — 우수상 표시 순서 고정**
+  - `EXCELLENCE_ORDER` 배열 추가: `['010','052','003','018','020','077','015','062','063','073','036','026','088']`
+  - `getAwardWorks()` rest 배열: filter 후 `EXCELLENCE_ORDER` 인덱스 기준 sort
+  - 순서 미포함 ID는 뒤로 밀림 (999 처리)
+
+  **[3] AwardGrandSection.jsx — fallback 안내 문구 제거**
+  - `!work` 분기: `<p>수상작은 6월 4일 시상식 발표 후 업로드됩니다.</p>` 제거
+
+  **[4] AwardRestSection.jsx — fallback 안내 문구 제거**
+  - `works.length === 0` 분기: `<p>` 안내 제거, `return null`로 단순화
+
+  **최종 빌드:** npm run build 에러 0, 4.09s
+
+## [PHASE 3-BK — Award 페이지 레이아웃 전면 정리] 완료 (2026-06-01)
+
+  **[1] ProjectCard.jsx — 카드 오버레이 AwardBadge 제거**
+  - `AwardBadge` import 제거
+  - `{work.award && <div ...><AwardBadge /></div>}` 블록 삭제
+  - ProjectDetail.jsx의 AwardBadge (정보 패널 내) 유지
+
+  **[2] AwardGrandSection.jsx — SectionLabel 내부 이동 + maxWidth 확대 + AwardBadge 제거**
+  - AwardBadge import 제거 → SectionLabel import로 교체
+  - `!work` fallback: AwardBadge → SectionLabel로 교체
+  - 카드 렌더 시: SectionLabel 라벨(중앙) 위, 카드 아래 AwardBadge 제거
+  - `max-w-sm`(384px) → `maxWidth: '500px'` (화질 보호)
+  - `flex flex-col items-center gap-6` 중앙 정렬
+
+  **[3] AwardRestSection.jsx — "우수상" 라벨 추가 + 5열 그리드**
+  - SectionLabel import 추가
+  - 그리드 위 `<div className="flex justify-center mb-8"><SectionLabel>우수상</SectionLabel></div>`
+  - 그리드: `grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5`
+
+  **[4] AwardPage.jsx — SectionLabel/Divider 제거, 구조 단순화**
+  - SectionLabel, Divider import 제거
+  - `<section className="mb-16">` + 내부 SectionLabel/Divider → `<FadeIn><AwardGrandSection /></FadeIn>`
+  - 우수상 섹션: `<div className="mt-20">` (80px 여백)
+
+  **최종 빌드:** npm run build 에러 0, 2.18s
+
+## [PHASE 3-BL — AwardGrandSection 최우수상 포스터 크기 축소] 완료 (2026-06-01)
+
+  - AwardGrandSection.jsx: `maxWidth: '500px'` → `'380px'`
+
+## [PHASE 3-BM — 최우수상 포스터 크기를 우수상 카드와 동일하게] 완료 (2026-06-01)
+
+  - AwardGrandSection.jsx: `maxWidth: '380px'` 인라인 → `w-1/2 md:w-1/3 lg:w-1/5` Tailwind 클래스
+  - 각 브레이크포인트에서 우수상 그리드 1칸과 동일 비율 (mobile 2col 1칸, tablet 3col 1칸, desktop 5col 1칸)
+  - mx-auto(items-center) 중앙 정렬 유지
+
+## [PHASE 3-BN — Award 라벨 박스 스타일] 완료 (2026-06-01)
+
+  - AwardGrandSection.jsx / AwardRestSection.jsx: SectionLabel → 인라인 `<span style={labelStyle}>`
+  - labelStyle: border 1px #F5C518, color #F5C518, background transparent, padding 8px 16px, borderRadius 8px, 12px/600/0.15em uppercase SUIT
+  - SectionLabel import 제거 (두 파일 모두 미사용)
+  - 두 라벨 동일 스타일 객체 사용
+  - 최종 빌드: npm run build 에러 0, 2.55s
+
+## [PHASE 3-BO — 최우수상 이미지 detail 버전 사용] 완료 (2026-06-05)
+
+  **ProjectImage.jsx**
+  - thumbOf: `/works/detail/` 및 `/works/thumbs/` 경로 패스스루 추가 (이미 처리된 경로는 재변환 안 함)
+  - handleError: detail 경로 실패 시 `/works/[filename]` 원본으로 폴백하는 분기 추가
+    - detail 실패 → 원본 `/works/` 시도 → 실패 시 플레이스홀더
+
+  **AwardGrandSection.jsx**
+  - `detailOf(src)` 헬퍼 추가: `/works/xxx.webp` → `/works/detail/xxx.webp`
+  - `detailWork` 객체: work.pages[0]를 detail 경로로 교체 후 ProjectCard에 전달
+  - 035_intro.webp detail 파일 존재 확인 (public/works/detail/035_intro.webp)
+  - 카드 크기/스타일/애니메이션은 우수상과 동일하게 유지
+
+  최종 빌드: npm run build 에러 0, 2.81s
+
+## [PHASE 3-BP — ProjectDetail 수상 배지 위치/스타일 변경] 완료 (2026-06-05)
+
+  **ProjectDetail.jsx**
+  - AwardBadge import 제거 (미사용)
+  - 하단 `{work.award && <AwardBadge type={work.award} />}` 삭제
+  - 과목명 `<p>` → `<div style={flex, alignItems:center, gap:8px}>` 래퍼 + 인라인 배지 추가
+    - 배지: border 1px #F5C518, color #F5C518, background transparent
+    - padding 2px 8px, borderRadius 8px, fontSize 11px, fontWeight 600, 0.1em uppercase SUIT
+    - grand → "최우수상" / excellence → "우수상" / award 없으면 배지 없음
+  - 최종 빌드: npm run build 에러 0, 2.18s
+
+## [PHASE 3-BQ — Award 페이지 카드 진입 인터랙션 (Projects와 동일)] 완료 (2026-06-05)
+
+  **AwardRestSection.jsx**
+  - useState/useEffect 추가
+  - keycolors.json fetch (ProjectGrid와 동일 패턴)
+  - keyOf() 헬퍼 추가
+  - ProjectCard에 `index={i}`, `keycolor={keycolors[keyOf(work)] ?? FALLBACK_COLOR}` 전달
+  - 결과: 13개 우수상 카드 각각 다른 방향/시간차/키컬러 와이프 애니메이션
+
+  **AwardGrandSection.jsx**
+  - useState/useEffect 추가
+  - keycolors.json fetch
+  - keyOf() 헬퍼 추가 (원본 work.pages[0] 기준, detailWork 아님)
+  - ProjectCard에 `index={0}`, `keycolor={...}` 전달
+  - 결과: 최우수상도 동일 톤 와이프 진입
+
+  핵심: ProjectCard 내부 DIRS/delay 로직 그대로 재사용. 새 로직 없음.
+  최종 빌드: npm run build 에러 0, 3.89s
+
 ## 진행중
 - (없음)
 

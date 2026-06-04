@@ -111,7 +111,7 @@ export const works = [
             }
         ],
         description: '대규모 업데이트에도 해소되지 않은 시니어의 금융 불안을 짚고, 원하는 순간 막힘없이 내 돈을 다룰 수 있는 강릉페이로 재설계한 지역화폐 UX 개선 프로젝트',
-        award: null,
+        award: 'excellence',
         links: [
             { label: 'ios 앱', url: 'https://gangneung-pay.vercel.app' },
             { label: 'Android 앱', url: 'https://gangneung-pay-android.vercel.app/' },
@@ -393,7 +393,7 @@ export const works = [
             }
         ],
         description: '한글의 구조를 통해 높게 이어진 서가와 책의 흐름을 표현하고, 책 속으로 스며드는 듯한 공간감과 책 사이를 거니는 듯한 호기심과 상상의 감각을 담아냈다.',
-        award: null,
+        award: 'excellence',
         links: [],
         pages: [
             '/works/010_dd1.webp'
@@ -602,7 +602,7 @@ export const works = [
             }
         ],
         description: '소담:전통의 현대적 진화 동의보감에서부터 이어져온 k-뷰티의 진화 과정과 전통문화와 패션의 결합사례를 소개하고, 전통문화의 가치를 우리만의 시선으로 제시한다.',
-        award: null,
+        award: 'excellence',
         layout: 'magazine',
         links: [
             { label: '웹사이트', url: 'https://linktr.ee/SODAM?utm_source=qr_code' }
@@ -772,7 +772,7 @@ export const works = [
             }
         ],
         description: '괴담이 뒤섞여 버린 거울 속 학교에 갇힌 주인공, 조상신의 힘을 통하여 괴담을 타파하고 현실로 돌아가자.',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '웹사이트', url: 'https://k-horror-project.netlify.app' }
         ],
@@ -861,7 +861,7 @@ export const works = [
             }
         ],
         description: '호랑이에게 사냥당해 그 종이 된 원혼,창귀를 소재로 다음 희생자를 찾아야만 해방되는 비극적 굴레를 통해 인간의 본능적 공포와 이기심을 나타낸 포스터입니다.',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '예고편', url: 'https://m.site.naver.com/28StI' }
         ],
@@ -1170,7 +1170,7 @@ export const works = [
             }
         ],
         description: '춘천의 여름을 상징하는 수달 가이드 ‘하동이’의 캐릭터 숍입니다. 춘천 명소를 생생한 3D 영상으로 투어하고, 하동이의 개성이 담긴 굿즈를 만나는 입체적인 디지털 경험을 제공합니다',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '웹사이트', url: 'https://chuncheon-sri.vercel.app' }
         ],
@@ -1496,7 +1496,7 @@ export const works = [
             }
         ],
         description: '약자의 공연 관람 장벽을 디지털 기술로 우회하는 무장애 문화 플랫폼입니다. 정보 격차를 해소하고 모두가 평등하게 문화를 향유하는 보편적 설계로 유니버설 디자인 가치를 실현합니다.',
-        award: null,
+        award: 'grand',
         links: [
             { label: '웹사이트', url: 'https://403-bypass.vercel.app/' }
         ],
@@ -1533,7 +1533,7 @@ export const works = [
             }
         ],
         description: '통계청의 36개월간 쇼핑 데이터를 분석하여 패션·뷰티 카테고리의 높은 모바일 의존도를 확인하고, 이를 통해 무신사와 같은 패션 플랫폼의 콘텐츠 중심 전략이 유효함을 입증하는 연구',
-        award: null,
+        award: 'excellence',
         links: [
             { label: 'RQ 진행 코랩', url: 'https://drive.google.com/drive/u/0/mobile/folders/1fYDW5ax5EYDdUgklMzRobGvyK3dDgr7U?usp=drive_link' },
             { label: '노션', url: 'https://www.notion.so/MU-ve-3449968922d1806e8938d7ea477839c8' },
@@ -1834,7 +1834,7 @@ export const works = [
             }
         ],
         description: '율동과 정지\'를 동시에 표현하는 디지털디자인1 과목의 과제로 제작된 포스터입니다. 게임이라는 주제를 선정해 테트리스를 바탕으로 정지/율동되는 블럭을 타이포그래피만으로 표현했습니다',
-        award: null,
+        award: 'excellence',
         links: [],
         pages: [
             '/works/052_dd1.webp'
@@ -2079,7 +2079,7 @@ export const works = [
             }
         ],
         description: '항공사의 로고와 브랜드 시스템 전반을 리브랜딩한 프로젝트입니다.',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '리디자인 드라이브', url: 'https://m.site.naver.com/28PEG' },
             { label: '리디자인 웹사이트', url: 'https://m.site.naver.com/28Pj7' }
@@ -2117,7 +2117,7 @@ export const works = [
             }
         ],
         description: '부모님과 남겨진 5%의 시간. 버킷리스트를 통해 찰나의 시간을 영원한 기억으로 바꾸는 가족의 기록.',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '앱', url: 'https://m.site.naver.com/28NUn' }
         ],
@@ -2334,7 +2334,7 @@ export const works = [
             }
         ],
         description: '다양한 리서치와 사용자 관찰을 통해 29CM 경험 속 숨겨진 사용 패턴과 문제 지점을 탐색한다.',
-        award: null,
+        award: 'excellence',
         links: [],
         pages: [
             '/works/073_dd3.webp'
@@ -2468,7 +2468,7 @@ export const works = [
             }
         ],
         description: '전 디렉터의 실패를 셀프 디스 밈으로 활용하여, 온라인 NCM 데이터 복원 이벤트와 오프라인 팝업을 연계해 이탈한 2030 라이더를 다시 트랙으로 부르는 기획입니다.',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '웹사이트', url: 'https://kartriderclassic.readdy.co/' }
         ],
@@ -2882,7 +2882,7 @@ export const works = [
             }
         ],
         description: '쾨니히의 동료라는 컨셉으로 그를 분석해 두 가지 서체를 제작. 제미나이로 캐릭터 분석 및 이미지를 생성. 포토샵·캘리그라퍼로 서체 구현. 윅스 웹사이트, 일러스트 포스터 제작함.',
-        award: null,
+        award: 'excellence',
         links: [
             { label: '웹사이트', url: 'https://ixoxiartison.wixsite.com/koenig-typeface-kr' },
             { label: '웹사이트(영어)', url: 'https://ixoxiartison.wixsite.com/koenig-typeface' }

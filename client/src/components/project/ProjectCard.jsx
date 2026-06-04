@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import AwardBadge from '../ui/AwardBadge'
 import ProjectImage from './ProjectImage'
 
 // 방향 순환: 8가지 조합으로 카드마다 다른 와이프 방향
@@ -62,11 +61,6 @@ export default function ProjectCard({ work, index = 0, keycolor = '#F5C518', sub
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className="transition-transform duration-[400ms] group-hover:scale-[1.02]"
           />
-          {work.award && (
-            <div className="absolute top-3 right-3 z-10">
-              <AwardBadge type={work.award} />
-            </div>
-          )}
           <div
             className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms]"
             style={{ background: 'rgba(10,10,10,0.55)' }}
