@@ -2041,6 +2041,11 @@ export const works = [
                 major: '디지털인문예술전공'
             },
             {
+                name: '최성민',
+                studentId: '20223965',
+                major: '언어병리학전공'
+            },
+            {
                 name: '유지호',
                 studentId: '20261065',
                 major: '인문학부'
@@ -2778,7 +2783,7 @@ export const works = [
             {
                 name: '박종민',
                 studentId: '20236616',
-                major: '미래융합스쿨'
+                major: '디지털인문예술전공'
             },
             {
                 name: '김예원',
