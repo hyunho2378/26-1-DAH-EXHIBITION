@@ -1025,7 +1025,7 @@ export const works = [
                 major: '경영학과'
             },
             {
-                name: '유정하',
+                name: '유정아',
                 studentId: '20241219',
                 major: '영어영문학과'
             },
