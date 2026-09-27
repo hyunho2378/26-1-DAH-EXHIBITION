@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import PageHeader from '../components/ui/PageHeader'
 import AwardGrandSection from '../components/award/AwardGrandSection'
 import AwardRestSection from '../components/award/AwardRestSection'
-import AwardFeaturePost from '../components/award/AwardFeaturePost'
 import FadeIn from '../components/ui/FadeIn'
 import PageTransition from '../components/ui/PageTransition'
 import { works } from '../data/works'
@@ -18,8 +17,6 @@ export default function AwardPage() {
   return (
     <PageTransition className="pt-10 pb-24">
       <PageHeader title="Award" />
-
-      <FadeIn><AwardFeaturePost /></FadeIn>
 
       <FadeIn><AwardGrandSection work={grand[0] ?? null} /></FadeIn>
 

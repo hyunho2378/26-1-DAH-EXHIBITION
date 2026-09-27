@@ -118,15 +118,7 @@ export const works = [
             { label: '프로젝트 웹사이트', url: 'https://gangneung-pay-ux-project.vercel.app' }
         ],
         pages: [
-            '/works/003_ux.webp',
-            '/awards/2026-gangneung-excellence-front.jpg',
-            '/awards/2026-gangneung-award-handover-1.jpg',
-            '/awards/2026-gangneung-award-handover-2.jpg',
-            '/awards/2026-gangneung-award-scene.jpg'
-        ],
-        recognitions: [
-            '2026 제18회 디지털인문예술전공 프로젝트 전시회 ‘강릉페이 UX 개선 프로젝트’ 우수상',
-            '2026-1 지역사회 문제해결 PBL 경진대회 ‘강릉 시민을 위한 로컬 결제 경험 개선 프로젝트’ 우수상(총장상)'
+            '/works/003_ux.webp'
         ]
     },
     {
@@ -2321,9 +2313,6 @@ export const works = [
         ],
         pages: [
             '/works/071_free.webp'
-        ],
-        recognitions: [
-            '2026-1 지역사회 문제해결 PBL 경진대회 ‘N9 HAIR SALON 예약 시스템’ 최우수상(총장상)'
         ]
     },
     {

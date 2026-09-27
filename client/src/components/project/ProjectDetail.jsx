@@ -279,19 +279,6 @@ export default function ProjectDetail({ work, fromSubject = 'all' }) {
             </p>
           )}
 
-          {work.recognitions?.length > 0 && (
-            <section className="flex flex-col gap-3 border-t border-border-subtle pt-4" aria-label="수상 내역">
-              <h2 className="font-ui text-xs font-semibold uppercase tracking-[0.15em] text-accent">Awards</h2>
-              <ul className="flex flex-col gap-3">
-                {work.recognitions.map(recognition => (
-                  <li key={recognition} className="font-body text-sm leading-relaxed text-text-primary" style={{ wordBreak: 'keep-all' }}>
-                    {recognition}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
           {renderMembers()}
         </div>
       </div>
